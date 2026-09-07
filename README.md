@@ -125,6 +125,16 @@ A análise foi desenvolvida utilizando:
 * DAX para criação dos indicadores;
 * filtros e rankings Top 10 para análise das principais categorias.
 
+A fonte utilizada é a publicação oficial **Dados Setoriais 2024 da Receita Federal do Brasil**, especificamente as tabelas **01b — Seção (SN e MEI)** e **05b — Subclasse (SN e MEI)**.
+
+Como essas tabelas abrangem **Simples Nacional e MEI**, a análise exclusiva dos MEIs utiliza a classificação `Forma_Tributacao = "SIMPLES - MEI"` antes da consolidação dos indicadores de quantidade e Receita Bruta.
+
+A tabela 05b é utilizada para as análises por subclasse CNAE, enquanto a tabela 01b é utilizada para as análises por seção e Unidade da Federação.
+
+A Receita Bruta é analisada em reais e as agregações respeitam a granularidade e a cobertura da respectiva tabela oficial.
+
+As tabelas da Receita Federal também aplicam regras de sigilo estatístico: determinadas quantidades podem ser suprimidas quando há menos de quatro empresas em uma combinação de classificação e localização. Por esse motivo, a soma das quantidades explicitamente divulgadas não deve ser interpretada automaticamente como uma contagem absoluta da população sem essa ressalva metodológica.
+
 Os dois relatórios foram separados para permitir diferentes perspectivas analíticas e facilitar a interpretação dos resultados.
 
 Mais detalhes estão disponíveis em:
