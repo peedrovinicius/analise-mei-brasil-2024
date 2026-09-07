@@ -252,9 +252,8 @@ Em desenvolvimento e validação final.
 
 As próximas etapas contemplam:
 
-* validação definitiva dos resultados numéricos;
-* consolidação dos insights;
-* revisão final dos dashboards;
-* documentação completa de reprodução;
-* disponibilização de uma apresentação visual do projeto no GitHub;
-* revisão final de qualidade e consistência do repositório.
+validação definitiva dos resultados numéricos;
+revisão final dos dashboards;
+documentação completa de reprodução;
+disponibilização de uma apresentação visual do projeto no GitHub;
+revisão final de qualidade e consistência do repositório.
