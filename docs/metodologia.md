@@ -2,51 +2,68 @@
 
 ## Objetivo
 
-Este projeto apresenta uma análise exploratória dos Microempreendedores Individuais (MEIs) no Brasil em 2024, utilizando dados estruturados para identificar padrões de distribuição, concentração e atividade econômica.
+Este projeto apresenta uma análise dos Microempreendedores Individuais (MEIs) no Brasil referente ao ano de 2024, com foco na quantidade de CNPJs, Receita Bruta, arrecadação, distribuição geográfica e atividades econômicas.
 
-## Abordagem
+## Abordagem analítica
 
-A análise foi desenvolvida no Power BI, utilizando recursos de:
+A análise foi desenvolvida no Power BI, utilizando Power Query para preparação dos dados e DAX para criação dos indicadores e medidas utilizados nos dashboards.
 
-- Power Query para preparação e transformação dos dados;
-- Modelagem de dados para organização das tabelas;
-- DAX para criação de medidas e indicadores;
-- Visualizações interativas para exploração dos resultados.
+Os dois arquivos Power BI foram estruturados para atender a análises complementares do mesmo tema.
 
-## Estrutura da análise
+## Preparação dos dados
 
-O projeto contempla indicadores relacionados a:
+Os dados utilizados nos relatórios foram organizados em tabelas específicas para cada perspectiva de análise.
 
-- quantidade de CNPJs;
-- distribuição dos MEIs;
-- atividades econômicas;
-- subclasses CNAE;
-- distribuição geográfica;
-- concentração das principais atividades;
-- receita bruta total.
+No arquivo MEI_Brasil_2024.pbix, a tabela Secao concentra os campos utilizados para os indicadores gerais e para a distribuição dos MEIs por Unidade da Federação.
 
-## Tratamento dos dados
-
-Os dados foram preparados e estruturados antes da construção dos dashboards, buscando manter consistência entre as dimensões e as tabelas utilizadas na análise.
-
-## Modelagem
-
-Foi utilizada uma estrutura de dados organizada para permitir o relacionamento entre informações cadastrais, atividades econômicas e demais dimensões utilizadas nos dashboards.
+No arquivo Fato_MEI_Subclasse.pbix, as tabelas Subclasse e Subclasse (2) são utilizadas separadamente para análises de Receita Bruta e quantidade de CNPJs por atividade econômica.
 
 ## Indicadores
 
-Os principais indicadores apresentados no projeto são calculados por meio de medidas DAX, permitindo que os resultados respondam dinamicamente aos filtros e segmentações aplicados no relatório.
+Os principais indicadores utilizados no projeto são:
 
-## Visualização
+- Total de MEIs;
+- Receita Bruta;
+- Receita Média por MEI;
+- Arrecadação MEI;
+- Total de CNPJ por atividade;
+- Receita Bruta por atividade.
 
-Os dashboards foram desenvolvidos com foco em:
+As medidas DAX utilizadas estão documentadas no arquivo:
 
-- clareza das informações;
-- facilidade de interpretação;
-- comparação entre categorias;
-- identificação das principais atividades econômicas;
-- apresentação profissional dos resultados.
+dax/medidas.md
 
-## Observação
+## Análise geográfica
 
-Os valores e conclusões apresentados no projeto devem ser interpretados de acordo com a base de dados utilizada e com os filtros aplicados no Power BI.
+A análise geográfica utiliza a Unidade da Federação (UF) como dimensão de comparação.
+
+O dashboard apresenta as principais UFs segundo a quantidade de CNPJs analisados.
+
+## Análise por atividade econômica
+
+A análise de atividades econômicas utiliza a descrição das subclasses CNAE.
+
+São apresentadas análises independentes considerando:
+
+- quantidade de CNPJs por atividade;
+- Receita Bruta por atividade.
+
+Os rankings de atividades utilizam filtros Top 10 nos visuais correspondentes.
+
+## Validação dos indicadores
+
+As principais medidas utilizadas nos dashboards foram conferidas diretamente nos arquivos Power BI.
+
+As fórmulas DAX documentadas em dax/medidas.md correspondem às medidas existentes nos modelos utilizados no projeto.
+
+## Organização da análise
+
+O projeto foi dividido em dois relatórios Power BI para separar as perspectivas de análise e facilitar a leitura dos indicadores.
+
+Essa separação também permite trabalhar de forma independente com os indicadores gerais, distribuição geográfica, quantidade de CNPJs por atividade e Receita Bruta por atividade.
+
+## Limitações
+
+Os resultados apresentados dependem da base de dados utilizada no projeto, das definições presentes nas tabelas e dos filtros aplicados nos dashboards.
+
+Os insights finais devem ser interpretados considerando o universo e o período representados pelos dados de 2024.
