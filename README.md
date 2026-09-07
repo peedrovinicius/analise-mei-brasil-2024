@@ -169,8 +169,9 @@ Dashboard voltado à análise das atividades econômicas, incluindo:
 
 ## 9. Estrutura do Repositório
 
+```text
 analise-mei-brasil-2024/
-
+│
 ├── dashboards/
 │   ├── Fato_MEI_Subclasse.pbix
 │   └── MEI_Brasil_2024.pbix
@@ -179,11 +180,9 @@ analise-mei-brasil-2024/
 │   └── .gitkeep
 │
 ├── dax/
-│   ├── .gitkeep
 │   └── medidas.md
 │
 ├── docs/
-│   ├── .gitkeep
 │   ├── insights.md
 │   ├── metodologia.md
 │   └── modelo-dados.md
