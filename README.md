@@ -1,43 +1,254 @@
 # Raio-X do Empreendedorismo no Brasil: Inteligência de Dados e Concentração de Mercado dos MEIs (2024)
 
 ## 1. Visão Geral do Projeto
-Este projeto apresenta uma análise aprofundada do ecossistema de Microempreendedores Individuais (MEIs) no Brasil referente ao ano de 2024. A iniciativa foca na exploração de uma base massiva de dados para auditar a distribuição geográfica, o comportamento setorial das subclasses (CNAE) e a correlação real entre o volume de cadastros ativos e a geração efetiva de Receita Bruta Total.
 
-* **Volume de Cadastros Analisados:** 10 milhões de CNPJs ativos.
-* **Impacto Financeiro Consolidado:** R$ 2,48 trilhões em Receita Bruta Total.
-* **Objetivo:** Desconstruir a ilusão de linearidade do mercado informal formalizado, evidenciando onde o capital de fato se concentra e quais setores sustentam a economia do setor.
+Este projeto apresenta uma análise de dados do ecossistema de Microempreendedores Individuais (MEIs) no Brasil referente ao ano de 2024.
 
----
+A análise utiliza dados estruturados para explorar a distribuição geográfica dos MEIs, o comportamento das atividades econômicas classificadas por subclasses CNAE e a relação entre quantidade de CNPJs, Receita Bruta e arrecadação.
 
-## 2. Arquitetura e Modelagem de Dados
-Para garantir alta performance de processamento e evitar gargalos com bases volumosas, a modelagem foi estruturada seguindo as boas práticas de engenharia analítica:
-* **Esquema de Dados:** Implementação de modelo em **Star Schema** (Esquema Estrela), isolando as dimensões de localização geográfica (UFs) e tipificação de subclasses da tabela fato transacional.
-* **Otimização e Governança:** Aplicação de filtros analíticos estruturados em nível de visualização (*Top N* por faturamento e volume) para eliminação de ruídos de cauda longa, preservando a integridade matemática dos totalizadores globais nos indicadores de KPI.
+O projeto foi desenvolvido com foco em análise exploratória, criação de indicadores, comparação entre categorias e apresentação dos resultados por meio de dashboards interativos no Power BI.
 
----
+### Objetivos
 
-## 3. Principais Descobertas e Insights de Mercado
-
-### A Ilusão da Massa vs. Retorno Financeiro
-A análise cruzada das subclasses demonstra que o ecossistema do MEI é altamente concentrado em atividades de baixa barreira de entrada e absorção de mão de obra de subsistência. 
-* **Liderança Absoluta:** O setor de *Cabeleireiros* lidera o faturamento acumulado com **R$ 19,51 bilhões**, seguido de perto pelo *Comércio varejista de artigos do vestuário e acessórios* (**R$ 17,70 bilhões**) e *Promoção de vendas* (**R$ 12,49 bilhões**).
-* **Demais Pilares de Faturamento:** Destacam-se também o setor de *Obras de alvenaria* (R$ 11,58 bi), *Preparação de documentos e serviços administrativos* (R$ 11,33 bi) e as operações de *Transporte rodoviário de carga* (que somadas entre intermunicipal e municipal ultrapassam **R$ 17 bilhões**).
-
-### Assimetria Estrutural e Eficiência de Escala
-Os dados provam que o crescimento do volume de CNPJs não se traduz em uma distribuição linear de riqueza. Enquanto as atividades de massa incham os cadastros em nichos de menor valor agregado unitário, setores logísticos e de serviços especializados conseguem tracionar montantes financeiros expressivos por unidade produtiva.
-
-### Concentração Geográfica e Abismo Federativo
-A radiografia por Unidades da Federação (UFs) expõe a forte polarização econômica do país, onde o estado de São Paulo e os grandes centros do Sudeste concentram desproporcionalmente a massa corporativa e o fluxo financeiro nacional, evidenciando os desafios de capilaridade e descentralização econômica.
+* Analisar a distribuição dos MEIs por Unidade da Federação (UF).
+* Identificar as principais atividades econômicas por quantidade de CNPJs.
+* Identificar as principais atividades econômicas por Receita Bruta.
+* Comparar indicadores de quantidade, Receita Bruta, receita média e arrecadação.
+* Transformar dados estruturados em informações úteis para análise e tomada de decisão.
 
 ---
 
-## 4. Estrutura de Arquivos do Power BI
-Os relatórios analíticos deste repositório estão divididos e armazenados na pasta `dashboards/`:
-* `dashboards/MEI_Brasil_2024.pbix`: Contém a Página 1, focada na visão macro nacional, indicadores de KPIs globais e distribuição geográfica estrita do Top 10 UFs.
-* `dashboards/Fato_MEI_Subclasse.pbix`: Contém a Página 2, dedicada ao detalhamento analítico e cruzamento estrutural das subclasses de CNAE e faturamento.
+## 2. Indicadores Principais
+
+O projeto utiliza diferentes indicadores para analisar o universo de MEIs em 2024.
+
+Entre os principais indicadores estão:
+
+* Total de MEIs;
+* Receita Bruta;
+* Receita Média por MEI;
+* Arrecadação MEI;
+* Total de CNPJs por atividade;
+* Receita Bruta por atividade;
+* Distribuição de CNPJs por Unidade da Federação.
+
+> Os valores consolidados apresentados no projeto são obtidos diretamente dos modelos Power BI e serão considerados definitivos após a validação final dos dashboards.
 
 ---
 
-## 5. Stack Tecnológica
-* **Processamento e Modelagem:** Power Query / DAX.
-* **Documentação & Storytelling:** Análise de Negócios e Documentação Executiva em Markdown.
+## 3. Estrutura e Modelagem dos Dados
+
+O projeto utiliza dois arquivos Power BI independentes, cada um direcionado a uma perspectiva específica da análise.
+
+### `MEI_Brasil_2024.pbix`
+
+Utiliza a tabela `Secao` e concentra os indicadores gerais do projeto.
+
+Entre os campos utilizados estão informações relacionadas a:
+
+* quantidade de CNPJs;
+* Receita Bruta;
+* arrecadação;
+* Unidade da Federação (UF).
+
+### `Fato_MEI_Subclasse.pbix`
+
+Utiliza as tabelas:
+
+* `Subclasse`;
+* `Subclasse (2)`.
+
+A tabela `Subclasse` é utilizada na análise de Receita Bruta por atividade econômica.
+
+A tabela `Subclasse (2)` é utilizada na análise de quantidade de CNPJs por atividade econômica.
+
+Durante a auditoria dos arquivos Power BI, não foi identificado relacionamento entre `Subclasse` e `Subclasse (2)`. Por esse motivo, o projeto não classifica a estrutura atual como um Star Schema.
+
+---
+
+## 4. Análises e Insights
+
+### Concentração por atividade econômica
+
+A análise por subclasses CNAE permite identificar quais atividades concentram maior quantidade de CNPJs e quais apresentam maior Receita Bruta.
+
+Essa abordagem possibilita comparar a representatividade das atividades pelo volume de empresas e pelo desempenho financeiro observado na base.
+
+### Quantidade versus Receita Bruta
+
+A comparação entre quantidade de CNPJs e Receita Bruta permite observar que a participação de uma atividade no número de empresas não necessariamente corresponde à mesma participação na Receita Bruta.
+
+Essa perspectiva ajuda a avaliar diferenças de concentração econômica entre os grupos analisados.
+
+### Distribuição geográfica
+
+A distribuição por Unidade da Federação permite comparar a concentração dos MEIs entre os estados brasileiros.
+
+O dashboard utiliza ranking das principais UFs segundo a quantidade de CNPJs analisados.
+
+### Validação dos insights
+
+Os insights quantitativos finais serão consolidados a partir dos valores e rankings efetivamente apresentados nos dashboards após a validação final dos resultados.
+
+---
+
+## 5. Medidas DAX
+
+As principais medidas utilizadas no projeto foram validadas diretamente nos arquivos Power BI.
+
+### `MEI_Brasil_2024.pbix`
+
+`Total MEIs = SUM('Secao'[Qtd_CNPJ])`
+
+`Receita Bruta MEI = SUM('Secao'[Receita_Bruta])`
+
+`Receita Média por MEI = DIVIDE([Receita Bruta MEI], [Total MEIs])`
+
+`Arrecadação MEI = SUM('Secao'[Arrecadacao_MEI_DAS_MEI])`
+
+### `Fato_MEI_Subclasse.pbix`
+
+`Total CNPJ Subclasse = SUM('Subclasse (2)'[Qtd_CNPJ])`
+
+`Total Receita Bruta = SUM('Subclasse'[Receita_Bruta])`
+
+A documentação consolidada dessas medidas está disponível em `dax/medidas.md`.
+
+---
+
+## 6. Metodologia
+
+A análise foi desenvolvida utilizando:
+
+* Power BI para modelagem e visualização;
+* Power Query para preparação e transformação dos dados;
+* DAX para criação dos indicadores;
+* filtros e rankings Top 10 para análise das principais categorias.
+
+Os dois relatórios foram separados para permitir diferentes perspectivas analíticas e facilitar a interpretação dos resultados.
+
+Mais detalhes estão disponíveis em:
+
+`docs/metodologia.md`
+
+---
+
+## 7. Qualidade e Validação dos Dados
+
+A construção do projeto inclui validação das medidas, dos campos utilizados nos visuais e da lógica dos indicadores.
+
+As principais medidas DAX foram conferidas diretamente nos modelos Power BI utilizados.
+
+Os resultados finais devem ser interpretados considerando o período, o universo de dados e os filtros aplicados nos respectivos dashboards.
+
+---
+
+## 8. Estrutura dos Dashboards
+
+### `dashboards/MEI_Brasil_2024.pbix`
+
+Dashboard com visão geral dos MEIs em 2024, incluindo:
+
+* indicadores gerais;
+* Receita Bruta;
+* Receita Média por MEI;
+* Arrecadação MEI;
+* distribuição por UF;
+* Top 10 UFs por quantidade de CNPJs.
+
+### `dashboards/Fato_MEI_Subclasse.pbix`
+
+Dashboard voltado à análise das atividades econômicas, incluindo:
+
+* quantidade de CNPJs por subclasse;
+* Receita Bruta por subclasse;
+* rankings Top 10;
+* comparação entre atividades econômicas.
+
+---
+
+## 9. Estrutura do Repositório
+
+analise-mei-brasil-2024/
+
+├── dashboards/
+│   ├── Fato_MEI_Subclasse.pbix
+│   └── MEI_Brasil_2024.pbix
+│
+├── data/
+│   └── .gitkeep
+│
+├── dax/
+│   ├── .gitkeep
+│   └── medidas.md
+│
+├── docs/
+│   ├── .gitkeep
+│   ├── insights.md
+│   ├── metodologia.md
+│   └── modelo-dados.md
+│
+├── .gitignore
+├── LICENSE
+└── README.md
+
+---
+
+## 10. Tecnologias
+
+* Power BI
+* Power Query
+* DAX
+* Git
+* GitHub
+* Markdown
+
+---
+
+## 11. Documentação
+
+* `docs/metodologia.md` — metodologia da análise;
+* `docs/modelo-dados.md` — estrutura dos modelos Power BI;
+* `docs/insights.md` — insights e conclusões da análise;
+* `dax/medidas.md` — medidas DAX utilizadas nos dashboards.
+
+---
+
+## 12. Fonte dos Dados
+
+A fonte oficial, o período de referência, a data de extração e os detalhes de obtenção dos dados serão registrados nesta seção após a confirmação da fonte utilizada na construção da base.
+
+Essa etapa é importante para garantir rastreabilidade e reprodutibilidade da análise.
+
+---
+
+## 13. Reprodutibilidade
+
+O projeto foi desenvolvido a partir de dados preparados para utilização no Power BI.
+
+A documentação de metodologia e modelagem descreve a estrutura utilizada nos relatórios.
+
+As instruções completas para reprodução da análise serão consolidadas após a documentação definitiva da origem dos dados e das etapas de preparação.
+
+---
+
+## 14. Licença
+
+O projeto utiliza a licença MIT para o código e a documentação desenvolvidos no repositório.
+
+Os dados de terceiros utilizados na análise permanecem sujeitos às condições de uso e distribuição definidas por seus respectivos responsáveis.
+
+---
+
+## 15. Status do Projeto
+
+Em desenvolvimento e validação final.
+
+As próximas etapas contemplam:
+
+* validação definitiva dos resultados numéricos;
+* consolidação dos insights;
+* revisão final dos dashboards;
+* inclusão da fonte oficial dos dados;
+* documentação de reprodução;
+* disponibilização de uma apresentação visual do projeto no GitHub.
