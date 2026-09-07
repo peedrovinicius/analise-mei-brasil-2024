@@ -98,9 +98,9 @@ As principais medidas utilizadas no projeto foram validadas diretamente nos arqu
 
 ### `MEI_Brasil_2024.pbix`
 
-`Total MEIs = SUM('Secao'[Qtd_CNPJ])`
+`Total MEIs = CALCULATE(SUM('Secao'[Qtd_CNPJ]), 'Secao'[Forma_Tributacao] = "SIMPLES - MEI")`
 
-`Receita Bruta MEI = SUM('Secao'[Receita_Bruta])`
+`Receita Bruta MEI = CALCULATE(SUM('Secao'[Receita_Bruta]), 'Secao'[Forma_Tributacao] = "SIMPLES - MEI")`
 
 `Receita Média por MEI = DIVIDE([Receita Bruta MEI], [Total MEIs])`
 
