@@ -169,6 +169,7 @@ Dashboard voltado à análise das atividades econômicas, incluindo:
 
 ## 9. Estrutura do Repositório
 
+```text
 analise-mei-brasil-2024/
 │
 ├── dashboards/
@@ -189,10 +190,7 @@ analise-mei-brasil-2024/
 ├── .gitignore
 ├── LICENSE
 └── README.md
-
-## 10. Tecnologias
-
----
+```
 
 ## 10. Tecnologias
 
