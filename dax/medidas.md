@@ -9,16 +9,22 @@ As fórmulas abaixo foram validadas diretamente nos arquivos Power BI utilizados
 ### Total MEIs
 
 Total MEIs =
-SUM('Secao'[Qtd_CNPJ])
+CALCULATE(
+    SUM('Secao'[Qtd_CNPJ]),
+    'Secao'[Forma_Tributacao] = "SIMPLES - MEI"
+)
 
-Calcula a quantidade total de CNPJs/MEIs a partir da coluna Qtd_CNPJ da tabela Secao.
+Calcula a quantidade de CNPJs do universo MEI, considerando exclusivamente os registros classificados como `SIMPLES - MEI`.
 
 ### Receita Bruta MEI
 
 Receita Bruta MEI =
-SUM('Secao'[Receita_Bruta])
+CALCULATE(
+    SUM('Secao'[Receita_Bruta]),
+    'Secao'[Forma_Tributacao] = "SIMPLES - MEI"
+)
 
-Calcula a Receita Bruta total dos MEIs a partir da coluna Receita_Bruta da tabela Secao.
+Calcula a Receita Bruta total do universo MEI, considerando exclusivamente os registros classificados como `SIMPLES - MEI`.
 
 ### Receita Média por MEI
 
@@ -28,7 +34,7 @@ DIVIDE(
     [Total MEIs]
 )
 
-Calcula a receita média por MEI dividindo a Receita Bruta total pela quantidade total de MEIs.
+Calcula a receita média por MEI dividindo a Receita Bruta total pela quantidade de CNPJs do universo MEI.
 
 A função DIVIDE() é utilizada para tratar de forma segura situações em que o denominador possa ser zero.
 
@@ -54,6 +60,9 @@ Total Receita Bruta =
 SUM('Subclasse'[Receita_Bruta])
 
 Calcula a Receita Bruta total utilizando a coluna Receita_Bruta da tabela Subclasse.
+
 ## Observação
 
 As medidas foram documentadas com os nomes e referências de tabelas e colunas existentes nos modelos Power BI utilizados no projeto.
+
+As tabelas oficiais de origem abrangem Simples Nacional e MEI. Para os indicadores exclusivos de MEI do modelo `MEI_Brasil_2024.pbix`, o universo é restringido por `Forma_Tributacao = "SIMPLES - MEI"`.
