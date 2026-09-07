@@ -24,15 +24,15 @@ O projeto utiliza diferentes indicadores para analisar o universo de MEIs em 202
 
 Entre os principais indicadores estão:
 
-* Total de MEIs;
-* Receita Bruta;
-* Receita Média por MEI;
-* Arrecadação MEI;
-* Total de CNPJs por atividade;
-* Receita Bruta por atividade;
-* Distribuição de CNPJs por Unidade da Federação.
+* **Total de MEIs:** aproximadamente 10,3 milhões de CNPJs com quantidade divulgada na base analisada;
+* **Receita Bruta:** R$ 310,97 bilhões;
+* **Receita Média por MEI:** R$ 30,24 mil;
+* **Arrecadação MEI:** R$ 13,50 bilhões;
+* **Total de CNPJs por atividade**;
+* **Receita Bruta por atividade**;
+* **Distribuição de CNPJs por Unidade da Federação**.
 
-> Os valores consolidados apresentados no projeto são obtidos diretamente dos modelos Power BI e serão considerados definitivos após a validação final dos dashboards.
+> A análise exclusiva dos MEIs considera os registros classificados como `SIMPLES - MEI`. As contagens divulgadas pela fonte oficial estão sujeitas a regras de sigilo estatístico.
 
 ---
 
@@ -72,7 +72,13 @@ Durante a auditoria dos arquivos Power BI, não foi identificado relacionamento 
 
 A análise por subclasses CNAE permite identificar quais atividades concentram maior quantidade de CNPJs e quais apresentam maior Receita Bruta.
 
-Essa abordagem possibilita comparar a representatividade das atividades pelo volume de empresas e pelo desempenho financeiro observado na base.
+Entre as atividades de maior Receita Bruta estão:
+
+* **Cabeleireiros:** R$ 19,51 bilhões;
+* **Comércio varejista de artigos do vestuário e acessórios:** R$ 17,70 bilhões;
+* **Promoção de vendas:** R$ 12,49 bilhões;
+* **Obras de alvenaria:** R$ 11,58 bilhões;
+* **Preparação de documentos e serviços especializados de apoio administrativo:** R$ 11,33 bilhões.
 
 ### Quantidade versus Receita Bruta
 
@@ -84,11 +90,17 @@ Essa perspectiva ajuda a avaliar diferenças de concentração econômica entre 
 
 A distribuição por Unidade da Federação permite comparar a concentração dos MEIs entre os estados brasileiros.
 
+Entre as UFs com maior quantidade de CNPJs estão:
+
+* **SP:** 2.877.357;
+* **MG:** 1.247.636;
+* **RJ:** 940.544.
+
 O dashboard apresenta as 10 UFs com maior quantidade de CNPJs analisados.
 
 ### Validação dos insights
 
-Os insights apresentados no projeto são baseados nos indicadores, rankings e filtros utilizados nos dashboards Power BI. Os valores quantitativos detalhados devem ser interpretados considerando o universo de dados de 2024 e os filtros aplicados nos respectivos visuais.
+Os insights apresentados no projeto foram comparados com as tabelas oficiais utilizadas como fonte e com os filtros aplicados nos modelos Power BI. Os valores devem ser interpretados considerando o universo de MEIs (`SIMPLES - MEI`), o período de 2024 e a granularidade de cada tabela.
 
 ---
 
@@ -149,7 +161,7 @@ A construção do projeto inclui validação das medidas, dos campos utilizados 
 
 As principais medidas DAX foram conferidas diretamente nos modelos Power BI utilizados.
 
-Os resultados finais devem ser interpretados considerando o período, o universo de dados e os filtros aplicados nos respectivos dashboards.
+Os resultados foram cruzados com as tabelas oficiais de 2024 e com os filtros aplicados para o universo `SIMPLES - MEI`.
 
 ---
 
@@ -211,8 +223,6 @@ analise-mei-brasil-2024/
 * GitHub
 * Markdown
 
----
-
 ## 11. Documentação
 
 * `docs/metodologia.md` — metodologia da análise;
@@ -220,33 +230,22 @@ analise-mei-brasil-2024/
 * `docs/insights.md` — insights e conclusões da análise;
 * `dax/medidas.md` — medidas DAX utilizadas nos dashboards.
 
----
-
 ## 12. Fonte dos Dados
 
-Os dados utilizados neste projeto têm como fonte oficial a Receita Federal do Brasil, por meio da publicação "Dados Setoriais 2024" e seus respectivos metadados.
+Os dados utilizados neste projeto têm como fonte oficial a Receita Federal do Brasil, por meio da publicação **Dados Setoriais 2024** e seus respectivos metadados.
 
-A documentação oficial da Receita Federal descreve os campos utilizados na análise, incluindo quantidade de empresas (CNPJ), Receita Bruta e arrecadação das empresas optantes pelo MEI por meio do DAS-MEI.
+Foram utilizadas especificamente as tabelas **01b — Seção (SN e MEI)** e **05b — Subclasse (SN e MEI)**.
 
-Fonte oficial:
-Receita Federal do Brasil — Dados Setoriais 2024
+Para a análise exclusiva de MEIs, foi aplicado o universo `Forma_Tributacao = "SIMPLES - MEI"`.
 
 Metadados:
 https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/estudos/pessoas-juridicas-por-setor/estudos-setoriais-das-pessoas-juridicas/dados-setoriais-2024/metadados-dados-setoriais-2024
 
-A data de extração e os procedimentos específicos de preparação utilizados neste projeto serão documentados separadamente quando forem confirmados.
-
----
-
 ## 13. Reprodutibilidade
 
-O projeto foi desenvolvido a partir de dados preparados para utilização no Power BI.
+O projeto foi desenvolvido a partir das tabelas oficiais de 2024 preparadas para utilização no Power BI.
 
-A documentação de metodologia e modelagem descreve a estrutura utilizada nos relatórios.
-
-As instruções completas para reprodução da análise serão consolidadas após a documentação definitiva da origem dos dados e das etapas de preparação.
-
----
+A documentação de metodologia e modelagem descreve a estrutura utilizada nos relatórios, as regras de filtragem do universo MEI e as principais medidas DAX.
 
 ## 14. Licença
 
@@ -254,16 +253,8 @@ O projeto utiliza a licença MIT para o código e a documentação desenvolvidos
 
 Os dados de terceiros utilizados na análise permanecem sujeitos às condições de uso e distribuição definidas por seus respectivos responsáveis.
 
----
-
 ## 15. Status do Projeto
 
-Em desenvolvimento e validação final.
+Em revisão final.
 
-As próximas etapas contemplam:
-
-validação definitiva dos resultados numéricos;
-revisão final dos dashboards;
-documentação completa de reprodução;
-disponibilização de uma apresentação visual do projeto no GitHub;
-revisão final de qualidade e consistência do repositório.
+A etapa de auditoria dos dados, medidas, rankings e documentação foi concluída. Permanecem como próximas atividades a revisão visual final dos dashboards, a documentação de reprodução detalhada e a apresentação visual do projeto no GitHub.
