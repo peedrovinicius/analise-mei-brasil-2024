@@ -88,7 +88,7 @@ O dashboard apresenta as 10 UFs com maior quantidade de CNPJs analisados.
 
 ### Validação dos insights
 
-Os insights quantitativos finais serão consolidados a partir dos valores e rankings efetivamente apresentados nos dashboards após a validação final dos resultados.
+Os insights apresentados no projeto são baseados nos indicadores, rankings e filtros utilizados nos dashboards Power BI. Os valores quantitativos detalhados devem ser interpretados considerando o universo de dados de 2024 e os filtros aplicados nos respectivos visuais.
 
 ---
 
