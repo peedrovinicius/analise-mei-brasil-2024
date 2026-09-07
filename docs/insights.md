@@ -1,34 +1,48 @@
 # Insights da Análise
 
-## Status da análise
+## 1. Visão geral
 
-Os insights deste documento serão registrados a partir dos resultados finais e validados dos dashboards Power BI.
+A análise dos MEIs no Brasil em 2024 foi estruturada em duas perspectivas complementares: a distribuição geral dos MEIs e a concentração das atividades econômicas por subclasse CNAE.
 
-O objetivo é evitar conclusões baseadas em valores não conferidos ou em interpretações que não possam ser sustentadas pelos dados apresentados.
+Os dashboards permitem analisar simultaneamente volume de CNPJs, Receita Bruta, receita média, arrecadação e distribuição geográfica.
 
-## Perspectivas analisadas
+## 2. Concentração por atividade econômica
 
-A análise está organizada em duas perspectivas principais:
+O ranking das 10 principais atividades econômicas por quantidade de CNPJs evidencia a concentração do universo de MEIs em determinadas subclasses CNAE.
 
-- visão geral dos MEIs em 2024;
-- análise de atividades econômicas por subclasse CNAE.
+A análise permite identificar as atividades com maior presença no número de empresas analisadas.
 
-Também é analisada a distribuição dos MEIs por Unidade da Federação (UF).
+## 3. Quantidade de CNPJs versus Receita Bruta
 
-## Indicadores considerados
+Os rankings de quantidade de CNPJs e Receita Bruta são analisados separadamente.
 
-Entre os principais indicadores analisados estão:
+Uma atividade que apresenta elevada quantidade de empresas não necessariamente ocupa a mesma posição no ranking de Receita Bruta. Essa comparação permite observar diferenças entre concentração empresarial e concentração econômica.
 
-- quantidade total de MEIs;
-- Receita Bruta;
-- Receita Média por MEI;
-- Arrecadação MEI;
-- quantidade de CNPJs por atividade;
-- Receita Bruta por atividade;
-- quantidade de CNPJs por UF.
+## 4. Distribuição geográfica
 
-## Validação dos insights
+A análise por Unidade da Federação apresenta as 10 UFs com maior quantidade de CNPJs.
 
-Os principais insights serão consolidados somente após a validação final dos indicadores, filtros, rankings e valores apresentados nos dashboards.
+Esse recorte permite identificar onde está concentrada a maior parcela dos MEIs dentro do universo analisado em 2024.
 
-Isso garante que as conclusões publicadas no projeto estejam alinhadas com os dados efetivamente utilizados nos arquivos Power BI.
+## 5. Indicadores gerais
+
+O dashboard geral consolida quatro indicadores principais:
+
+* Total de MEIs;
+* Receita Bruta;
+* Receita Média por MEI;
+* Arrecadação MEI.
+
+Esses indicadores permitem uma leitura conjunta do tamanho do universo analisado e de sua dimensão econômica.
+
+## 6. Validação dos insights
+
+Os insights apresentados neste documento são baseados na estrutura dos indicadores, rankings e filtros utilizados nos dashboards Power BI.
+
+Os valores quantitativos detalhados devem ser interpretados considerando o universo de dados de 2024, as tabelas utilizadas em cada modelo e os filtros aplicados nos respectivos visuais.
+
+## 7. Limitações
+
+A análise representa o universo e as definições presentes na base de dados utilizada no projeto.
+
+Os resultados não devem ser interpretados como estimativas para períodos diferentes de 2024 nem como medidas de desempenho individual das empresas.
