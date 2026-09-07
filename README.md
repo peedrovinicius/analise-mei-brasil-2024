@@ -216,9 +216,17 @@ analise-mei-brasil-2024/
 
 ## 12. Fonte dos Dados
 
-A fonte oficial, o período de referência, a data de extração e os detalhes de obtenção dos dados serão registrados nesta seção após a confirmação da fonte utilizada na construção da base.
+Os dados utilizados neste projeto têm como fonte oficial a Receita Federal do Brasil, por meio da publicação "Dados Setoriais 2024" e seus respectivos metadados.
 
-Essa etapa é importante para garantir rastreabilidade e reprodutibilidade da análise.
+A documentação oficial da Receita Federal descreve os campos utilizados na análise, incluindo quantidade de empresas (CNPJ), Receita Bruta e arrecadação das empresas optantes pelo MEI por meio do DAS-MEI.
+
+Fonte oficial:
+Receita Federal do Brasil — Dados Setoriais 2024
+
+Metadados:
+https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/estudos/pessoas-juridicas-por-setor/estudos-setoriais-das-pessoas-juridicas/dados-setoriais-2024/metadados-dados-setoriais-2024
+
+A data de extração e os procedimentos específicos de preparação utilizados neste projeto serão documentados separadamente quando forem confirmados.
 
 ---
 
