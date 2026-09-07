@@ -84,7 +84,7 @@ Essa perspectiva ajuda a avaliar diferenças de concentração econômica entre 
 
 A distribuição por Unidade da Federação permite comparar a concentração dos MEIs entre os estados brasileiros.
 
-O dashboard utiliza ranking das principais UFs segundo a quantidade de CNPJs analisados.
+O dashboard apresenta as 10 UFs com maior quantidade de CNPJs analisados.
 
 ### Validação dos insights
 
