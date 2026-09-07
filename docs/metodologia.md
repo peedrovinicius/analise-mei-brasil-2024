@@ -37,7 +37,7 @@ dax/medidas.md
 
 A análise geográfica utiliza a Unidade da Federação (UF) como dimensão de comparação.
 
-O dashboard apresenta as principais UFs segundo a quantidade de CNPJs analisados.
+O dashboard apresenta as 10 UFs com maior quantidade de CNPJs analisados.
 
 ## Análise por atividade econômica
 
