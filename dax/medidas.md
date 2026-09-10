@@ -50,19 +50,25 @@ Calcula o valor total de arrecadação MEI a partir da coluna Arrecadacao_MEI_DA
 ### Total CNPJ Subclasse
 
 Total CNPJ Subclasse =
-SUM('Subclasse (2)'[Qtd_CNPJ])
+CALCULATE(
+    SUM('Subclasse (2)'[Qtd_CNPJ]),
+    'Subclasse (2)'[Forma_Tributacao] = "SIMPLES - MEI"
+)
 
-Calcula a quantidade total de CNPJs utilizando a coluna Qtd_CNPJ da tabela Subclasse (2).
+Calcula a quantidade de CNPJs por subclasse considerando exclusivamente os registros classificados como `SIMPLES - MEI`.
 
 ### Total Receita Bruta
 
 Total Receita Bruta =
-SUM('Subclasse'[Receita_Bruta])
+CALCULATE(
+    SUM('Subclasse'[Receita_Bruta]),
+    'Subclasse'[Forma_Tributacao] = "SIMPLES - MEI"
+)
 
-Calcula a Receita Bruta total utilizando a coluna Receita_Bruta da tabela Subclasse.
+Calcula a Receita Bruta por subclasse considerando exclusivamente os registros classificados como `SIMPLES - MEI`.
 
 ## Observação
 
 As medidas foram documentadas com os nomes e referências de tabelas e colunas existentes nos modelos Power BI utilizados no projeto.
 
-As tabelas oficiais de origem abrangem Simples Nacional e MEI. Para os indicadores exclusivos de MEI do modelo `MEI_Brasil_2024.pbix`, o universo é restringido por `Forma_Tributacao = "SIMPLES - MEI"`.
+As tabelas oficiais de origem abrangem Simples Nacional e MEI. As medidas utilizadas para apresentar resultados exclusivos de MEI restringem o universo por `Forma_Tributacao = "SIMPLES - MEI"`.
