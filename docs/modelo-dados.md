@@ -52,7 +52,7 @@ As análises por atividade econômica consideram o universo MEI (`SIMPLES - MEI`
 
 ## 3. Relacionamentos
 
-Durante a auditoria dos arquivos Power BI utilizados no projeto, não foi identificado relacionamento entre as tabelas `Subclasse` e `Subclasse (2)`.
+Não há relacionamento entre as tabelas `Subclasse` e `Subclasse (2)`.
 
 Por esse motivo, este documento não classifica o modelo atual como Star Schema.
 
