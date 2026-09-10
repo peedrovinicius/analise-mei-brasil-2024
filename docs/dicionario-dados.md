@@ -30,7 +30,7 @@ A quantidade deve ser interpretada considerando as regras de sigilo estatístico
 
 | Campo | Descrição | Uso no projeto |
 |---|---|---|
-| `Receita_Bruta` | Receita Bruta agregada divulgada pela fonte oficial. | Receita Bruta total, Receita Bruta por UF e Receita Bruta por atividade. |
+| `Receita_Bruta` | Receita Bruta agregada divulgada pela fonte oficial. | Receita Bruta total e Receita Bruta por atividade econômica. |
 
 Para os indicadores exclusivos de MEI, o campo é utilizado com o filtro `SIMPLES - MEI`.
 
