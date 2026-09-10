@@ -254,7 +254,8 @@ analise-mei-brasil-2024/
 │   ├── metodologia.md
 │   ├── modelo-dados.md
 │   ├── qualidade-dados.md
-│   └── recomendacoes-negocio.md
+│   ├── recomendacoes-negocio.md
+│   └── dicionario-dados.md
 ├── .gitignore
 ├── LICENSE
 └── README.md
@@ -267,6 +268,7 @@ analise-mei-brasil-2024/
 - [Insights](docs/insights.md)
 - [Qualidade dos dados](docs/qualidade-dados.md)
 - [Recomendações de negócio](docs/recomendacoes-negocio.md)
+- [Dicionário de dados](docs/dicionario-dados.md)
 - [Medidas DAX](dax/medidas.md)
 
 ## 16. Licença
