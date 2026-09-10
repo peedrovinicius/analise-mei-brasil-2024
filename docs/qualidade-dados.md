@@ -55,7 +55,7 @@ Um exemplo importante foi a identificação da inconsistência entre uma Receita
 
 A investigação desse resultado levou à identificação da mistura entre `SIMPLES` e `SIMPLES - MEI`, permitindo corrigir o universo utilizado nas medidas.
 
-Esse tipo de teste é tratado como controle de qualidade analítica, e não apenas como conferência visual do dashboard.
+Esse teste complementa a conferência visual do dashboard e ajuda a identificar inconsistências nos indicadores.
 
 ## 5. Validação cruzada entre tabelas
 
@@ -144,4 +144,4 @@ Além disso, não foram atribuídos indicadores tradicionais de duplicidade por 
 
 A qualidade do projeto é sustentada por uma combinação de validação da fonte, controle explícito do universo MEI, testes de sanidade, validação cruzada, revisão das medidas DAX, conferência dos rankings, rastreabilidade e documentação das limitações da fonte.
 
-Esses controles aumentam a rastreabilidade e a confiabilidade dos indicadores apresentados no dashboard, sem transformar o projeto em uma arquitetura de Analytics Engineering que não está efetivamente implementada.
+Esses controles aumentam a rastreabilidade e a confiabilidade dos indicadores apresentados nos dashboards, mantendo explícitas as limitações da fonte oficial.
