@@ -1,264 +1,261 @@
 # Raio-X do Empreendedorismo no Brasil: Inteligência de Dados e Concentração de Mercado dos MEIs (2024)
 
-## 1. Visão Geral do Projeto
+## 1. Sobre o projeto
 
-Este projeto apresenta uma análise de dados do ecossistema de Microempreendedores Individuais (MEIs) no Brasil referente ao ano de 2024.
+Este projeto analisa o universo dos Microempreendedores Individuais (MEIs) no Brasil em 2024, utilizando dados da Receita Federal para investigar distribuição geográfica, atividades econômicas, Receita Bruta e arrecadação.
 
-A análise utiliza dados estruturados para explorar a distribuição geográfica dos MEIs, o comportamento das atividades econômicas classificadas por subclasses CNAE e a relação entre quantidade de CNPJs, Receita Bruta e arrecadação.
+A análise foi desenvolvida no Power BI, combinando Power Query e DAX para transformar dados públicos em indicadores, rankings e dashboards voltados à exploração e interpretação de dados.
 
-O projeto foi desenvolvido com foco em análise exploratória, criação de indicadores, comparação entre categorias e apresentação dos resultados por meio de dashboards interativos no Power BI.
+## 2. Principais resultados
 
-### Objetivos
+| Indicador | Resultado |
+|---|---:|
+| **MEIs analisados** | **≈ 10,3 milhões** |
+| **Receita Bruta** | **R$ 310,97 bilhões** |
+| **Receita Média por MEI** | **R$ 30,24 mil** |
+| **Arrecadação MEI** | **R$ 13,50 bilhões** |
 
-* Analisar a distribuição dos MEIs por Unidade da Federação (UF).
-* Identificar as principais atividades econômicas por quantidade de CNPJs.
-* Identificar as principais atividades econômicas por Receita Bruta.
-* Comparar indicadores de quantidade, Receita Bruta, receita média e arrecadação.
-* Transformar dados estruturados em informações úteis para análise e tomada de decisão.
+> A análise considera exclusivamente os registros classificados como `SIMPLES - MEI`. As contagens divulgadas pela fonte oficial estão sujeitas às regras de sigilo estatístico.
 
----
+## 3. Principais insights
 
-## 2. Indicadores Principais
+### Receita Bruta por atividade
 
-O projeto utiliza diferentes indicadores para analisar o universo de MEIs em 2024.
+As cinco atividades com maior Receita Bruta entre as subclasses analisadas são:
 
-Entre os principais indicadores estão:
+1. **Cabeleireiros** — **R$ 19,51 bilhões**;
+2. **Comércio varejista de artigos do vestuário e acessórios** — **R$ 17,70 bilhões**;
+3. **Promoção de vendas** — **R$ 12,49 bilhões**;
+4. **Obras de alvenaria** — **R$ 11,58 bilhões**;
+5. **Preparação de documentos e serviços especializados de apoio administrativo** — **R$ 11,33 bilhões**.
 
-* **Total de MEIs:** aproximadamente 10,3 milhões de CNPJs com quantidade divulgada na base analisada;
-* **Receita Bruta:** R$ 310,97 bilhões;
-* **Receita Média por MEI:** R$ 30,24 mil;
-* **Arrecadação MEI:** R$ 13,50 bilhões;
-* **Total de CNPJs por atividade**;
-* **Receita Bruta por atividade**;
-* **Distribuição de CNPJs por Unidade da Federação**.
+### Quantidade de CNPJs ≠ Receita Bruta
 
-> A análise exclusiva dos MEIs considera os registros classificados como `SIMPLES - MEI`. As contagens divulgadas pela fonte oficial estão sujeitas a regras de sigilo estatístico.
+As atividades com maior quantidade de CNPJs não necessariamente ocupam as mesmas posições no ranking de Receita Bruta, evidenciando a importância de analisar volume e valor conjuntamente.
 
----
+### Concentração geográfica
 
-## 3. Estrutura e Modelagem dos Dados
+As três UFs com maior quantidade de CNPJs na análise são:
 
-O projeto utiliza dois arquivos Power BI independentes, cada um direcionado a uma perspectiva específica da análise.
+- **SP:** 2.877.357;
+- **MG:** 1.247.636;
+- **RJ:** 940.544.
 
-### `MEI_Brasil_2024.pbix`
+O dashboard apresenta o **Top 10 por quantidade de CNPJs**.
 
-Utiliza a tabela `Secao` e concentra os indicadores gerais do projeto.
+## 4. Dashboards
 
-Entre os campos utilizados estão informações relacionadas a:
+### Visão geral dos MEIs
 
-* quantidade de CNPJs;
-* Receita Bruta;
-* arrecadação;
-* Unidade da Federação (UF).
+`MEI_Brasil_2024.pbix`
 
-### `Fato_MEI_Subclasse.pbix`
+Dashboard com indicadores gerais, Receita Bruta, Receita Média, arrecadação, distribuição por UF e Top 10 UFs.
 
-Utiliza as tabelas:
+[⬇ Abrir MEI_Brasil_2024.pbix](dashboards/MEI_Brasil_2024.pbix)
 
-* `Subclasse`;
-* `Subclasse (2)`.
+### Análise por atividade econômica
 
-A tabela `Subclasse` é utilizada na análise de Receita Bruta por atividade econômica.
+`Fato_MEI_Subclasse.pbix`
 
-A tabela `Subclasse (2)` é utilizada na análise de quantidade de CNPJs por atividade econômica.
+Dashboard com quantidade de CNPJs por atividade, Receita Bruta por atividade, rankings Top 10 e comparação entre subclasses CNAE.
 
-Durante a auditoria dos arquivos Power BI, não foi identificado relacionamento entre `Subclasse` e `Subclasse (2)`. Por esse motivo, o projeto não classifica a estrutura atual como um Star Schema.
+[⬇ Abrir Fato_MEI_Subclasse.pbix](dashboards/Fato_MEI_Subclasse.pbix)
 
----
+> Os arquivos PBIX são os artefatos analíticos principais do projeto. A apresentação visual dos dashboards pode ser complementada posteriormente com imagens do próprio relatório, sem alterar os modelos.
 
-## 4. Análises e Insights
+## 5. Tecnologias e competências demonstradas
 
-### Concentração por atividade econômica
+| Tecnologia | Aplicação |
+|---|---|
+| **Power BI** | Modelagem, indicadores e dashboards |
+| **Power Query** | Preparação e transformação dos dados |
+| **DAX** | Criação das medidas e indicadores |
+| **Git/GitHub** | Versionamento e documentação |
+| **Markdown** | Documentação técnica |
 
-A análise por subclasses CNAE permite identificar quais atividades concentram maior quantidade de CNPJs e quais apresentam maior Receita Bruta.
-
-Entre as atividades de maior Receita Bruta estão:
-
-* **Cabeleireiros:** R$ 19,51 bilhões;
-* **Comércio varejista de artigos do vestuário e acessórios:** R$ 17,70 bilhões;
-* **Promoção de vendas:** R$ 12,49 bilhões;
-* **Obras de alvenaria:** R$ 11,58 bilhões;
-* **Preparação de documentos e serviços especializados de apoio administrativo:** R$ 11,33 bilhões.
-
-### Quantidade versus Receita Bruta
-
-A comparação entre quantidade de CNPJs e Receita Bruta permite observar que a participação de uma atividade no número de empresas não necessariamente corresponde à mesma participação na Receita Bruta.
-
-Essa perspectiva ajuda a avaliar diferenças de concentração econômica entre os grupos analisados.
-
-### Distribuição geográfica
-
-A distribuição por Unidade da Federação permite comparar a concentração dos MEIs entre os estados brasileiros.
-
-Entre as UFs com maior quantidade de CNPJs estão:
-
-* **SP:** 2.877.357;
-* **MG:** 1.247.636;
-* **RJ:** 940.544.
-
-O dashboard apresenta as 10 UFs com maior quantidade de CNPJs analisados.
-
-### Validação dos insights
-
-Os insights apresentados no projeto foram comparados com as tabelas oficiais utilizadas como fonte e com os filtros aplicados nos modelos Power BI. Os valores devem ser interpretados considerando o universo de MEIs (`SIMPLES - MEI`), o período de 2024 e a granularidade de cada tabela.
-
----
-
-## 5. Medidas DAX
-
-As principais medidas utilizadas no projeto foram validadas diretamente nos arquivos Power BI.
+## 6. Estrutura e modelagem dos dados
 
 ### `MEI_Brasil_2024.pbix`
 
-`Total MEIs = CALCULATE(SUM('Secao'[Qtd_CNPJ]), 'Secao'[Forma_Tributacao] = "SIMPLES - MEI")`
+Base principal: `Secao`.
 
-`Receita Bruta MEI = CALCULATE(SUM('Secao'[Receita_Bruta]), 'Secao'[Forma_Tributacao] = "SIMPLES - MEI")`
+Utilizada para:
 
-`Receita Média por MEI = DIVIDE([Receita Bruta MEI], [Total MEIs])`
-
-`Arrecadação MEI = SUM('Secao'[Arrecadacao_MEI_DAS_MEI])`
+- quantidade de CNPJs;
+- Receita Bruta;
+- arrecadação;
+- distribuição por Unidade da Federação.
 
 ### `Fato_MEI_Subclasse.pbix`
 
-`Total CNPJ Subclasse = CALCULATE(SUM('Subclasse (2)'[Qtd_CNPJ]), 'Subclasse (2)'[Forma_Tributacao] = "SIMPLES - MEI")`
+Bases utilizadas:
 
-`Total Receita Bruta = CALCULATE(SUM('Subclasse'[Receita_Bruta]), 'Subclasse'[Forma_Tributacao] = "SIMPLES - MEI")`
+- `Subclasse`;
+- `Subclasse (2)`.
 
-A documentação consolidada dessas medidas está disponível em `dax/medidas.md`.
+Divisão analítica:
 
----
+- `Subclasse` → Receita Bruta por atividade;
+- `Subclasse (2)` → quantidade de CNPJs por atividade.
 
-## 6. Metodologia
+Durante a auditoria, não foi identificada relação entre `Subclasse` e `Subclasse (2)`. Por isso, o modelo não é apresentado como um **Star Schema**.
 
-A análise foi desenvolvida utilizando:
+## 7. Medidas DAX
 
-* Power BI para modelagem e visualização;
-* Power Query para preparação e transformação dos dados;
-* DAX para criação dos indicadores;
-* filtros e rankings Top 10 para análise das principais categorias.
+### `Total MEIs`
 
-A fonte utilizada é a publicação oficial **Dados Setoriais 2024 da Receita Federal do Brasil**, especificamente as tabelas **01b — Seção (SN e MEI)** e **05b — Subclasse (SN e MEI)**.
+```DAX
+Total MEIs =
+CALCULATE(
+    SUM('Secao'[Qtd_CNPJ]),
+    'Secao'[Forma_Tributacao] = "SIMPLES - MEI"
+)
+```
 
-Como essas tabelas abrangem **Simples Nacional e MEI**, a análise exclusiva dos MEIs utiliza a classificação `Forma_Tributacao = "SIMPLES - MEI"` antes da consolidação dos indicadores de quantidade e Receita Bruta.
+### `Receita Bruta MEI`
 
-A tabela 05b é utilizada para as análises por subclasse CNAE, enquanto a tabela 01b é utilizada para as análises por seção e Unidade da Federação.
+```DAX
+Receita Bruta MEI =
+CALCULATE(
+    SUM('Secao'[Receita_Bruta]),
+    'Secao'[Forma_Tributacao] = "SIMPLES - MEI"
+)
+```
 
-A Receita Bruta é analisada em reais e as agregações respeitam a granularidade e a cobertura da respectiva tabela oficial.
+### `Receita Média por MEI`
 
-As tabelas da Receita Federal também aplicam regras de sigilo estatístico: determinadas quantidades podem ser suprimidas quando há menos de quatro empresas em uma combinação de classificação e localização. Por esse motivo, a soma das quantidades explicitamente divulgadas não deve ser interpretada automaticamente como uma contagem absoluta da população sem essa ressalva metodológica.
+```DAX
+Receita Média por MEI =
+DIVIDE(
+    [Receita Bruta MEI],
+    [Total MEIs]
+)
+```
 
-Os dois relatórios foram separados para permitir diferentes perspectivas analíticas e facilitar a interpretação dos resultados.
+### `Arrecadação MEI`
 
-Mais detalhes estão disponíveis em:
+```DAX
+Arrecadação MEI =
+SUM('Secao'[Arrecadacao_MEI_DAS_MEI])
+```
 
-`docs/metodologia.md`
+As medidas do `Fato_MEI_Subclasse.pbix` também restringem o universo por `Forma_Tributacao = "SIMPLES - MEI"`.
 
----
+[Ver documentação completa das medidas DAX](dax/medidas.md)
 
-## 7. Qualidade e Validação dos Dados
+## 8. Metodologia
 
-A construção do projeto inclui validação das medidas, dos campos utilizados nos visuais e da lógica dos indicadores.
+A fonte oficial utilizada é a publicação **Dados Setoriais 2024 da Receita Federal do Brasil**, especificamente:
 
-Os principais controles e testes de qualidade estão documentados em `docs/qualidade-dados.md`.
+- **01b — Seção (SN e MEI)**;
+- **05b — Subclasse (SN e MEI)**.
 
-As principais medidas DAX foram conferidas diretamente nos modelos Power BI utilizados.
+Como essas tabelas abrangem Simples Nacional e MEI, a análise exclusiva de MEIs utiliza o filtro:
 
-Os resultados foram cruzados com as tabelas oficiais de 2024 e com os filtros aplicados para o universo `SIMPLES - MEI`.
+`Forma_Tributacao = "SIMPLES - MEI"`
 
----
+A tabela 01b é utilizada para os indicadores gerais e a análise por UF. A tabela 05b é utilizada para a análise por subclasse CNAE.
 
-## 8. Estrutura dos Dashboards
+As tabelas são agregadas, não representam uma base transacional individual por CNPJ e possuem regras específicas de divulgação.
 
-### `dashboards/MEI_Brasil_2024.pbix`
+[Ver metodologia detalhada](docs/metodologia.md)
 
-Dashboard com visão geral dos MEIs em 2024, incluindo:
+## 9. Qualidade e validação
 
-* indicadores gerais;
-* Receita Bruta;
-* Receita Média por MEI;
-* Arrecadação MEI;
-* distribuição por UF;
-* Top 10 UFs por quantidade de CNPJs.
+O projeto inclui controles de qualidade para aumentar a confiabilidade dos resultados, incluindo:
 
-### `dashboards/Fato_MEI_Subclasse.pbix`
+- validação da fonte;
+- validação do universo `SIMPLES - MEI`;
+- verificação das medidas DAX;
+- testes de sanidade;
+- validação cruzada entre as tabelas 01b e 05b;
+- conferência dos filtros e critérios Top N;
+- rastreabilidade entre fonte, coluna, filtro, medida e visual.
 
-Dashboard voltado à análise das atividades econômicas, incluindo:
+[Ver controles de qualidade, confiabilidade e validação](docs/qualidade-dados.md)
 
-* quantidade de CNPJs por subclasse;
-* Receita Bruta por subclasse;
-* rankings Top 10;
-* comparação entre atividades econômicas.
+## 10. Limitações dos dados
 
----
+As tabelas oficiais utilizadas estão sujeitas a regras de sigilo estatístico. Algumas quantidades podem ser suprimidas em determinadas combinações de classificação e localização.
 
-## 9. Estrutura do Repositório
+Por isso, as contagens devem ser interpretadas considerando a cobertura e a granularidade da fonte, e não como uma contagem absoluta sem ressalvas.
+
+Além disso, os dados são agregados e não permitem inferir diretamente o comportamento individual de cada CNPJ.
+
+## 11. Fonte dos dados
+
+**Receita Federal do Brasil — Dados Setoriais 2024**
+
+Tabelas utilizadas:
+
+- `01b — Seção (SN e MEI)`;
+- `05b — Subclasse (SN e MEI)`.
+
+Metadados oficiais:
+
+https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/estudos/pessoas-juridicas-por-setor/estudos-setoriais-das-pessoas-juridicas/dados-setoriais-2024/metadados-dados-setoriais-2024
+
+## 12. Reprodutibilidade
+
+Fluxo analítico do projeto:
+
+```text
+Dados oficiais
+      ↓
+Power Query
+      ↓
+Modelagem no Power BI
+      ↓
+Medidas DAX
+      ↓
+Indicadores e rankings
+      ↓
+Dashboards
+      ↓
+Validação e insights
+      ↓
+Documentação técnica
+```
+
+A metodologia e o modelo de dados descrevem as fontes utilizadas, o filtro do universo MEI, a granularidade e a estrutura dos relatórios.
+
+## 13. Estrutura do repositório
 
 ```text
 analise-mei-brasil-2024/
-│
 ├── dashboards/
 │   ├── Fato_MEI_Subclasse.pbix
 │   └── MEI_Brasil_2024.pbix
-│
 ├── data/
 │   └── .gitkeep
-│
 ├── dax/
 │   └── medidas.md
-│
 ├── docs/
 │   ├── insights.md
 │   ├── metodologia.md
 │   ├── modelo-dados.md
 │   └── qualidade-dados.md
-│
 ├── .gitignore
 ├── LICENSE
 └── README.md
 ```
 
-## 10. Tecnologias
+## 14. Documentação
 
-* Power BI
-* Power Query
-* DAX
-* Git
-* GitHub
-* Markdown
+- [Metodologia](docs/metodologia.md)
+- [Modelo de dados](docs/modelo-dados.md)
+- [Insights](docs/insights.md)
+- [Qualidade dos dados](docs/qualidade-dados.md)
+- [Medidas DAX](dax/medidas.md)
 
-## 11. Documentação
-
-* `docs/metodologia.md` — metodologia da análise;
-* `docs/modelo-dados.md` — estrutura dos modelos Power BI;
-* `docs/insights.md` — insights e conclusões da análise;
-* `docs/qualidade-dados.md` — controles de qualidade, confiabilidade e validação;
-* `dax/medidas.md` — medidas DAX utilizadas nos dashboards.
-
-## 12. Fonte dos Dados
-
-Os dados utilizados neste projeto têm como fonte oficial a Receita Federal do Brasil, por meio da publicação **Dados Setoriais 2024** e seus respectivos metadados.
-
-Foram utilizadas especificamente as tabelas **01b — Seção (SN e MEI)** e **05b — Subclasse (SN e MEI)**.
-
-Para a análise exclusiva de MEIs, foi aplicado o universo `Forma_Tributacao = "SIMPLES - MEI"`.
-
-Metadados:
-https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/estudos/pessoas-juridicas-por-setor/estudos-setoriais-das-pessoas-juridicas/dados-setoriais-2024/metadados-dados-setoriais-2024
-
-## 13. Reprodutibilidade
-
-O projeto foi desenvolvido a partir das tabelas oficiais de 2024 preparadas para utilização no Power BI.
-
-A documentação de metodologia e modelagem descreve a estrutura utilizada nos relatórios, as regras de filtragem do universo MEI e as principais medidas DAX.
-
-## 14. Licença
+## 15. Licença
 
 O projeto utiliza a licença MIT para o código e a documentação desenvolvidos no repositório.
 
 Os dados de terceiros utilizados na análise permanecem sujeitos às condições de uso e distribuição definidas por seus respectivos responsáveis.
 
-## 15. Status do Projeto
+## 16. Status
 
-Em revisão final.
+**Projeto concluído e documentado.**
 
-A etapa de auditoria dos dados, medidas, rankings e documentação foi concluída. Permanecem como próximas atividades a revisão visual final dos dashboards, a documentação de reprodução detalhada e a apresentação visual do projeto no GitHub.
+Os dashboards, medidas, análises, validações e documentação técnica foram revisados e publicados no repositório.
