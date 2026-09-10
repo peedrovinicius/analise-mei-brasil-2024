@@ -104,7 +104,7 @@ Divisão analítica:
 - `Subclasse` → Receita Bruta por atividade;
 - `Subclasse (2)` → quantidade de CNPJs por atividade.
 
-Durante a auditoria, não foi identificada relação entre `Subclasse` e `Subclasse (2)`. Por isso, o modelo não é apresentado como um **Star Schema**.
+Não há relacionamento entre as tabelas `Subclasse` e `Subclasse (2)`. Por isso, o modelo não é apresentado como um **Star Schema**.
 
 ## 7. Medidas DAX
 
