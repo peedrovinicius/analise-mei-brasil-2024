@@ -51,6 +51,8 @@ O dashboard apresenta o **Top 10 por quantidade de CNPJs**.
 
 Dashboard com indicadores gerais, Receita Bruta, Receita Média, arrecadação, distribuição por UF e Top 10 UFs.
 
+[![Visão geral dos MEIs — 2024](assets/dashboard_preview_mei_brasil_2024.png)](dashboards/MEI_Brasil_2024.pbix)
+
 [⬇ Abrir MEI_Brasil_2024.pbix](dashboards/MEI_Brasil_2024.pbix)
 
 ### Análise por atividade econômica
@@ -59,9 +61,11 @@ Dashboard com indicadores gerais, Receita Bruta, Receita Média, arrecadação, 
 
 Dashboard com quantidade de CNPJs por atividade, Receita Bruta por atividade, rankings Top 10 e comparação entre subclasses CNAE.
 
+[![Análise por atividade econômica — 2024](assets/Fato_MEI_Subclasse_README_visual.png)](dashboards/Fato_MEI_Subclasse.pbix)
+
 [⬇ Abrir Fato_MEI_Subclasse.pbix](dashboards/Fato_MEI_Subclasse.pbix)
 
-> Os arquivos PBIX são os artefatos analíticos principais do projeto. A apresentação visual dos dashboards pode ser complementada posteriormente com imagens do próprio relatório, sem alterar os modelos.
+> As imagens acima são materiais de apresentação do projeto; os arquivos PBIX são os artefatos analíticos principais.
 
 ## 5. Tecnologias e competências demonstradas
 
@@ -226,6 +230,9 @@ analise-mei-brasil-2024/
 ├── dashboards/
 │   ├── Fato_MEI_Subclasse.pbix
 │   └── MEI_Brasil_2024.pbix
+├── assets/
+│   ├── dashboard_preview_mei_brasil_2024.png
+│   └── Fato_MEI_Subclasse_README_visual.png
 ├── data/
 │   └── .gitkeep
 ├── dax/
