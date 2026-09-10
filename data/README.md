@@ -16,7 +16,7 @@ As tabelas centrais do projeto são:
 - **01b — Seção (SN e MEI)**: utilizada no `MEI_Brasil_2024.pbix` para indicadores gerais e análise por UF.
 - **05b — Subclasse (SN e MEI)**: utilizada no `Fato_MEI_Subclasse.pbix` para análise por subclasse CNAE.
 
-A Receita Federal informa que as informações de receita bruta, quantidade de contribuintes, forma de tributação, UF e CNAE para Simples Nacional e MEI são obtidas das declarações DASN e DASN-SIMEI, respectivamente. citeturn702519search12
+A Receita Federal informa que as informações de receita bruta, quantidade de contribuintes, forma de tributação, UF e CNAE para Simples Nacional e MEI são obtidas das declarações DASN e DASN-SIMEI, respectivamente.
 
 ## Por que os arquivos de origem não ficam nesta pasta?
 
@@ -38,4 +38,4 @@ A descrição dos principais campos utilizados no projeto está em [`docs/dicion
 
 ## Limitações da fonte
 
-Os dados são agregados por classificação e localização e estão sujeitos às regras de divulgação e sigilo estatístico da Receita Federal. Determinadas quantidades podem ser suprimidas quando o número de empresas é inferior a quatro. citeturn702519search12
+Os dados são agregados por classificação e localização e estão sujeitos às regras de divulgação e sigilo estatístico da Receita Federal. Determinadas quantidades podem ser suprimidas quando o número de empresas é inferior a quatro.
