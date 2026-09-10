@@ -87,7 +87,22 @@ Exemplo:
 
 Essa rastreabilidade facilita a revisão e reduz o risco de apresentar uma métrica com origem ou universo diferente do esperado.
 
-## 8. Sigilo estatístico e contagem de CNPJs
+## 8. Dimensões de qualidade avaliadas
+
+| Dimensão | Controle aplicado | Evidência / interpretação |
+|---|---|---|
+| **Validade** | Filtro explícito do universo `SIMPLES - MEI` | Indicadores exclusivos de MEI |
+| **Consistência** | Cruzamento de Receita Bruta entre 01b e 05b | Mesmo total consolidado de ~R$ 310,97 bi |
+| **Acurácia lógica** | Receita média = receita ÷ quantidade | ~R$ 30,24 mil |
+| **Integridade da métrica** | Fonte → coluna → DAX → visual | Rastreabilidade documentada |
+| **Ordenação** | Ranking Top N com mesma medida no valor e no filtro | Evita seleção incoerente do Top 10 |
+| **Completude** | Verificação da cobertura divulgada e das células suprimidas | Contagens devem considerar sigilo estatístico |
+| **Unicidade** | Não tratada como base transacional | Tabelas são agregadas; não há uma linha por CNPJ individual |
+|
+
+A dimensão de unicidade não é aplicada como teste tradicional de duplicidade por CNPJ porque a fonte utilizada neste projeto é agregada e não constitui uma base transacional individual.
+
+## 9. Sigilo estatístico e contagem de CNPJs
 
 As tabelas oficiais possuem regras de sigilo estatístico que podem suprimir determinadas quantidades em células com poucos registros.
 
@@ -95,13 +110,13 @@ Por esse motivo, a soma das quantidades explicitamente divulgadas não deve ser 
 
 Essa limitação foi incorporada à interpretação dos indicadores de quantidade e às comparações entre tabelas de diferentes granularidades.
 
-## 9. Estrutura dos modelos
+## 10. Estrutura dos modelos
 
 Os dois PBIX foram mantidos como modelos independentes, com finalidades analíticas diferentes.
 
 No `Fato_MEI_Subclasse.pbix`, `Subclasse` e `Subclasse (2)` são utilizadas separadamente e não possuem relacionamento entre si. O projeto não classifica essa estrutura como um Star Schema.
 
-## 10. Matriz de controles
+## 11. Matriz de controles
 
 | Controle | Verificação | Status |
 |---|---|---|
@@ -115,15 +130,18 @@ No `Fato_MEI_Subclasse.pbix`, `Subclasse` e `Subclasse (2)` são utilizadas sepa
 | DAX | Modelo × documentação | 🟢 |
 | Granularidade | 01b × 05b | 🟢 |
 | Sigilo estatístico | Ressalva documentada | 🟢 |
+| Rastreabilidade | Fonte → medida → visual → documentação | 🟢 |
 
-## 11. Limitações
+## 12. Limitações
 
 A confiabilidade dos resultados está condicionada às definições, agregações e regras de divulgação presentes na fonte oficial.
 
 Os dados utilizados não constituem uma base transacional individual por CNPJ. Portanto, conclusões sobre comportamento individual de empresas não podem ser inferidas diretamente dos arquivos analisados.
 
+Além disso, não foram atribuídos indicadores tradicionais de duplicidade por CNPJ porque as tabelas utilizadas não expõem registros transacionais individuais.
+
 ## Conclusão
 
-A qualidade do projeto é sustentada por uma combinação de validação da fonte, controle explícito do universo MEI, testes de sanidade, validação cruzada, revisão das medidas DAX, conferência dos rankings e documentação das limitações da fonte.
+A qualidade do projeto é sustentada por uma combinação de validação da fonte, controle explícito do universo MEI, testes de sanidade, validação cruzada, revisão das medidas DAX, conferência dos rankings, rastreabilidade e documentação das limitações da fonte.
 
 Esses controles aumentam a rastreabilidade e a confiabilidade dos indicadores apresentados no dashboard, sem transformar o projeto em uma arquitetura de Analytics Engineering que não está efetivamente implementada.
