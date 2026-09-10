@@ -67,18 +67,7 @@ Dashboard com quantidade de CNPJs por atividade, Receita Bruta por atividade, ra
 
 > As imagens acima são materiais de apresentação do projeto; os arquivos PBIX são os artefatos analíticos principais.
 
-## 5. Recomendações de negócio
-
-Os resultados permitem levantar algumas aplicações práticas para análise e tomada de decisão:
-
-- **Priorização territorial:** UFs com maior concentração de MEIs podem orientar estudos sobre demanda por capacitação, formalização, crédito e serviços de apoio ao empreendedor.
-- **Foco setorial:** atividades líderes em quantidade e Receita Bruta podem ser priorizadas em ações de educação financeira, capacitação e programas de desenvolvimento empresarial.
-- **Leitura conjunta de volume e valor:** comparar número de CNPJs e Receita Bruta ajuda a identificar segmentos com forte presença empresarial, mas participação econômica proporcionalmente menor ou maior.
-- **Aprofundamento analítico:** a combinação de atividade, UF e Receita Bruta pode servir como base para recortes regionais e setoriais mais específicos em estudos posteriores.
-
-> Essas recomendações são hipóteses de aplicação analítica derivadas dos padrões observados nos dados; não representam causalidade nem políticas públicas já implementadas.
-
-## 6. Tecnologias e competências demonstradas
+## 5. Tecnologias e competências demonstradas
 
 | Tecnologia | Aplicação |
 |---|---|
@@ -88,7 +77,7 @@ Os resultados permitem levantar algumas aplicações práticas para análise e t
 | **Git/GitHub** | Versionamento e documentação |
 | **Markdown** | Documentação técnica |
 
-## 7. Estrutura e modelagem dos dados
+## 6. Estrutura e modelagem dos dados
 
 ### `MEI_Brasil_2024.pbix`
 
@@ -115,7 +104,7 @@ Divisão analítica:
 
 Durante a auditoria, não foi identificada relação entre `Subclasse` e `Subclasse (2)`. Por isso, o modelo não é apresentado como um **Star Schema**.
 
-## 8. Medidas DAX
+## 7. Medidas DAX
 
 ### `Total MEIs`
 
@@ -158,7 +147,7 @@ As medidas do `Fato_MEI_Subclasse.pbix` também restringem o universo por `Forma
 
 [Ver documentação completa das medidas DAX](dax/medidas.md)
 
-## 9. Metodologia
+## 8. Metodologia
 
 A fonte oficial utilizada é a publicação **Dados Setoriais 2024 da Receita Federal do Brasil**, especificamente:
 
@@ -175,7 +164,7 @@ As tabelas são agregadas, não representam uma base transacional individual por
 
 [Ver metodologia detalhada](docs/metodologia.md)
 
-## 10. Qualidade e validação
+## 9. Qualidade e validação
 
 O projeto inclui controles de qualidade para aumentar a confiabilidade dos resultados, incluindo:
 
@@ -185,10 +174,21 @@ O projeto inclui controles de qualidade para aumentar a confiabilidade dos resul
 - testes de sanidade;
 - validação cruzada entre as tabelas 01b e 05b;
 - conferência dos filtros e critérios Top N;
-- rastreabilidade entre fonte, coluna, filtro, medida e visual;
-- avaliação de dimensões de qualidade como validade, consistência, acurácia lógica, completude e unicidade compatíveis com uma fonte agregada.
+- rastreabilidade entre fonte, coluna, filtro, medida e visual.
 
 [Ver controles de qualidade, confiabilidade e validação](docs/qualidade-dados.md)
+
+## 10. Recomendações de negócio e próximos desdobramentos
+
+Os achados permitem levantar hipóteses de aplicação para priorização territorial, análise setorial e aprofundamento da relação entre quantidade de empresas e Receita Bruta.
+
+A concentração observada em determinadas UFs pode orientar investigações territoriais mais detalhadas, enquanto a comparação entre quantidade de CNPJs e Receita Bruta ajuda a evitar o uso de volume empresarial como único indicador de relevância econômica.
+
+Como próximos desdobramentos, o projeto pode evoluir para análises históricas, receita média por atividade e UF, participação percentual por segmento e mudanças de concentração ao longo do tempo.
+
+Essas recomendações são hipóteses analíticas e não representam relações causais comprovadas pelos dados.
+
+[Ver recomendações e próximos desdobramentos](docs/recomendacoes-negocio.md)
 
 ## 11. Limitações dos dados
 
@@ -211,19 +211,9 @@ Metadados oficiais:
 
 https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/estudos/pessoas-juridicas-por-setor/estudos-setoriais-das-pessoas-juridicas/dados-setoriais-2024/metadados-dados-setoriais-2024
 
-## 13. Como reproduzir este projeto
+## 13. Reprodutibilidade
 
-1. Obtenha as tabelas oficiais **01b — Seção (SN e MEI)** e **05b — Subclasse (SN e MEI)** a partir dos metadados oficiais da Receita Federal.
-2. Utilize a tabela 01b para os indicadores gerais e análise por UF; utilize a tabela 05b para a análise por subclasse CNAE.
-3. No Power Query/Power BI, mantenha o universo analítico de MEIs por `Forma_Tributacao = "SIMPLES - MEI"` nas medidas correspondentes.
-4. Reproduza as medidas DAX documentadas em `dax/medidas.md`.
-5. Replique os critérios Top N utilizando a mesma medida usada como valor do visual.
-6. Abra os arquivos `dashboards/MEI_Brasil_2024.pbix` e `dashboards/Fato_MEI_Subclasse.pbix` para consultar os modelos e visuais finais.
-7. Valide os resultados utilizando os controles descritos em `docs/qualidade-dados.md`.
-
-> Como as tabelas são agregadas e possuem regras de sigilo estatístico, uma reprodução pode apresentar diferenças de quantidade em recortes específicos sem representar necessariamente erro de cálculo.
-
-## 14. Fluxo analítico
+Fluxo analítico do projeto:
 
 ```text
 Dados oficiais
@@ -243,7 +233,9 @@ Validação e insights
 Documentação técnica
 ```
 
-## 15. Estrutura do repositório
+A metodologia e o modelo de dados descrevem as fontes utilizadas, o filtro do universo MEI, a granularidade e a estrutura dos relatórios.
+
+## 14. Estrutura do repositório
 
 ```text
 analise-mei-brasil-2024/
@@ -261,27 +253,29 @@ analise-mei-brasil-2024/
 │   ├── insights.md
 │   ├── metodologia.md
 │   ├── modelo-dados.md
-│   └── qualidade-dados.md
+│   ├── qualidade-dados.md
+│   └── recomendacoes-negocio.md
 ├── .gitignore
 ├── LICENSE
 └── README.md
 ```
 
-## 16. Documentação
+## 15. Documentação
 
 - [Metodologia](docs/metodologia.md)
 - [Modelo de dados](docs/modelo-dados.md)
 - [Insights](docs/insights.md)
 - [Qualidade dos dados](docs/qualidade-dados.md)
+- [Recomendações de negócio](docs/recomendacoes-negocio.md)
 - [Medidas DAX](dax/medidas.md)
 
-## 17. Licença
+## 16. Licença
 
 O projeto utiliza a licença MIT para o código e a documentação desenvolvidos no repositório.
 
 Os dados de terceiros utilizados na análise permanecem sujeitos às condições de uso e distribuição definidas por seus respectivos responsáveis.
 
-## 18. Status
+## 17. Status
 
 **Projeto concluído e documentado.**
 
