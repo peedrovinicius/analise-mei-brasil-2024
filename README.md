@@ -120,9 +120,9 @@ As principais medidas utilizadas no projeto foram validadas diretamente nos arqu
 
 ### `Fato_MEI_Subclasse.pbix`
 
-`Total CNPJ Subclasse = SUM('Subclasse (2)'[Qtd_CNPJ])`
+`Total CNPJ Subclasse = CALCULATE(SUM('Subclasse (2)'[Qtd_CNPJ]), 'Subclasse (2)'[Forma_Tributacao] = "SIMPLES - MEI")`
 
-`Total Receita Bruta = SUM('Subclasse'[Receita_Bruta])`
+`Total Receita Bruta = CALCULATE(SUM('Subclasse'[Receita_Bruta]), 'Subclasse'[Forma_Tributacao] = "SIMPLES - MEI")`
 
 A documentação consolidada dessas medidas está disponível em `dax/medidas.md`.
 
@@ -158,6 +158,8 @@ Mais detalhes estão disponíveis em:
 ## 7. Qualidade e Validação dos Dados
 
 A construção do projeto inclui validação das medidas, dos campos utilizados nos visuais e da lógica dos indicadores.
+
+Os principais controles e testes de qualidade estão documentados em `docs/qualidade-dados.md`.
 
 As principais medidas DAX foram conferidas diretamente nos modelos Power BI utilizados.
 
@@ -207,7 +209,8 @@ analise-mei-brasil-2024/
 ├── docs/
 │   ├── insights.md
 │   ├── metodologia.md
-│   └── modelo-dados.md
+│   ├── modelo-dados.md
+│   └── qualidade-dados.md
 │
 ├── .gitignore
 ├── LICENSE
@@ -228,6 +231,7 @@ analise-mei-brasil-2024/
 * `docs/metodologia.md` — metodologia da análise;
 * `docs/modelo-dados.md` — estrutura dos modelos Power BI;
 * `docs/insights.md` — insights e conclusões da análise;
+* `docs/qualidade-dados.md` — controles de qualidade, confiabilidade e validação;
 * `dax/medidas.md` — medidas DAX utilizadas nos dashboards.
 
 ## 12. Fonte dos Dados
