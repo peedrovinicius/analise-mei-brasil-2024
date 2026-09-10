@@ -55,6 +55,8 @@ Dashboard com indicadores gerais, Receita Bruta, Receita Média, arrecadação, 
 
 [⬇ Abrir MEI_Brasil_2024.pbix](dashboards/MEI_Brasil_2024.pbix)
 
+[📁 Guia da pasta dashboards](dashboards/README.md)
+
 ### Análise por atividade econômica
 
 `Fato_MEI_Subclasse.pbix`
@@ -145,7 +147,7 @@ SUM('Secao'[Arrecadacao_MEI_DAS_MEI])
 
 As medidas do `Fato_MEI_Subclasse.pbix` também restringem o universo por `Forma_Tributacao = "SIMPLES - MEI"`.
 
-[Ver documentação completa das medidas DAX](dax/medidas.md)
+[Ver documentação completa das medidas DAX](dax/medidas.md) · [📁 Guia da pasta DAX](dax/README.md)
 
 ## 8. Metodologia
 
@@ -207,33 +209,49 @@ Tabelas utilizadas:
 - `01b — Seção (SN e MEI)`;
 - `05b — Subclasse (SN e MEI)`.
 
-Metadados oficiais:
+Fontes oficiais:
 
-https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/estudos/pessoas-juridicas-por-setor/estudos-setoriais-das-pessoas-juridicas/dados-setoriais-2024/metadados-dados-setoriais-2024
+- [Dados Setoriais 2024 — Receita Federal](https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/estudos/pessoas-juridicas-por-setor/estudos-setoriais-das-pessoas-juridicas/dados-setoriais-2024)
+- [Tabela 01b — Seção (SN e MEI)](https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/estudos/pessoas-juridicas-por-setor/estudos-setoriais-das-pessoas-juridicas/dados-setoriais-2024/tabela-01b-secao-sn-e-mei/view)
+- [Tabela 05b — Subclasse (SN e MEI)](https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/estudos/pessoas-juridicas-por-setor/estudos-setoriais-das-pessoas-juridicas/dados-setoriais-2024/tabela-05b-subclasse-sn-e-mei/view)
+- [Metadados — Dados Setoriais 2024](https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/estudos/pessoas-juridicas-por-setor/estudos-setoriais-das-pessoas-juridicas/dados-setoriais-2024/metadados-dados-setoriais-2024)
 
-## 13. Reprodutibilidade
+## 13. Como reproduzir este projeto
 
-Fluxo analítico do projeto:
+### Pré-requisitos
+
+- **Power BI Desktop** para abrir e analisar os arquivos `.pbix`;
+- acesso à publicação oficial **Dados Setoriais 2024** da Receita Federal;
+- noções básicas de Power Query e DAX para reproduzir ou auditar as transformações e medidas.
+
+### Passo a passo
+
+1. **Baixe as fontes oficiais**
+   - Tabela 01b para a visão geral e análise por UF;
+   - Tabela 05b para a análise por subclasse CNAE.
+
+2. **Abra o relatório correspondente**
+   - `dashboards/MEI_Brasil_2024.pbix` para a visão geral;
+   - `dashboards/Fato_MEI_Subclasse.pbix` para atividades econômicas.
+
+3. **Reaplique a regra de universo**
 
 ```text
-Dados oficiais
-      ↓
-Power Query
-      ↓
-Modelagem no Power BI
-      ↓
-Medidas DAX
-      ↓
-Indicadores e rankings
-      ↓
-Dashboards
-      ↓
-Validação e insights
-      ↓
-Documentação técnica
+Forma_Tributacao = "SIMPLES - MEI"
 ```
 
-A metodologia e o modelo de dados descrevem as fontes utilizadas, o filtro do universo MEI, a granularidade e a estrutura dos relatórios.
+4. **Confira as medidas DAX** em [`dax/medidas.md`](dax/medidas.md) e o guia em [`dax/README.md`](dax/README.md).
+
+5. **Valide os resultados** usando `docs/qualidade-dados.md`, especialmente Receita Bruta, Receita Média, arrecadação e critérios Top N.
+
+6. **Consulte a documentação de cada camada**:
+   - [`data/README.md`](data/README.md) — origem e uso dos dados;
+   - [`dashboards/README.md`](dashboards/README.md) — relatórios e como abrir;
+   - [`docs/dicionario-dados.md`](docs/dicionario-dados.md) — principais campos;
+   - [`docs/metodologia.md`](docs/metodologia.md) — regras analíticas;
+   - [`docs/modelo-dados.md`](docs/modelo-dados.md) — estrutura dos modelos.
+
+> Os PBIX publicados já contêm os modelos e visuais utilizados no projeto. A reprodução integral pode depender de uma nova importação/atualização das fontes oficiais e das condições da versão do Power BI Desktop utilizada.
 
 ## 14. Estrutura do repositório
 
@@ -241,21 +259,23 @@ A metodologia e o modelo de dados descrevem as fontes utilizadas, o filtro do un
 analise-mei-brasil-2024/
 ├── dashboards/
 │   ├── Fato_MEI_Subclasse.pbix
-│   └── MEI_Brasil_2024.pbix
+│   ├── MEI_Brasil_2024.pbix
+│   └── README.md
 ├── assets/
 │   ├── dashboard_preview_mei_brasil_2024.png
 │   └── Fato_MEI_Subclasse_README_visual.png
 ├── data/
-│   └── .gitkeep
+│   └── README.md
 ├── dax/
-│   └── medidas.md
+│   ├── medidas.md
+│   └── README.md
 ├── docs/
+│   ├── dicionario-dados.md
 │   ├── insights.md
 │   ├── metodologia.md
 │   ├── modelo-dados.md
 │   ├── qualidade-dados.md
-│   ├── recomendacoes-negocio.md
-│   └── dicionario-dados.md
+│   └── recomendacoes-negocio.md
 ├── .gitignore
 ├── LICENSE
 └── README.md
@@ -263,13 +283,16 @@ analise-mei-brasil-2024/
 
 ## 15. Documentação
 
+- [Guia dos dashboards](dashboards/README.md)
+- [Guia dos dados](data/README.md)
+- [Guia DAX](dax/README.md)
+- [Medidas DAX](dax/medidas.md)
 - [Metodologia](docs/metodologia.md)
 - [Modelo de dados](docs/modelo-dados.md)
 - [Insights](docs/insights.md)
 - [Qualidade dos dados](docs/qualidade-dados.md)
 - [Recomendações de negócio](docs/recomendacoes-negocio.md)
 - [Dicionário de dados](docs/dicionario-dados.md)
-- [Medidas DAX](dax/medidas.md)
 
 ## 16. Licença
 
