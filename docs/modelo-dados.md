@@ -34,7 +34,7 @@ O dashboard também apresenta a distribuição dos MEIs por UF, utilizando a qua
 
 ## 2. Fato_MEI_Subclasse.pbix
 
-Este arquivo utiliza duas tabelas:
+Este arquivo utiliza duas tabelas de origem:
 
 - `Subclasse`;
 - `Subclasse (2)`.
@@ -52,24 +52,26 @@ As análises por atividade econômica consideram o universo MEI (`SIMPLES - MEI`
 
 ## 3. Relacionamentos
 
-Não há relacionamento entre as tabelas `Subclasse` e `Subclasse (2)`.
+As tabelas `Subclasse` e `Subclasse (2)` **não possuem relacionamento direto entre si**.
 
-Por esse motivo, este documento não classifica o modelo atual como Star Schema.
+Ambas se relacionam com a dimensão `Dim_CNAE`, que consolida as descrições de subclasse CNAE utilizadas pelas duas tabelas. Dessa forma, `Dim_CNAE` funciona como dimensão compartilhada para a análise por atividade econômica.
 
-As tabelas são utilizadas de forma independente, de acordo com a perspectiva analítica de cada visual.
+A estrutura atual, portanto, não deve ser descrita como duas tabelas completamente independentes. Também não é apresentada neste documento como um Star Schema completo, pois os dois arquivos e suas estruturas analíticas possuem finalidades específicas e o modelo não foi construído como um esquema estrela convencional em todas as suas camadas.
 
 ## 4. Estratégia analítica
 
-A separação das tabelas permite realizar análises independentes de:
+A separação das tabelas de origem permite realizar análises complementares de:
 
 - quantidade de CNPJs por atividade;
 - Receita Bruta por atividade;
 - quantidade de MEIs por UF;
 - indicadores gerais do universo analisado.
 
+No `Fato_MEI_Subclasse.pbix`, a `Dim_CNAE` fornece a referência comum de atividade econômica para `Subclasse` e `Subclasse (2)`, enquanto cada tabela de origem mantém sua respectiva métrica analítica.
+
 A tabela `Secao` é utilizada para a visão agregada por seção e UF, enquanto `Subclasse` é utilizada para a análise detalhada por subclasse CNAE.
 
-Essa estrutura também preserva as medidas e os campos específicos utilizados por cada dashboard.
+Essa estrutura preserva as medidas e os campos específicos utilizados por cada dashboard, mantendo a separação entre as perspectivas de quantidade e Receita Bruta.
 
 ## 5. Granularidade e limitações de contagem
 
