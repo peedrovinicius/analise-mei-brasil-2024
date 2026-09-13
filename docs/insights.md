@@ -1,29 +1,33 @@
-# Insights da Análise
+# Insights da análise
 
 ## 1. Visão geral
 
-A análise dos MEIs no Brasil em 2024 foi estruturada em duas perspectivas complementares: a distribuição geral dos MEIs e a concentração das atividades econômicas por subclasse CNAE.
+O projeto olha para os MEIs no Brasil em 2024 por duas perspectivas: a distribuição geral e a concentração das atividades econômicas por subclasse CNAE.
 
-Os dashboards permitem analisar volume de CNPJs, Receita Bruta, receita média, arrecadação e distribuição geográfica.
+Os dashboards mostram quantidade de CNPJs, Receita Bruta, receita média, arrecadação e distribuição por UF.
 
-O universo MEI é isolado a partir da classificação `Forma_Tributacao = "SIMPLES - MEI"` nas tabelas oficiais utilizadas no projeto. As tabelas de origem abrangem Simples Nacional e MEI, portanto essa separação é necessária para que os indicadores representem exclusivamente o universo de MEIs.
+O universo de MEIs é separado com o filtro:
 
-## 2. Indicadores gerais validados
+`Forma_Tributacao = "SIMPLES - MEI"`
 
-Para o universo `SIMPLES - MEI`, os principais valores validados são:
+As tabelas de origem incluem Simples Nacional e MEI, então esse recorte é necessário para que os indicadores apresentados como MEI não misturem os dois grupos.
+
+## 2. Indicadores gerais
+
+Para `SIMPLES - MEI`, os principais valores validados são:
 
 - Receita Bruta total: **R$ 310,97 bilhões**;
 - Receita Média por MEI: **R$ 30,24 mil**;
 - Arrecadação MEI: **R$ 13,50 bilhões**;
 - Quantidade de CNPJs com quantidade divulgada: aproximadamente **10,3 milhões**.
 
-O valor de **R$ 2,48 trilhões** não representa a Receita Bruta exclusiva dos MEIs. Esse total corresponde à soma das categorias `SIMPLES` e `SIMPLES - MEI` da base de origem e, por isso, não deve ser apresentado como receita dos MEIs.
+O valor de **R$ 2,48 trilhões** não representa a Receita Bruta exclusiva dos MEIs. Ele apareceu quando `SIMPLES` e `SIMPLES - MEI` foram somados na base de origem.
 
-## 3. Concentração por atividade econômica
+## 3. Atividades econômicas
 
-O ranking das 10 principais atividades econômicas por quantidade de CNPJs evidencia a concentração do universo de MEIs em determinadas subclasses CNAE.
+O ranking por quantidade de CNPJs mostra forte presença de algumas subclasses CNAE.
 
-As atividades com maior quantidade de CNPJs são:
+As cinco maiores quantidades são:
 
 1. Cabeleireiros — **640.986 CNPJs**;
 2. Comércio varejista de artigos do vestuário e acessórios — **595.465 CNPJs**;
@@ -31,13 +35,11 @@ As atividades com maior quantidade de CNPJs são:
 4. Obras de alvenaria — **389.136 CNPJs**;
 5. Preparação de documentos e serviços especializados de apoio administrativo — **372.042 CNPJs**.
 
-## 4. Quantidade de CNPJs versus Receita Bruta
+## 4. Quantidade de CNPJs x Receita Bruta
 
-Os rankings de quantidade de CNPJs e Receita Bruta são analisados separadamente.
+Os dois rankings são apresentados separadamente porque uma atividade pode ter muitas empresas sem ocupar a mesma posição em Receita Bruta.
 
-Uma atividade que apresenta elevada quantidade de empresas não necessariamente ocupa a mesma posição no ranking de Receita Bruta. Essa comparação permite observar diferenças entre concentração empresarial e concentração econômica.
-
-No ranking por Receita Bruta, os cinco principais segmentos são:
+No ranking por Receita Bruta, os cinco primeiros segmentos são:
 
 1. Cabeleireiros — **R$ 19,51 bilhões**;
 2. Comércio varejista de artigos do vestuário e acessórios — **R$ 17,70 bilhões**;
@@ -45,13 +47,11 @@ No ranking por Receita Bruta, os cinco principais segmentos são:
 4. Obras de alvenaria — **R$ 11,58 bilhões**;
 5. Preparação de documentos e serviços especializados de apoio administrativo — **R$ 11,33 bilhões**.
 
-Esses valores foram conferidos diretamente na base oficial filtrada para `SIMPLES - MEI`.
+Esses valores foram conferidos na base oficial com o filtro `SIMPLES - MEI`.
 
-## 5. Distribuição geográfica
+## 5. Distribuição por UF
 
-A análise por Unidade da Federação apresenta as 10 UFs com maior quantidade de CNPJs.
-
-No ranking de quantidade de CNPJs, os três primeiros estados são:
+O ranking de quantidade de CNPJs tem como três primeiros estados:
 
 1. **São Paulo (SP)** — 2.877.357;
 2. **Minas Gerais (MG)** — 1.247.636;
@@ -59,28 +59,28 @@ No ranking de quantidade de CNPJs, os três primeiros estados são:
 
 No ranking por Receita Bruta, São Paulo, Minas Gerais e Paraná aparecem nas três primeiras posições, com aproximadamente **R$ 80,11 bilhões**, **R$ 41,72 bilhões** e **R$ 24,12 bilhões**, respectivamente.
 
-## 6. Insights principais
+## 6. O que os dados mostram
 
-A análise evidencia três aspectos centrais do universo de MEIs em 2024:
+Três pontos se destacam:
 
-- A Receita Bruta dos MEIs alcança aproximadamente **R$ 310,97 bilhões** no universo `SIMPLES - MEI`.
-- **Cabeleireiros** lideram tanto em quantidade de CNPJs quanto em Receita Bruta entre as subclasses analisadas.
-- A distribuição econômica é concentrada geograficamente: as UFs líderes concentram parcela relevante da Receita Bruta e da quantidade de CNPJs.
+- A Receita Bruta dos MEIs chega a aproximadamente **R$ 310,97 bilhões** no universo `SIMPLES - MEI`.
+- **Cabeleireiros** aparecem entre os líderes tanto em quantidade de CNPJs quanto em Receita Bruta entre as subclasses analisadas.
+- A concentração por UF é relevante tanto em quantidade de empresas quanto em Receita Bruta.
 
-A comparação entre quantidade e Receita Bruta demonstra que presença empresarial e participação econômica não são necessariamente proporcionais, reforçando a utilidade de analisar os dois indicadores separadamente.
+Os dois rankings ajudam a separar presença empresarial de participação econômica.
 
-## 7. Validação dos insights
+## 7. Validação
 
-Os insights quantitativos deste documento foram confrontados com as bases oficiais da Receita Federal utilizadas no projeto e com a lógica dos dashboards Power BI.
+Os valores e rankings foram confrontados com as bases oficiais usadas no projeto e com os modelos Power BI.
 
-Para os indicadores nacionais de Receita Bruta, foi aplicado o filtro do universo `SIMPLES - MEI`. Os rankings de atividade e de UF foram conferidos de acordo com a tabela de granularidade correspondente.
+Para os indicadores nacionais de Receita Bruta, foi aplicado o filtro `SIMPLES - MEI`. Os rankings de atividade e UF foram conferidos na tabela correspondente a cada análise.
 
-As contagens de CNPJs devem ser interpretadas com a ressalva de que a Receita Federal aplica supressão estatística a determinadas células com quantidade inferior a quatro empresas. Por isso, a soma das quantidades explicitamente divulgadas não deve ser tratada automaticamente como uma contagem absoluta sem essa ressalva.
+As contagens de CNPJs têm a ressalva do sigilo estatístico. Algumas células podem ter quantidade suprimida quando há poucos registros. Por isso, a soma das quantidades divulgadas não deve ser tratada automaticamente como uma contagem absoluta da população.
 
 ## 8. Limitações
 
-A análise representa o universo e as definições presentes nas tabelas oficiais de Dados Setoriais 2024 da Receita Federal.
+A análise segue as definições e os níveis de agregação dos Dados Setoriais 2024 da Receita Federal.
 
-As tabelas utilizadas são agregadas e possuem regras de sigilo estatístico, portanto os resultados devem ser interpretados de acordo com a granularidade de cada tabela e com as regras de divulgação da fonte.
+As tabelas são agregadas e sujeitas às regras de sigilo estatístico. Elas não permitem analisar o comportamento individual das empresas nem substituir uma base transacional por CNPJ.
 
-Os resultados não devem ser interpretados como estimativas para períodos diferentes de 2024 nem como medidas de desempenho individual das empresas.
+Os resultados apresentados se referem ao ano-calendário de 2024 e não devem ser extrapolados diretamente para outros períodos.
