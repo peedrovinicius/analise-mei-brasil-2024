@@ -1,10 +1,24 @@
 # Raio-X do Empreendedorismo no Brasil: Inteligência de Dados e Concentração de Mercado dos MEIs (2024)
 
+[![Power BI](https://img.shields.io/badge/Power%20BI-Dashboard-F2C811?logo=powerbi&logoColor=white)](#dashboards) [![DAX](https://img.shields.io/badge/DAX-Medidas-1f6feb)](dax/medidas.md) [![License](https://img.shields.io/github/license/peedrovinicius/analise-mei-brasil-2024)](LICENSE) [![Last commit](https://img.shields.io/github/last-commit/peedrovinicius/analise-mei-brasil-2024)](https://github.com/peedrovinicius/analise-mei-brasil-2024/commits/main)
+
+![Visão geral dos MEIs — 2024](assets/dashboard_preview_mei_brasil_2024.png)
+
+![Análise por atividade econômica — 2024](assets/Fato_MEI_Subclasse_README_visual.png)
+
+> **Projeto de portfólio em Power BI, Power Query e DAX**, desenvolvido a partir dos **Dados Setoriais 2024 da Receita Federal do Brasil**. O foco é analisar distribuição geográfica, atividades econômicas, Receita Bruta e arrecadação dos Microempreendedores Individuais.
+
 ## 1. Sobre o projeto
 
-Este projeto analisa o universo dos Microempreendedores Individuais (MEIs) no Brasil em 2024, utilizando dados da Receita Federal para investigar distribuição geográfica, atividades econômicas, Receita Bruta e arrecadação.
+Este projeto analisa o universo dos Microempreendedores Individuais (MEIs) no Brasil no **ano-calendário de 2024**, utilizando as tabelas agregadas `01b — Seção (SN e MEI)` e `05b — Subclasse (SN e MEI)` da Receita Federal.
 
-A análise foi desenvolvida no Power BI, combinando Power Query e DAX para transformar dados públicos em indicadores, rankings e dashboards voltados à exploração e interpretação de dados.
+A análise foi desenvolvida no Power BI, combinando Power Query e DAX para preparar os dados, construir indicadores e apresentar rankings e dashboards para exploração dos resultados.
+
+### Pergunta central
+
+**Quantidade de empresas e Receita Bruta contam a mesma história?**
+
+A análise compara volume empresarial e valor econômico sob duas perspectivas complementares: distribuição por Unidade da Federação e análise por atividade econômica/subclasse CNAE.
 
 ## 2. Principais resultados
 
@@ -15,7 +29,7 @@ A análise foi desenvolvida no Power BI, combinando Power Query e DAX para trans
 | **Receita Média por MEI** | **R$ 30,24 mil** |
 | **Arrecadação MEI** | **R$ 13,50 bilhões** |
 
-> A análise considera exclusivamente os registros classificados como `SIMPLES - MEI`. As contagens divulgadas pela fonte oficial estão sujeitas às regras de sigilo estatístico.
+> A análise considera exclusivamente o universo classificado como `SIMPLES - MEI`. Como a fonte é agregada e sujeita a sigilo estatístico, a quantidade divulgada não deve ser tratada sem ressalvas como uma contagem individual completa de CNPJs.
 
 ## 3. Principais insights
 
@@ -31,7 +45,7 @@ As cinco atividades com maior Receita Bruta entre as subclasses analisadas são:
 
 ### Quantidade de CNPJs ≠ Receita Bruta
 
-As atividades com maior quantidade de CNPJs não necessariamente ocupam as mesmas posições no ranking de Receita Bruta, evidenciando a importância de analisar volume e valor conjuntamente.
+As atividades com maior quantidade de CNPJs não necessariamente ocupam as mesmas posições no ranking de Receita Bruta. Por isso, o projeto analisa quantidade e valor separadamente antes de fazer a leitura conjunta.
 
 ### Concentração geográfica
 
@@ -41,7 +55,7 @@ As três UFs com maior quantidade de CNPJs na análise são:
 - **MG:** 1.247.636;
 - **RJ:** 940.544.
 
-O dashboard apresenta o **Top 10 por quantidade de CNPJs**.
+O dashboard apresenta o **Top 10 por quantidade de CNPJs** e permite ampliar a leitura para a distribuição por UF.
 
 ## 4. Dashboards
 
@@ -49,9 +63,9 @@ O dashboard apresenta o **Top 10 por quantidade de CNPJs**.
 
 `MEI_Brasil_2024.pbix`
 
-Dashboard com indicadores gerais, Receita Bruta, Receita Média, arrecadação, distribuição por UF e Top 10 UFs.
+Indicadores gerais, Receita Bruta, Receita Média, arrecadação, distribuição por UF e Top 10 UFs.
 
-[![Visão geral dos MEIs — 2024](assets/dashboard_preview_mei_brasil_2024.png)](dashboards/MEI_Brasil_2024.pbix)
+[![Abrir MEI_Brasil_2024.pbix](assets/dashboard_preview_mei_brasil_2024.png)](dashboards/MEI_Brasil_2024.pbix)
 
 [⬇ Abrir MEI_Brasil_2024.pbix](dashboards/MEI_Brasil_2024.pbix)
 
@@ -61,25 +75,68 @@ Dashboard com indicadores gerais, Receita Bruta, Receita Média, arrecadação, 
 
 `Fato_MEI_Subclasse.pbix`
 
-Dashboard com quantidade de CNPJs por atividade, Receita Bruta por atividade, rankings Top 10 e comparação entre subclasses CNAE.
+Quantidade de CNPJs por atividade, Receita Bruta por atividade, rankings Top 10 e comparação entre subclasses CNAE.
 
-[![Análise por atividade econômica — 2024](assets/Fato_MEI_Subclasse_README_visual.png)](dashboards/Fato_MEI_Subclasse.pbix)
+[![Abrir Fato_MEI_Subclasse.pbix](assets/Fato_MEI_Subclasse_README_visual.png)](dashboards/Fato_MEI_Subclasse.pbix)
 
 [⬇ Abrir Fato_MEI_Subclasse.pbix](dashboards/Fato_MEI_Subclasse.pbix)
 
-> As imagens acima são materiais de apresentação do projeto; os arquivos PBIX são os artefatos analíticos principais.
+> As imagens são prévias para leitura rápida. Os arquivos PBIX são os artefatos analíticos principais.
+
+### Visualização interativa na Web
+
+No momento, o projeto mantém os **PBIX como artefatos publicados**. Uma versão interativa no Power BI Service pode ser adicionada posteriormente; qualquer publicação pública deve considerar cuidadosamente o alcance dos dados expostos.
 
 ## 5. Tecnologias e competências demonstradas
 
 | Tecnologia | Aplicação |
 |---|---|
-| **Power BI** | Modelagem, indicadores e dashboards |
+| **Power BI** | Modelagem, indicadores, rankings e dashboards |
 | **Power Query** | Preparação e transformação dos dados |
 | **DAX** | Criação das medidas e indicadores |
 | **Git/GitHub** | Versionamento e documentação |
 | **Markdown** | Documentação técnica |
 
-## 6. Estrutura e modelagem dos dados
+## 6. Dados, recorte e transparência
+
+### Fonte oficial
+
+**Receita Federal do Brasil — Dados Setoriais 2024**.
+
+A publicação corresponde ao **ano-calendário de 2024** e foi publicada/atualizada em **09/12/2025**. A página oficial disponibiliza as tabelas agregadas e os respectivos metadados. citeturn174531search0turn174531search1
+
+Tabelas utilizadas:
+
+- **01b — Seção (SN e MEI)**: visão geral e análise por Unidade da Federação. citeturn174531search2
+- **05b — Subclasse (SN e MEI)**: análise por atividade econômica/CNAE. citeturn174531search3
+
+### Regra de universo
+
+As tabelas de origem abrangem **Simples Nacional e MEI**. Por isso, os indicadores apresentados como MEI utilizam explicitamente:
+
+```text
+Forma_Tributacao = "SIMPLES - MEI"
+```
+
+### O que foi tratado
+
+O fluxo de preparação foi estruturado por perspectiva analítica:
+
+1. seleção das tabelas oficiais adequadas ao nível de análise;
+2. uso do campo `Forma_Tributacao` para isolar `SIMPLES - MEI`;
+3. organização dos campos de quantidade, Receita Bruta, arrecadação, UF e subclasse CNAE;
+4. construção das medidas DAX utilizadas pelos dashboards;
+5. validação dos indicadores e rankings contra a fonte e entre as tabelas utilizadas.
+
+Não foi utilizada uma base transacional com 10 milhões de linhas. O valor de **≈ 10,3 milhões** representa um indicador agregado de quantidade de CNPJs no universo analisado; não significa que o Power BI esteja processando 10 milhões de registros individuais de CNPJ.
+
+### Nulos, duplicidades e anonimização
+
+A fonte utilizada neste projeto é **agregada**, não uma relação individual de CNPJs. Por isso, não foram realizados testes tradicionais de unicidade por CNPJ nem deduplicação de registros individuais. As limitações e regras de sigilo estatístico são consideradas na interpretação das contagens.
+
+Os arquivos publicados neste repositório não expõem uma base transacional individual de CNPJs. Por essa razão, o projeto descreve o dado como **agregado** em vez de atribuir uma classificação jurídica adicional de “anonimizado”.
+
+## 7. Estrutura e modelagem dos dados
 
 ### `MEI_Brasil_2024.pbix`
 
@@ -106,11 +163,11 @@ Divisão analítica:
 - `Subclasse (2)` → quantidade de CNPJs por atividade;
 - `Dim_CNAE` → dimensão compartilhada de atividade econômica utilizada pelas duas tabelas.
 
-`Subclasse` e `Subclasse (2)` não possuem relacionamento direto entre si. Ambas se relacionam com `Dim_CNAE`, que consolida as descrições de subclasse CNAE utilizadas pelas duas tabelas.
+`Subclasse` e `Subclasse (2)` não possuem relacionamento direto entre si. Ambas se relacionam com `Dim_CNAE`, que fornece a referência comum das descrições de subclasse CNAE.
 
-A estrutura atual não é apresentada como um **Star Schema** completo, pois o modelo foi construído para atender às perspectivas analíticas específicas do projeto.
+A estrutura atual **não é apresentada como um Star Schema completo**. A decisão de separar as perspectivas em dois PBIX e manter `Dim_CNAE` como dimensão compartilhada atende ao escopo analítico atual sem afirmar uma modelagem dimensional clássica que o modelo não possui.
 
-## 7. Medidas DAX
+## 8. Medidas DAX
 
 ### `Total MEIs`
 
@@ -149,28 +206,64 @@ Arrecadação MEI =
 SUM('Secao'[Arrecadacao_MEI_DAS_MEI])
 ```
 
-As medidas do `Fato_MEI_Subclasse.pbix` também restringem o universo por `Forma_Tributacao = "SIMPLES - MEI"`.
+### `Total CNPJ Subclasse`
+
+```DAX
+Total CNPJ Subclasse =
+CALCULATE(
+    SUM('Subclasse (2)'[Qtd_CNPJ]),
+    'Subclasse (2)'[Forma_Tributacao] = "SIMPLES - MEI"
+)
+```
+
+### `Total Receita Bruta`
+
+```DAX
+Total Receita Bruta =
+CALCULATE(
+    SUM('Subclasse'[Receita_Bruta]),
+    'Subclasse'[Forma_Tributacao] = "SIMPLES - MEI"
+)
+```
+
+Os visuais de Top 10 utilizam a medida analítica correspondente como referência do ranking, mantendo coerência entre a métrica exibida e o critério de seleção do Top N quando aplicável.
 
 [Ver documentação completa das medidas DAX](dax/medidas.md) · [📁 Guia da pasta DAX](dax/README.md)
 
-## 8. Metodologia
+## 9. Metodologia e ETL
 
-A fonte oficial utilizada é a publicação **Dados Setoriais 2024 da Receita Federal do Brasil**, especificamente:
+A fonte oficial fornece tabelas agregadas por níveis diferentes de classificação. O projeto mantém cada perspectiva em um relatório próprio para preservar a leitura dos indicadores.
 
-- **01b — Seção (SN e MEI)**;
-- **05b — Subclasse (SN e MEI)**.
+### Fluxo
 
-Como essas tabelas abrangem Simples Nacional e MEI, a análise exclusiva de MEIs utiliza o filtro:
+```text
+Receita Federal
+      ↓
+Tabelas 01b / 05b
+      ↓
+Power Query
+      ↓
+Recorte SIMPLES - MEI
+      ↓
+Modelo Power BI
+      ↓
+Medidas DAX
+      ↓
+Rankings e dashboards
+      ↓
+Insights e validações
+```
 
-`Forma_Tributacao = "SIMPLES - MEI"`
+### Granularidade
 
-A tabela 01b é utilizada para os indicadores gerais e a análise por UF. A tabela 05b é utilizada para a análise por subclasse CNAE.
+- **Tabela 01b:** Seção × Unidade da Federação × Forma de Tributação;
+- **Tabela 05b:** Subclasse CNAE × Unidade da Federação × Forma de Tributação.
 
-As tabelas são agregadas, não representam uma base transacional individual por CNPJ e possuem regras específicas de divulgação.
+Por essa razão, os resultados não representam uma base de detalhe transacional por CNPJ individual.
 
 [Ver metodologia detalhada](docs/metodologia.md)
 
-## 9. Qualidade e validação
+## 10. Qualidade e validação
 
 O projeto inclui controles de qualidade para aumentar a confiabilidade dos resultados, incluindo:
 
@@ -182,9 +275,17 @@ O projeto inclui controles de qualidade para aumentar a confiabilidade dos resul
 - conferência dos filtros e critérios Top N;
 - rastreabilidade entre fonte, coluna, filtro, medida e visual.
 
+Um teste de sanidade importante identificou que **R$ 2,48 trilhões** não representava a Receita Bruta exclusiva de MEIs: esse valor resultava da mistura de `SIMPLES` e `SIMPLES - MEI`. O universo correto produz **R$ 310,97 bilhões** para `SIMPLES - MEI`.
+
 [Ver controles de qualidade, confiabilidade e validação](docs/qualidade-dados.md)
 
-## 10. Recomendações de negócio e próximos desdobramentos
+## 11. Performance
+
+Não foi documentado um cenário de otimização baseado em “10 milhões de linhas”, porque **≈ 10,3 milhões é um indicador agregado e não o número de linhas processadas de uma base individual de CNPJs**.
+
+Os principais cuidados de desempenho estão relacionados à manutenção de modelos separados por perspectiva e ao uso de tabelas agregadas da fonte, evitando introduzir no projeto uma alegação de particionamento ou otimização que não foi efetivamente aplicada e validada.
+
+## 12. Recomendações de negócio e próximos desdobramentos
 
 Os achados permitem levantar hipóteses de aplicação para priorização territorial, análise setorial e aprofundamento da relação entre quantidade de empresas e Receita Bruta.
 
@@ -196,7 +297,7 @@ Essas recomendações são hipóteses analíticas e não representam relações 
 
 [Ver recomendações e próximos desdobramentos](docs/recomendacoes-negocio.md)
 
-## 11. Limitações dos dados
+## 13. Limitações dos dados
 
 As tabelas oficiais utilizadas estão sujeitas a regras de sigilo estatístico. Algumas quantidades podem ser suprimidas em determinadas combinações de classificação e localização.
 
@@ -204,60 +305,49 @@ Por isso, as contagens devem ser interpretadas considerando a cobertura e a gran
 
 Além disso, os dados são agregados e não permitem inferir diretamente o comportamento individual de cada CNPJ.
 
-## 12. Fonte dos dados
+## 14. Fonte dos dados
 
 **Receita Federal do Brasil — Dados Setoriais 2024**
 
 Tabelas utilizadas:
 
-- `01b — Seção (SN e MEI)`;
-- `05b — Subclasse (SN e MEI)`.
+- `01b — Seção (SN e MEI)`
+- `05b — Subclasse (SN e MEI)`
 
 Fontes oficiais:
 
 - [Dados Setoriais 2024 — Receita Federal](https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/estudos/pessoas-juridicas-por-setor/estudos-setoriais-das-pessoas-juridicas/dados-setoriais-2024)
 - [Tabela 01b — Seção (SN e MEI)](https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/estudos/pessoas-juridicas-por-setor/estudos-setoriais-das-pessoas-juridicas/dados-setoriais-2024/tabela-01b-secao-sn-e-mei/view)
 - [Tabela 05b — Subclasse (SN e MEI)](https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/estudos/pessoas-juridicas-por-setor/estudos-setoriais-das-pessoas-juridicas/dados-setoriais-2024/tabela-05b-subclasse-sn-e-mei/view)
-- [Metadados — Dados Setoriais 2024](https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/estudos/pessoas-juridicas-por-setor/estudos-setoriais-das-pessoas-juridicas/dados-setoriais-2024/metadados-dados-setoriais-2024)
+- [Metadados — Dados Setoriais 2024](https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/estudos/pessoas-juridicas-por-setor/estudos-setoriais-das-pessoas-juridicas/dados-setoriais-2024/metadados-dados-setoriais-2024/view)
 
-## 13. Como reproduzir este projeto
+## 15. Como reproduzir este projeto
 
 ### Pré-requisitos
 
-- **Power BI Desktop** para abrir e analisar os arquivos `.pbix`;
+- **Power BI Desktop**;
 - acesso à publicação oficial **Dados Setoriais 2024** da Receita Federal;
 - noções básicas de Power Query e DAX para reproduzir ou auditar as transformações e medidas.
 
 ### Passo a passo
 
-1. **Baixe as fontes oficiais**
-   - Tabela 01b para a visão geral e análise por UF;
-   - Tabela 05b para a análise por subclasse CNAE.
-
-2. **Abra o relatório correspondente**
-   - `dashboards/MEI_Brasil_2024.pbix` para a visão geral;
-   - `dashboards/Fato_MEI_Subclasse.pbix` para atividades econômicas.
-
-3. **Reaplique a regra de universo**
+1. Baixe as tabelas oficiais **01b** e **05b**.
+2. Abra o relatório correspondente:
+   - `dashboards/MEI_Brasil_2024.pbix` para a visão geral e UF;
+   - `dashboards/Fato_MEI_Subclasse.pbix` para as atividades econômicas.
+3. Confira o recorte:
 
 ```text
 Forma_Tributacao = "SIMPLES - MEI"
 ```
 
-4. **Confira as medidas DAX** em [`dax/medidas.md`](dax/medidas.md) e o guia em [`dax/README.md`](dax/README.md).
+4. Confira as medidas DAX em [`dax/medidas.md`](dax/medidas.md) e [`dax/README.md`](dax/README.md).
+5. Consulte [`docs/qualidade-dados.md`](docs/qualidade-dados.md) para os controles de validação.
+6. Use a documentação de cada camada para rastrear fonte, campo, medida e visual.
 
-5. **Valide os resultados** usando `docs/qualidade-dados.md`, especialmente Receita Bruta, Receita Média, arrecadação e critérios Top N.
+> Os PBIX publicados já contêm os modelos e visuais utilizados no projeto. A reprodução integral pode depender de nova importação/atualização das fontes oficiais e das condições da versão do Power BI Desktop utilizada.
 
-6. **Consulte a documentação de cada camada**:
-   - [`data/README.md`](data/README.md) — origem e uso dos dados;
-   - [`dashboards/README.md`](dashboards/README.md) — relatórios e como abrir;
-   - [`docs/dicionario-dados.md`](docs/dicionario-dados.md) — principais campos;
-   - [`docs/metodologia.md`](docs/metodologia.md) — regras analíticas;
-   - [`docs/modelo-dados.md`](docs/modelo-dados.md) — estrutura dos modelos.
-
-> Os PBIX publicados já contêm os modelos e visuais utilizados no projeto. A reprodução integral pode depender de uma nova importação/atualização das fontes oficiais e das condições da versão do Power BI Desktop utilizada.
-
-## 14. Estrutura do repositório
+## 16. Estrutura do repositório
 
 ```text
 analise-mei-brasil-2024/
@@ -285,7 +375,7 @@ analise-mei-brasil-2024/
 └── README.md
 ```
 
-## 15. Documentação
+## 17. Documentação
 
 - [Guia dos dashboards](dashboards/README.md)
 - [Guia dos dados](data/README.md)
@@ -298,13 +388,19 @@ analise-mei-brasil-2024/
 - [Recomendações de negócio](docs/recomendacoes-negocio.md)
 - [Dicionário de dados](docs/dicionario-dados.md)
 
-## 16. Licença
+## 18. Licença
 
 O projeto utiliza a licença MIT para o código e a documentação desenvolvidos no repositório.
 
 Os dados de terceiros utilizados na análise permanecem sujeitos às condições de uso e distribuição definidas por seus respectivos responsáveis.
 
-## 17. Status
+## 19. Contato
+
+- GitHub: [peedrovinicius](https://github.com/peedrovinicius)
+
+> Um link de LinkedIn pode ser acrescentado posteriormente quando a URL pública do perfil estiver definida para o portfólio.
+
+## 20. Status
 
 **Projeto concluído e documentado.**
 
