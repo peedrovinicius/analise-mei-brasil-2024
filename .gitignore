@@ -1,6 +1,13 @@
 # Power BI - arquivos temporários
 *.pbi-tools
 *.tmp
+**/.pbi/cache.abf
+**/.pbi/localSettings.json
+**/.pbi/editorSettings.json
+**/.pbi/unappliedChanges.json
+
+# Arquivos locais gerados pelo Power BI / sistema
+SQLDUMPER_ERRORLOG.log
 
 # Sistema operacional
 Thumbs.db
