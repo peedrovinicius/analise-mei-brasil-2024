@@ -97,14 +97,18 @@ Utilizada para:
 Bases utilizadas:
 
 - `Subclasse`;
-- `Subclasse (2)`.
+- `Subclasse (2)`;
+- `Dim_CNAE`.
 
 Divisão analítica:
 
 - `Subclasse` → Receita Bruta por atividade;
-- `Subclasse (2)` → quantidade de CNPJs por atividade.
+- `Subclasse (2)` → quantidade de CNPJs por atividade;
+- `Dim_CNAE` → dimensão compartilhada de atividade econômica utilizada pelas duas tabelas.
 
-Não há relacionamento entre as tabelas `Subclasse` e `Subclasse (2)`. Por isso, o modelo não é apresentado como um **Star Schema**.
+`Subclasse` e `Subclasse (2)` não possuem relacionamento direto entre si. Ambas se relacionam com `Dim_CNAE`, que consolida as descrições de subclasse CNAE utilizadas pelas duas tabelas.
+
+A estrutura atual não é apresentada como um **Star Schema** completo, pois o modelo foi construído para atender às perspectivas analíticas específicas do projeto.
 
 ## 7. Medidas DAX
 
