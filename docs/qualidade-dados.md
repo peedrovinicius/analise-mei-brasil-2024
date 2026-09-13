@@ -98,7 +98,6 @@ Essa rastreabilidade facilita a revisão e reduz o risco de apresentar uma métr
 | **Ordenação** | Ranking Top N com mesma medida no valor e no filtro | Evita seleção incoerente do Top 10 |
 | **Completude** | Verificação da cobertura divulgada e das células suprimidas | Contagens devem considerar sigilo estatístico |
 | **Unicidade** | Não tratada como base transacional | Tabelas são agregadas; não há uma linha por CNPJ individual |
-|
 
 A dimensão de unicidade não é aplicada como teste tradicional de duplicidade por CNPJ porque a fonte utilizada neste projeto é agregada e não constitui uma base transacional individual.
 
@@ -114,7 +113,9 @@ Essa limitação foi incorporada à interpretação dos indicadores de quantidad
 
 Os dois PBIX foram mantidos como modelos independentes, com finalidades analíticas diferentes.
 
-No `Fato_MEI_Subclasse.pbix`, `Subclasse` e `Subclasse (2)` são utilizadas separadamente e não possuem relacionamento entre si. O projeto não classifica essa estrutura como um Star Schema.
+No `Fato_MEI_Subclasse.pbix`, `Subclasse` e `Subclasse (2)` **não possuem relacionamento direto entre si**. Ambas se relacionam com a dimensão `Dim_CNAE`, que consolida as descrições de subclasse CNAE utilizadas pelas duas tabelas.
+
+Assim, a `Dim_CNAE` funciona como dimensão compartilhada para a análise por atividade econômica. O projeto não classifica essa estrutura como um Star Schema completo convencional.
 
 ## 11. Matriz de controles
 
@@ -142,6 +143,6 @@ Além disso, não foram atribuídos indicadores tradicionais de duplicidade por 
 
 ## Conclusão
 
-A qualidade do projeto é sustentada por uma combinação de validação da fonte, controle explícito do universo MEI, testes de sanidade, validação cruzada, revisão das medidas DAX, conferência dos rankings, rastreabilidade e documentação das limitações da fonte.
+A qualidade do projeto é sustentada por uma combinação de validação da fonte, controle explícito do universo MEI, testes de sanidade, validação cruzada, revisão das medidas DAX, conferência dos rankings, rastreabilidade e documentação das limitações da fonte oficial.
 
 Esses controles aumentam a rastreabilidade e a confiabilidade dos indicadores apresentados nos dashboards, mantendo explícitas as limitações da fonte oficial.
