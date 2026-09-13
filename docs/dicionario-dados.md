@@ -52,7 +52,7 @@ A análise por UF é realizada no `MEI_Brasil_2024.pbix`, com base na tabela `Se
 
 | Campo | Descrição | Uso no projeto |
 |---|---|---|
-| `Sublasse_CNAE_Descricao` | Descrição da subclasse CNAE utilizada na análise econômica. | Identificação das atividades nos rankings de quantidade e Receita Bruta. |
+| `Subclasse_CNAE_Descricao` | Descrição da subclasse CNAE utilizada na análise econômica. | Identificação das atividades nos rankings de quantidade e Receita Bruta. |
 
 > O nome do campo é mantido conforme aparece no modelo Power BI utilizado no projeto.
 
