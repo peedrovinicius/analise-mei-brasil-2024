@@ -75,7 +75,7 @@ Utilizada no `Fato_MEI_Subclasse.pbix` para a análise de Receita Bruta por ativ
 
 Utilizada no `Fato_MEI_Subclasse.pbix` para a análise de quantidade de CNPJs por atividade econômica.
 
-As tabelas `Subclasse` e `Subclasse (2)` são utilizadas separadamente e não possuem relacionamento entre si no modelo auditado.
+As tabelas `Subclasse` e `Subclasse (2)` não possuem relacionamento direto entre si. Ambas se relacionam com a dimensão `Dim_CNAE`, que fornece a referência comum das descrições de subclasse CNAE utilizadas nas duas tabelas.
 
 ## 8. Indicadores derivados
 
