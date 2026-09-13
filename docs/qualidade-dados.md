@@ -1,148 +1,104 @@
-# Qualidade, Confiabilidade e Validação dos Dados
+# Qualidade e validação dos dados
 
-## Objetivo
+Este arquivo registra as conferências feitas durante a construção e revisão dos dashboards.
 
-Esta documentação registra os principais controles utilizados para aumentar a confiabilidade dos resultados apresentados nos dashboards do projeto.
+## 1. Fonte
 
-O objetivo não é apenas produzir indicadores, mas verificar se os números, filtros, agregações e interpretações permanecem coerentes com a fonte oficial e com a finalidade analítica do projeto.
-
-## 1. Validação da fonte
-
-A análise utiliza os **Dados Setoriais 2024 da Receita Federal do Brasil**, com foco nas tabelas:
+A análise usa os **Dados Setoriais 2024 da Receita Federal do Brasil**, nas tabelas:
 
 - **01b — Seção (SN e MEI)**;
 - **05b — Subclasse (SN e MEI)**.
 
-As tabelas são agregadas e abrangem categorias do Simples Nacional e do MEI.
+As duas tabelas são agregadas e incluem categorias do Simples Nacional e do MEI.
 
-## 2. Validação do universo analisado
+## 2. Universo MEI
 
-Como a fonte inclui **SIMPLES** e **SIMPLES - MEI**, os indicadores apresentados como MEI devem utilizar exclusivamente:
+Para apresentar resultados exclusivamente de MEIs, foi usado:
 
 `Forma_Tributacao = "SIMPLES - MEI"`
 
-Esse controle foi aplicado nas principais medidas utilizadas nos dashboards.
+Esse filtro é aplicado nas principais medidas dos dashboards.
 
-## 3. Validação dos indicadores
+## 3. Conferência dos indicadores
 
-Os principais indicadores foram verificados por meio de relações matemáticas e cruzamentos com as tabelas oficiais.
+### Receita Bruta
 
-### Receita Bruta MEI
+A Receita Bruta do universo `SIMPLES - MEI` foi validada em aproximadamente **R$ 310,97 bilhões**.
 
-A Receita Bruta exclusiva do universo MEI foi validada em aproximadamente:
+O valor de **R$ 2,48 trilhões** apareceu em uma versão anterior porque `SIMPLES` e `SIMPLES - MEI` estavam sendo considerados juntos. Depois da correção do filtro, esse valor deixou de ser usado como Receita Bruta exclusiva dos MEIs.
 
-**R$ 310,97 bilhões**
-
-O valor de aproximadamente **R$ 2,48 trilhões** foi identificado como um agregado de **SIMPLES + SIMPLES - MEI**, e por isso foi excluído da apresentação como Receita Bruta exclusiva dos MEIs.
-
-### Receita Média por MEI
-
-A medida é definida como:
+### Receita Média
 
 `Receita Média por MEI = Receita Bruta MEI ÷ Total MEIs`
 
-O resultado apresentado no dashboard é aproximadamente **R$ 30,24 mil**.
+O resultado validado é de aproximadamente **R$ 30,24 mil**.
 
-### Arrecadação MEI
+### Arrecadação
 
-A arrecadação é calculada a partir do campo específico `Arrecadacao_MEI_DAS_MEI`, resultando em aproximadamente **R$ 13,50 bilhões**.
+O indicador usa `Arrecadacao_MEI_DAS_MEI` e apresenta aproximadamente **R$ 13,50 bilhões**.
 
-## 4. Testes de sanidade
+## 4. Teste de sanidade
 
-Foram realizados testes de plausibilidade para detectar resultados incompatíveis com o universo analisado.
+O valor de R$ 2,48 trilhões foi um alerta porque, combinado com cerca de 10 milhões de MEIs, gerava uma média incompatível com o recorte que estava sendo apresentado.
 
-Um exemplo importante foi a identificação da inconsistência entre uma Receita Bruta de R$ 2,48 trilhões e uma população de aproximadamente 10 milhões de MEIs. A média implícita ultrapassava significativamente o que seria esperado para o universo analisado.
+A conferência da origem mostrou que o problema era a mistura de `SIMPLES` com `SIMPLES - MEI`. O universo foi então corrigido para `SIMPLES - MEI`.
 
-A investigação desse resultado levou à identificação da mistura entre `SIMPLES` e `SIMPLES - MEI`, permitindo corrigir o universo utilizado nas medidas.
+Esse foi um controle importante porque a conta ajudou a encontrar o erro antes da publicação final.
 
-Esse teste complementa a conferência visual do dashboard e ajuda a identificar inconsistências nos indicadores.
+## 5. Conferência entre as tabelas
 
-## 5. Validação cruzada entre tabelas
+A Receita Bruta do universo `SIMPLES - MEI` foi comparada entre as tabelas 01b e 05b e chegou ao mesmo total consolidado de aproximadamente **R$ 310,97 bilhões**.
 
-A Receita Bruta do universo `SIMPLES - MEI` foi comparada entre as tabelas 01b e 05b e apresentou o mesmo total consolidado de aproximadamente **R$ 310,97 bilhões**.
+As quantidades de CNPJs podem diferir entre as tabelas porque elas trabalham com granularidades diferentes e estão sujeitas às regras de divulgação da fonte.
 
-As quantidades de CNPJs apresentam pequenas diferenças entre as tabelas em razão da granularidade e das regras de divulgação da fonte. Por isso, diferenças de quantidade entre 01b e 05b não são interpretadas isoladamente como erro do modelo.
+## 6. Rankings
 
-## 6. Validação de rankings
+Os rankings Top 10 foram conferidos para verificar se:
 
-Os rankings Top 10 foram verificados para garantir que:
+- a categoria usada no visual é a correta;
+- a medida representa o indicador que está sendo analisado;
+- o filtro Top N usa a mesma lógica do valor exibido;
+- a ordenação está em ordem decrescente quando o objetivo é mostrar os maiores resultados;
+- o universo `SIMPLES - MEI` está sendo respeitado.
 
-- o campo de categoria corresponde à dimensão analítica esperada;
-- o valor apresentado utiliza a medida correta;
-- o critério do filtro Top N utiliza a mesma medida do valor apresentado;
-- a ordenação é decrescente quando o objetivo é identificar os maiores resultados;
-- o universo MEI é respeitado.
+## 7. Rastreabilidade
 
-Esse controle foi aplicado aos rankings por atividade econômica e por Unidade da Federação.
+As principais métricas podem ser acompanhadas pelo caminho:
 
-## 7. Rastreabilidade das métricas
-
-Os principais indicadores possuem correspondência entre:
-
-**Fonte → coluna → filtro → medida DAX → visual → documentação**
+`Fonte → coluna → filtro → medida DAX → visual → documentação`
 
 Exemplo:
 
-`Receita Federal → Receita_Bruta → SIMPLES - MEI → Receita Bruta MEI → cartão/visual → documentação`
+`Receita Federal → Receita_Bruta → SIMPLES - MEI → Receita Bruta MEI → visual → documentação`
 
-Essa rastreabilidade facilita a revisão e reduz o risco de apresentar uma métrica com origem ou universo diferente do esperado.
+## 8. Sigilo estatístico
 
-## 8. Dimensões de qualidade avaliadas
+A fonte aplica regras de sigilo estatístico. Algumas células podem ter quantidades suprimidas quando há poucos registros.
 
-| Dimensão | Controle aplicado | Evidência / interpretação |
-|---|---|---|
-| **Validade** | Filtro explícito do universo `SIMPLES - MEI` | Indicadores exclusivos de MEI |
-| **Consistência** | Cruzamento de Receita Bruta entre 01b e 05b | Mesmo total consolidado de ~R$ 310,97 bi |
-| **Acurácia lógica** | Receita média = receita ÷ quantidade | ~R$ 30,24 mil |
-| **Integridade da métrica** | Fonte → coluna → DAX → visual | Rastreabilidade documentada |
-| **Ordenação** | Ranking Top N com mesma medida no valor e no filtro | Evita seleção incoerente do Top 10 |
-| **Completude** | Verificação da cobertura divulgada e das células suprimidas | Contagens devem considerar sigilo estatístico |
-| **Unicidade** | Não tratada como base transacional | Tabelas são agregadas; não há uma linha por CNPJ individual |
+Por isso, a quantidade de CNPJs divulgada precisa ser interpretada considerando as regras da publicação, e não como uma contagem individual sem ressalvas.
 
-A dimensão de unicidade não é aplicada como teste tradicional de duplicidade por CNPJ porque a fonte utilizada neste projeto é agregada e não constitui uma base transacional individual.
+## 9. Estrutura dos modelos
 
-## 9. Sigilo estatístico e contagem de CNPJs
+Os dois PBIX são independentes e atendem a perspectivas diferentes.
 
-As tabelas oficiais possuem regras de sigilo estatístico que podem suprimir determinadas quantidades em células com poucos registros.
+No `Fato_MEI_Subclasse.pbix`:
 
-Por esse motivo, a soma das quantidades explicitamente divulgadas não deve ser interpretada automaticamente como uma contagem absoluta da população total.
+- `Subclasse` → Receita Bruta;
+- `Subclasse (2)` → quantidade de CNPJs;
+- `Dim_CNAE` → dimensão compartilhada;
+- `Subclasse` e `Subclasse (2)` não possuem relacionamento direto entre si;
+- ambas se relacionam com `Dim_CNAE`.
 
-Essa limitação foi incorporada à interpretação dos indicadores de quantidade e às comparações entre tabelas de diferentes granularidades.
+Por esse motivo, o projeto não apresenta essa estrutura como um Star Schema completo convencional.
 
-## 10. Estrutura dos modelos
+## 10. O que não foi testado
 
-Os dois PBIX foram mantidos como modelos independentes, com finalidades analíticas diferentes.
+Não foram feitos testes de unicidade ou deduplicação por CNPJ porque as tabelas utilizadas são agregadas e não trazem um registro individual para cada empresa.
 
-No `Fato_MEI_Subclasse.pbix`, `Subclasse` e `Subclasse (2)` **não possuem relacionamento direto entre si**. Ambas se relacionam com a dimensão `Dim_CNAE`, que consolida as descrições de subclasse CNAE utilizadas pelas duas tabelas.
+Também não foi tratado um cenário de otimização para “10 milhões de linhas”, porque os aproximadamente 10,3 milhões representam uma quantidade agregada de CNPJs, e não o número de linhas de uma base transacional carregada no Power BI.
 
-Assim, a `Dim_CNAE` funciona como dimensão compartilhada para a análise por atividade econômica. O projeto não classifica essa estrutura como um Star Schema completo convencional.
+## 11. Conclusão
 
-## 11. Matriz de controles
+A validação combinou conferência da fonte, filtro do universo MEI, relações matemáticas, comparação entre tabelas, revisão das medidas DAX, conferência dos rankings e registro das limitações da fonte.
 
-| Controle | Verificação | Status |
-|---|---|---|
-| Fonte oficial | Receita Federal / Dados Setoriais 2024 | 🟢 |
-| Universo MEI | `SIMPLES - MEI` | 🟢 |
-| Receita Bruta | 01b × 05b | 🟢 |
-| Receita média | Receita ÷ quantidade | 🟢 |
-| Arrecadação | Campo específico de DAS-MEI | 🟢 |
-| Top 10 atividades | Medida × Top N | 🟢 |
-| Top 10 UF | Medida × Top N | 🟢 |
-| DAX | Modelo × documentação | 🟢 |
-| Granularidade | 01b × 05b | 🟢 |
-| Sigilo estatístico | Ressalva documentada | 🟢 |
-| Rastreabilidade | Fonte → medida → visual → documentação | 🟢 |
-
-## 12. Limitações
-
-A confiabilidade dos resultados está condicionada às definições, agregações e regras de divulgação presentes na fonte oficial.
-
-Os dados utilizados não constituem uma base transacional individual por CNPJ. Portanto, conclusões sobre comportamento individual de empresas não podem ser inferidas diretamente dos arquivos analisados.
-
-Além disso, não foram atribuídos indicadores tradicionais de duplicidade por CNPJ porque as tabelas utilizadas não expõem registros transacionais individuais.
-
-## Conclusão
-
-A qualidade do projeto é sustentada por uma combinação de validação da fonte, controle explícito do universo MEI, testes de sanidade, validação cruzada, revisão das medidas DAX, conferência dos rankings, rastreabilidade e documentação das limitações da fonte oficial.
-
-Esses controles aumentam a rastreabilidade e a confiabilidade dos indicadores apresentados nos dashboards, mantendo explícitas as limitações da fonte oficial.
+Os resultados publicados devem ser interpretados dentro da granularidade e das regras de divulgação dos Dados Setoriais 2024.
