@@ -87,7 +87,7 @@ Quantidade de CNPJs por atividade, Receita Bruta por atividade, rankings Top 10 
 
 ### Visualização interativa na Web
 
-No momento, o projeto mantém os **PBIX como artefatos publicados**. Uma versão interativa no Power BI Service pode ser adicionada posteriormente, desde que a publicação seja compatível com o nível de exposição dos dados e com a finalidade do portfólio.
+No momento, o projeto mantém os **PBIX como artefatos publicados**. Uma versão interativa no Power BI Service pode ser adicionada posteriormente; qualquer publicação pública deve considerar cuidadosamente o alcance dos dados expostos.
 
 ## 5. Tecnologias e competências demonstradas
 
@@ -105,19 +105,12 @@ No momento, o projeto mantém os **PBIX como artefatos publicados**. Uma versão
 
 **Receita Federal do Brasil — Dados Setoriais 2024**.
 
-A publicação corresponde ao **ano-calendário de 2024** e foi publicada em **09/12/2025**. A página oficial disponibiliza as tabelas agregadas e os respectivos metadados.
+A publicação corresponde ao **ano-calendário de 2024** e a página oficial disponibiliza as tabelas agregadas e os respectivos metadados.
 
 Tabelas utilizadas:
 
 - **01b — Seção (SN e MEI)**: visão geral e análise por Unidade da Federação.
 - **05b — Subclasse (SN e MEI)**: análise por atividade econômica/CNAE.
-
-Fontes oficiais:
-
-- [Dados Setoriais 2024 — Receita Federal](https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/estudos/pessoas-juridicas-por-setor/estudos-setoriais-das-pessoas-juridicas/dados-setoriais-2024)
-- [Tabela 01b — Seção (SN e MEI)](https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/estudos/pessoas-juridicas-por-setor/estudos-setoriais-das-pessoas-juridicas/dados-setoriais-2024/tabela-01b-secao-sn-e-mei/view)
-- [Tabela 05b — Subclasse (SN e MEI)](https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/estudos/pessoas-juridicas-por-setor/estudos-setoriais-das-pessoas-juridicas/dados-setoriais-2024/tabela-05b-subclasse-sn-e-mei/view)
-- [Metadados — Dados Setoriais 2024](https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/estudos/pessoas-juridicas-por-setor/estudos-setoriais-das-pessoas-juridicas/dados-setoriais-2024/metadados-dados-setoriais-2024)
 
 ### Regra de universo
 
@@ -141,15 +134,9 @@ Não foi utilizada uma base transacional com 10 milhões de linhas. O valor de *
 
 ### Nulos, duplicidades e anonimização
 
-A fonte utilizada neste projeto é **agregada**, não uma relação individual de CNPJs. Por isso, não foram realizados testes tradicionais de unicidade por CNPJ nem deduplicação de registros individuais.
+A fonte utilizada neste projeto é **agregada**, não uma relação individual de CNPJs. Por isso, não foram realizados testes tradicionais de unicidade por CNPJ nem deduplicação de registros individuais. As limitações e regras de sigilo estatístico são consideradas na interpretação das contagens.
 
-Os arquivos publicados neste repositório também não expõem uma base transacional individual de CNPJs. Por essa razão, o projeto descreve o dado como **agregado**, sem atribuir uma classificação adicional de “anonimizado”.
-
-### Pasta `data/`
-
-A pasta `data/` contém a documentação de origem e uso dos dados, mas **não versiona os arquivos oficiais brutos**. As tabelas são obtidas diretamente nos endereços oficiais da Receita Federal indicados acima.
-
-Isso evita versionar cópias de arquivos de origem e mantém a reprodução vinculada à fonte oficial.
+Os arquivos publicados neste repositório não expõem uma base transacional individual de CNPJs. Por essa razão, o projeto descreve o dado como **agregado** em vez de atribuir uma classificação jurídica adicional de “anonimizado”.
 
 ## 7. Estrutura e modelagem dos dados
 
@@ -298,7 +285,7 @@ Um teste de sanidade importante identificou que **R$ 2,48 trilhões** não repre
 
 Não foi documentado um cenário de otimização baseado em “10 milhões de linhas”, porque **≈ 10,3 milhões é um indicador agregado e não o número de linhas processadas de uma base individual de CNPJs**.
 
-Os principais cuidados de desempenho estão relacionados à manutenção de modelos separados por perspectiva e ao uso de tabelas agregadas da fonte. O README não atribui particionamento, otimizações ou técnicas de performance que não tenham sido efetivamente aplicadas e validadas.
+Os principais cuidados de desempenho estão relacionados à manutenção de modelos separados por perspectiva e ao uso de tabelas agregadas da fonte, evitando introduzir no projeto uma alegação de particionamento ou otimização que não foi efetivamente aplicada e validada.
 
 ## 12. Recomendações de negócio e próximos desdobramentos
 
@@ -320,7 +307,23 @@ Por isso, as contagens devem ser interpretadas considerando a cobertura e a gran
 
 Além disso, os dados são agregados e não permitem inferir diretamente o comportamento individual de cada CNPJ.
 
-## 14. Como reproduzir este projeto
+## 14. Fonte dos dados
+
+**Receita Federal do Brasil — Dados Setoriais 2024**
+
+Tabelas utilizadas:
+
+- `01b — Seção (SN e MEI)`;
+- `05b — Subclasse (SN e MEI)`.
+
+Fontes oficiais:
+
+- [Dados Setoriais 2024 — Receita Federal](https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/estudos/pessoas-juridicas-por-setor/estudos-setoriais-das-pessoas-juridicas/dados-setoriais-2024)
+- [Tabela 01b — Seção (SN e MEI)](https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/estudos/pessoas-juridicas-por-setor/estudos-setoriais-das-pessoas-juridicas/dados-setoriais-2024/tabela-01b-secao-sn-e-mei/view)
+- [Tabela 05b — Subclasse (SN e MEI)](https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/estudos/pessoas-juridicas-por-setor/estudos-setoriais-das-pessoas-juridicas/dados-setoriais-2024/tabela-05b-subclasse-sn-e-mei/view)
+- [Metadados — Dados Setoriais 2024](https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/estudos/pessoas-juridicas-por-setor/estudos-setoriais-das-pessoas-juridicas/dados-setoriais-2024/metadados-dados-setoriais-2024/view)
+
+## 15. Como reproduzir este projeto
 
 ### Pré-requisitos
 
@@ -330,7 +333,7 @@ Além disso, os dados são agregados e não permitem inferir diretamente o compo
 
 ### Passo a passo
 
-1. Baixe as tabelas oficiais **01b** e **05b** nos links indicados na seção de fonte.
+1. Baixe as tabelas oficiais **01b** e **05b**.
 2. Abra o relatório correspondente:
    - `dashboards/MEI_Brasil_2024.pbix` para a visão geral e UF;
    - `dashboards/Fato_MEI_Subclasse.pbix` para as atividades econômicas.
@@ -346,7 +349,7 @@ Forma_Tributacao = "SIMPLES - MEI"
 
 > Os PBIX publicados já contêm os modelos e visuais utilizados no projeto. A reprodução integral pode depender de nova importação/atualização das fontes oficiais e das condições da versão do Power BI Desktop utilizada.
 
-## 15. Estrutura do repositório
+## 16. Estrutura do repositório
 
 ```text
 analise-mei-brasil-2024/
@@ -374,7 +377,7 @@ analise-mei-brasil-2024/
 └── README.md
 ```
 
-## 16. Documentação
+## 17. Documentação
 
 - [Guia dos dashboards](dashboards/README.md)
 - [Guia dos dados](data/README.md)
@@ -387,13 +390,17 @@ analise-mei-brasil-2024/
 - [Recomendações de negócio](docs/recomendacoes-negocio.md)
 - [Dicionário de dados](docs/dicionario-dados.md)
 
-## 17. Licença
+## 18. Licença
 
 O projeto utiliza a licença MIT para o código e a documentação desenvolvidos no repositório.
 
 Os dados de terceiros utilizados na análise permanecem sujeitos às condições de uso e distribuição definidas por seus respectivos responsáveis.
 
-## 18. Status
+## 19. Contato
+
+[LinkedIn — Pedro Vinícius](https://www.linkedin.com/in/peedrovinicius)
+
+## 20. Status
 
 **Projeto concluído e documentado.**
 
