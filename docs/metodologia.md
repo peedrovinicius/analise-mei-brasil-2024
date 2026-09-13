@@ -2,147 +2,134 @@
 
 ## Objetivo
 
-Este projeto apresenta uma análise dos Microempreendedores Individuais (MEIs) no Brasil referente ao ano-calendário de 2024, com foco na quantidade de CNPJs, Receita Bruta, arrecadação, distribuição geográfica e atividades econômicas.
+O projeto analisa os Microempreendedores Individuais (MEIs) no Brasil no ano-calendário de 2024, olhando para quantidade de CNPJs, Receita Bruta, arrecadação, distribuição por UF e atividades econômicas.
 
 ## Fonte dos dados
 
-Os dados utilizados no projeto têm como fonte oficial a Receita Federal do Brasil, por meio da publicação **Dados Setoriais 2024** e seus respectivos metadados.
+A fonte é a Receita Federal do Brasil, na publicação **Dados Setoriais 2024** e seus metadados.
 
-As principais tabelas utilizadas são:
+Foram usadas duas tabelas:
 
-- **Tabela 01b — Seção (SN e MEI)**, utilizada na análise por seção e Unidade da Federação;
-- **Tabela 05b — Subclasse (SN e MEI)**, utilizada na análise por subclasse CNAE.
+- **01b — Seção (SN e MEI)**: visão geral e análise por Unidade da Federação;
+- **05b — Subclasse (SN e MEI)**: análise por subclasse CNAE.
 
-As tabelas oficiais abrangem **Simples Nacional e MEI**. Por esse motivo, para que os indicadores representem exclusivamente o universo de MEIs, é aplicado o filtro:
+As tabelas reúnem **Simples Nacional e MEI**. Para analisar somente os MEIs, o projeto usa o filtro:
 
 `Forma_Tributacao = "SIMPLES - MEI"`
 
-Essa regra é especialmente importante para os indicadores de quantidade e Receita Bruta, evitando que empresas do Simples Nacional que não são MEI sejam incorporadas aos resultados apresentados como MEI.
+Esse filtro evita misturar empresas do Simples Nacional que não pertencem ao universo MEI.
 
 ## Abordagem analítica
 
-A análise foi desenvolvida no Power BI, utilizando Power Query para preparação dos dados e DAX para criação dos indicadores e medidas utilizados nos dashboards.
+O trabalho foi feito no Power BI, com Power Query na preparação dos dados e DAX nos indicadores dos dashboards.
 
-Os dois arquivos Power BI foram estruturados para atender análises complementares do mesmo tema:
+Os relatórios foram separados por finalidade:
 
-- `MEI_Brasil_2024.pbix` — indicadores gerais e distribuição por Unidade da Federação;
-- `Fato_MEI_Subclasse.pbix` — análise de atividades econômicas por subclasse CNAE.
+- `MEI_Brasil_2024.pbix`: indicadores gerais e distribuição por UF;
+- `Fato_MEI_Subclasse.pbix`: análise das atividades econômicas por subclasse CNAE.
 
 ## Preparação dos dados
 
-Os dados oficiais foram organizados em tabelas específicas para cada perspectiva de análise.
+Cada tabela foi mantida na granularidade adequada à análise.
 
-No arquivo `MEI_Brasil_2024.pbix`, a tabela `Secao` concentra os campos utilizados para os indicadores gerais e para a distribuição dos MEIs por Unidade da Federação.
+No `MEI_Brasil_2024.pbix`, a tabela `Secao` reúne os campos usados para quantidade de CNPJs, Receita Bruta, arrecadação e distribuição por UF.
 
-No arquivo `Fato_MEI_Subclasse.pbix`, as tabelas `Subclasse` e `Subclasse (2)` são utilizadas separadamente para análises de Receita Bruta e quantidade de CNPJs por atividade econômica.
+No `Fato_MEI_Subclasse.pbix`, `Subclasse` e `Subclasse (2)` são usadas separadamente para Receita Bruta e quantidade de CNPJs por atividade.
 
-A análise por MEI utiliza exclusivamente os registros classificados como `SIMPLES - MEI` na origem dos dados.
+O recorte MEI é feito na origem lógica dos dados por `Forma_Tributacao = "SIMPLES - MEI"`.
 
 ## Granularidade
 
-A Tabela 01b trabalha em nível de **Seção × Unidade da Federação × Forma de Tributação**, enquanto a Tabela 05b trabalha em nível de **Subclasse CNAE × Unidade da Federação × Forma de Tributação**.
+- **Tabela 01b:** Seção × Unidade da Federação × Forma de Tributação;
+- **Tabela 05b:** Subclasse CNAE × Unidade da Federação × Forma de Tributação.
 
-Por isso, as duas tabelas não devem ser tratadas como bases de detalhe transacional por CNPJ individual. Os indicadores são produzidos a partir das agregações publicadas pela Receita Federal em cada nível de classificação.
+Essas tabelas são agregadas. Não há uma linha individual para cada CNPJ, portanto o projeto não deve ser interpretado como uma base transacional.
 
 ## Indicadores
 
-Os principais indicadores utilizados no projeto são:
+Os principais indicadores são:
 
 - Total de MEIs;
 - Receita Bruta;
 - Receita Média por MEI;
 - Arrecadação MEI;
-- Total de CNPJs por atividade;
+- quantidade de CNPJs por atividade;
 - Receita Bruta por atividade.
 
-As medidas DAX utilizadas estão documentadas em:
-
-`dax/medidas.md`
+As fórmulas estão em `dax/medidas.md`.
 
 ## Regras de cálculo
 
 ### Total de MEIs
 
-A quantidade de MEIs é calculada a partir da coluna `Qtd_CNPJ`, considerando exclusivamente os registros classificados como `SIMPLES - MEI`.
+A quantidade é obtida de `Qtd_CNPJ`, considerando o universo `SIMPLES - MEI`.
 
 ### Receita Bruta MEI
 
-A Receita Bruta dos MEIs é calculada a partir da coluna `Receita_Bruta`, considerando exclusivamente os registros classificados como `SIMPLES - MEI`.
+A Receita Bruta é obtida de `Receita_Bruta`, também considerando `SIMPLES - MEI`.
 
-Na base oficial de 2024, o valor consolidado para o universo `SIMPLES - MEI` é aproximadamente **R$ 310,97 bilhões**.
+O total validado para esse universo é de aproximadamente **R$ 310,97 bilhões**.
 
-O valor de aproximadamente **R$ 2,48 trilhões** corresponde à soma de **SIMPLES + SIMPLES - MEI** e, portanto, não deve ser apresentado como Receita Bruta exclusiva dos MEIs.
+O valor de aproximadamente **R$ 2,48 trilhões** não corresponde aos MEIs isoladamente. Ele resulta da soma de `SIMPLES` e `SIMPLES - MEI` na base de origem.
 
 ### Receita Média por MEI
 
-A Receita Média por MEI é calculada pela divisão entre a Receita Bruta MEI e o Total de MEIs:
-
 `Receita Média por MEI = Receita Bruta MEI ÷ Total MEIs`
+
+O resultado apresentado é de aproximadamente **R$ 30,24 mil**.
 
 ### Arrecadação MEI
 
-A arrecadação é calculada a partir da coluna `Arrecadacao_MEI_DAS_MEI`, utilizada no indicador de arrecadação dos MEIs.
+O indicador usa `Arrecadacao_MEI_DAS_MEI` e resulta em aproximadamente **R$ 13,50 bilhões**.
 
 ## Análise geográfica
 
-A análise geográfica utiliza a Unidade da Federação (UF) como dimensão de comparação.
+A análise por UF usa a tabela `Secao` e compara os resultados dentro do universo `SIMPLES - MEI`.
 
-O dashboard apresenta as 10 UFs com maior quantidade de CNPJs analisados, utilizando a tabela `Secao` e o indicador de quantidade de CNPJs.
-
-A comparação geográfica deve ser feita dentro do universo `SIMPLES - MEI`.
+O dashboard apresenta o Top 10 por quantidade de CNPJs e também a distribuição por UF.
 
 ## Análise por atividade econômica
 
-A análise de atividades econômicas utiliza a descrição das subclasses CNAE.
+A tabela `05b` permite analisar os resultados por subclasse CNAE.
 
-São apresentadas análises independentes considerando:
+Os rankings são feitos separadamente para:
 
-- quantidade de CNPJs por atividade;
-- Receita Bruta por atividade.
+- quantidade de CNPJs;
+- Receita Bruta.
 
-Os rankings de atividades utilizam filtros Top 10 nos visuais correspondentes e são interpretados dentro do universo `SIMPLES - MEI`.
+Os visuais de Top 10 usam a medida correspondente ao indicador apresentado.
 
-## Sigilo estatístico e contagem de CNPJs
+## Sigilo estatístico
 
-As publicações da Receita Federal aplicam regras de sigilo estatístico. Em determinadas combinações de classificação e localização, quando a quantidade de empresas é inferior a quatro, a quantidade pode ser suprimida e apresentada em tabela complementar.
+A Receita Federal aplica regras de sigilo estatístico a determinadas células. Em algumas combinações de classificação e localização, quantidades inferiores a quatro empresas podem ser suprimidas ou divulgadas de forma complementar.
 
-Por esse motivo, a soma das quantidades explicitamente divulgadas em uma tabela não deve ser interpretada automaticamente como uma contagem absoluta da população total sem considerar a regra de supressão estatística.
-
-Essa ressalva é particularmente importante para indicadores de quantidade de CNPJs e para comparações entre tabelas com diferentes níveis de agregação.
+Por isso, a soma das quantidades explicitamente divulgadas não deve ser tratada automaticamente como a contagem absoluta da população.
 
 ## Validação dos indicadores
 
-As medidas utilizadas nos dashboards foram conferidas diretamente nos arquivos Power BI e comparadas com as bases oficiais utilizadas na análise.
+Os dashboards foram conferidos considerando:
 
-A validação considerou:
-
-- universo de `SIMPLES - MEI`;
+- universo `SIMPLES - MEI`;
 - Receita Bruta;
+- Receita Média;
 - arrecadação;
 - rankings Top 10;
-- distribuição por Unidade da Federação;
+- distribuição por UF;
 - consistência entre as tabelas 01b e 05b.
 
-As fórmulas DAX documentadas em `dax/medidas.md` devem permanecer alinhadas às medidas efetivamente utilizadas nos modelos Power BI.
+As medidas DAX documentadas devem permanecer alinhadas às medidas dos arquivos Power BI.
 
 ## Organização da análise
 
-O projeto foi dividido em dois relatórios Power BI para separar as perspectivas de análise e facilitar a leitura dos indicadores.
+A separação em dois relatórios permite trabalhar de forma independente com indicadores gerais, análise geográfica e análise por atividade econômica.
 
-Essa separação permite trabalhar de forma independente com:
-
-- indicadores gerais;
-- distribuição geográfica;
-- quantidade de CNPJs por atividade;
-- Receita Bruta por atividade.
+Essa divisão foi mantida porque as tabelas oficiais têm granularidades diferentes e atendem a perguntas analíticas diferentes.
 
 ## Limitações
 
-Os resultados apresentados dependem das definições, agregações e regras de divulgação presentes nas tabelas oficiais da Receita Federal para o ano-calendário de 2024.
+Os resultados dependem das definições, agregações e regras de divulgação dos Dados Setoriais 2024 da Receita Federal.
 
-As tabelas utilizadas não representam uma base transacional individual de CNPJs. Portanto, análises que exijam o acompanhamento de cada CNPJ ou de eventos em nível transacional não podem ser inferidas diretamente desses arquivos agregados.
-
-Os indicadores de quantidade também estão sujeitos às regras de sigilo estatístico descritas nesta metodologia.
+Os arquivos utilizados não formam uma base individual de CNPJs. Assim, não é possível inferir comportamento ou eventos transacionais de cada empresa a partir dessas tabelas.
 
 ## Referência oficial
 
