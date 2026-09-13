@@ -10,6 +10,12 @@
 
 > **Projeto de portfólio em Power BI, Power Query e DAX**, desenvolvido a partir dos **Dados Setoriais 2024 da Receita Federal do Brasil**. O foco é analisar distribuição geográfica, atividades econômicas, Receita Bruta e arrecadação dos Microempreendedores Individuais.
 
+## Principal achado
+
+**Quantidade de empresas e Receita Bruta não contam exatamente a mesma história.** O projeto compara esses dois indicadores para mostrar como a concentração dos MEIs varia por atividade econômica e por Unidade da Federação.
+
+No universo `SIMPLES - MEI`, a Receita Bruta validada é de **R$ 310,97 bilhões**, com Receita Média de **R$ 30,24 mil por MEI** e Arrecadação MEI de **R$ 13,50 bilhões**. Entre as subclasses analisadas, **Cabeleireiros** lideram tanto em quantidade de CNPJs quanto em Receita Bruta.
+
 ## 1. Sobre o projeto
 
 Este projeto analisa o universo dos Microempreendedores Individuais (MEIs) no Brasil no **ano-calendário de 2024**, utilizando as tabelas agregadas `01b — Seção (SN e MEI)` e `05b — Subclasse (SN e MEI)` da Receita Federal.
@@ -313,8 +319,8 @@ Além disso, os dados são agregados e não permitem inferir diretamente o compo
 
 Tabelas utilizadas:
 
-- `01b — Seção (SN e MEI)`;
-- `05b — Subclasse (SN e MEI)`.
+- `01b — Seção (SN e MEI)`
+- `05b — Subclasse (SN e MEI)`
 
 Fontes oficiais:
 
