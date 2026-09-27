@@ -20,7 +20,7 @@ Essa abordagem evita usar apenas quantidade de empresas como proxy de relevânci
 
 A comparação entre quantidade de CNPJs e Receita Bruta permite identificar atividades em que a concentração empresarial e a concentração econômica apresentam comportamentos diferentes.
 
-Esse cruzamento pode orientar análises posteriores de receita média por atividade e de distribuição regional dentro de cada subclasse.
+Esse cruzamento pode orientar análises posteriores da razão entre Receita Bruta e quantidade divulgada por atividade, além da distribuição regional dentro de cada subclasse.
 
 ## 4. Próximos aprofundamentos analíticos
 
@@ -28,7 +28,7 @@ Como evolução do projeto, poderiam ser investigados:
 
 - comparação histórica entre anos;
 - evolução da Receita Bruta por atividade e UF;
-- receita média por subclasse e por estado;
+- razão entre Receita Bruta e quantidade divulgada por subclasse e por estado;
 - participação percentual de cada atividade no total;
 - identificação de mudanças de concentração ao longo do tempo.
 

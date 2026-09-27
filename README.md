@@ -93,7 +93,7 @@ Quantidade de CNPJs por atividade, Receita Bruta por atividade, rankings Top 10 
 
 ### Visualização interativa na Web
 
-No momento, o projeto mantém os **PBIX como artefatos publicados**. Uma versão interativa no Power BI Service pode ser adicionada posteriormente; qualquer publicação pública deve considerar cuidadosamente o alcance dos dados expostos.
+Os **PBIX são os artefatos analíticos publicados** do projeto. As imagens incluídas no README funcionam como prévias para leitura rápida sem depender da abertura do Power BI Desktop.
 
 ## 5. Tecnologias e competências demonstradas
 
@@ -301,7 +301,7 @@ Os achados permitem levantar hipóteses de aplicação para priorização territ
 
 A concentração observada em determinadas UFs pode orientar investigações territoriais mais detalhadas, enquanto a comparação entre quantidade de CNPJs e Receita Bruta ajuda a evitar o uso de volume empresarial como único indicador de relevância econômica.
 
-Como próximos desdobramentos, o projeto pode evoluir para análises históricas, receita média por atividade e UF, participação percentual por segmento e mudanças de concentração ao longo do tempo.
+Como possíveis extensões, o projeto pode incorporar análises históricas, razões entre Receita Bruta e quantidade divulgada por atividade e UF, participação percentual por segmento e mudanças de concentração ao longo do tempo.
 
 Essas recomendações são hipóteses analíticas e não representam relações causais comprovadas pelos dados.
 
