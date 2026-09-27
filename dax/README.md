@@ -38,7 +38,7 @@ DIVIDE(
 )
 ```
 
-**Raciocínio:** calcula o valor médio dividindo a Receita Bruta MEI pela quantidade de CNPJs utilizada no indicador. `DIVIDE()` evita erro de divisão por zero.
+**Raciocínio:** calcula a razão entre a Receita Bruta MEI e a quantidade de CNPJs divulgada utilizada no indicador. `DIVIDE()` evita erro de divisão por zero. Como pequenas contagens podem ser suprimidas por sigilo estatístico, o resultado não representa uma média populacional exata.
 
 ### `Total CNPJ Subclasse`
 
