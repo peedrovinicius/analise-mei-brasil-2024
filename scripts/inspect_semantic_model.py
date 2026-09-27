@@ -13,7 +13,7 @@ def main() -> None:
         print(f"=== {file_name} ===")
         model = PBIXRay(file_name)
         print("TABLES")
-        print(model.tables.to_string(index=False))
+        print(list(model.tables))
         print("DAX_MEASURES")
         print(model.dax_measures.to_string(index=False))
         print("RELATIONSHIPS")
