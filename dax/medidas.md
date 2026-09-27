@@ -34,7 +34,7 @@ DIVIDE(
     [Total MEIs]
 )
 
-Calcula a receita média por MEI dividindo a Receita Bruta total pela quantidade de CNPJs do universo MEI.
+Calcula a razão entre a Receita Bruta total e a quantidade de CNPJs divulgada no universo MEI. Como pequenas contagens podem ser suprimidas por sigilo estatístico, o resultado não deve ser interpretado como uma média individual exata de toda a população.
 
 A função DIVIDE() é utilizada para tratar de forma segura situações em que o denominador possa ser zero.
 
