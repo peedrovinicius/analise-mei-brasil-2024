@@ -1,6 +1,6 @@
 # Raio-X do Empreendedorismo no Brasil: Inteligência de Dados e Concentração de Mercado dos MEIs (2024)
 
-[![Power BI](https://img.shields.io/badge/Power%20BI-Dashboard-F2C811?logo=powerbi&logoColor=white)](#dashboards) [![DAX](https://img.shields.io/badge/DAX-Medidas-1f6feb)](dax/medidas.md) [![License](https://img.shields.io/github/license/peedrovinicius/analise-mei-brasil-2024)](LICENSE) [![Last commit](https://img.shields.io/github/last-commit/peedrovinicius/analise-mei-brasil-2024)](https://github.com/peedrovinicius/analise-mei-brasil-2024/commits/main)
+[![Power BI](https://img.shields.io/badge/Power%20BI-Dashboard-F2C811?logo=powerbi&logoColor=white)](#4-dashboards) [![DAX](https://img.shields.io/badge/DAX-Medidas-1f6feb)](dax/medidas.md) [![License](https://img.shields.io/github/license/peedrovinicius/analise-mei-brasil-2024)](LICENSE) [![Last commit](https://img.shields.io/github/last-commit/peedrovinicius/analise-mei-brasil-2024)](https://github.com/peedrovinicius/analise-mei-brasil-2024/commits/main)
 
 ## Visualização rápida
 
