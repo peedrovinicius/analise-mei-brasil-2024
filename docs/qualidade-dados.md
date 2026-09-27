@@ -105,13 +105,13 @@ Também não foi tratado um cenário de otimização para “10 milhões de linh
 
 O metadado oficial denomina a variável de quantidade como `Quantidade_de_CNPJ`. No modelo Power BI e nas medidas documentadas ela aparece como `Qtd_CNPJ`. Essa renomeação é registrada explicitamente para evitar confundir o nome adotado no modelo com o nome original da fonte.
 
-A descrição oficial de atividade econômica utiliza `agreg_CNAE_Descricao`; no modelo de subclasse, a documentação usa `Subclasse_CNAE_Descricao` para a coluna correspondente.
+O metadado geral descreve a atividade por `agreg_CNAE_Descricao`. O arquivo 05b e os visuais do PBIX usam `Sublasse_CNAE_Descricao`, com essa grafia; a auditoria estrutural confirmou a referência diretamente no relatório.
 
 ## 12. Auditoria automatizada da publicação oficial
 
 O arquivo `scripts/validate_official_data.py` baixa diretamente as tabelas 01b e 05b, confere seus SHA-256, recalcula os totais e rankings centrais e falha diante de qualquer divergência. A execução é automatizada pelo workflow `.github/workflows/source-audit.yml`.
 
-Os hashes e resultados completos estão em [auditoria-fonte-oficial.md](auditoria-fonte-oficial.md).
+Os hashes e resultados completos estão em [auditoria-fonte-oficial.md](auditoria-fonte-oficial.md). A estrutura dos relatórios Power BI é verificada separadamente em [auditoria-pbix.md](auditoria-pbix.md).
 
 ## 13. Conclusão
 

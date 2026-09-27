@@ -376,6 +376,7 @@ analise-mei-brasil-2024/
 │   └── README.md
 ├── docs/
 │   ├── auditoria-fonte-oficial.md
+│   ├── auditoria-pbix.md
 │   ├── dicionario-dados.md
 │   ├── insights.md
 │   ├── metodologia.md
@@ -383,7 +384,8 @@ analise-mei-brasil-2024/
 │   ├── qualidade-dados.md
 │   └── recomendacoes-negocio.md
 ├── scripts/
-│   └── validate_official_data.py
+│   ├── validate_official_data.py
+│   └── validate_pbix_structure.py
 ├── .github/
 │   └── workflows/
 │       └── source-audit.yml
@@ -406,6 +408,7 @@ analise-mei-brasil-2024/
 - [Recomendações de negócio](docs/recomendacoes-negocio.md)
 - [Dicionário de dados](docs/dicionario-dados.md)
 - [Auditoria independente da fonte oficial](docs/auditoria-fonte-oficial.md)
+- [Auditoria estrutural dos PBIX](docs/auditoria-pbix.md)
 
 ## 18. Licença
 

@@ -54,9 +54,9 @@ A análise por UF é realizada no `MEI_Brasil_2024.pbix`, com base na tabela `Se
 
 | Metadado oficial | Cabeçalho da tabela 05b | Campo no modelo | Uso no projeto |
 |---|---|---|---|
-| `agreg_CNAE_Descricao` | `Sublasse_CNAE_Descricao` | `Subclasse_CNAE_Descricao` | Identificação das atividades nos rankings de quantidade e Receita Bruta. |
+| `agreg_CNAE_Descricao` | `Sublasse_CNAE_Descricao` | `Sublasse_CNAE_Descricao` | Identificação das atividades nos rankings de quantidade e Receita Bruta. |
 
-O arquivo 05b publicado pela Receita usa literalmente a grafia `Sublasse_CNAE_Descricao`. O modelo adota `Subclasse_CNAE_Descricao`, enquanto o metadado geral nomeia essa família de variável como `agreg_CNAE_Descricao`. O projeto registra as três camadas para preservar a linhagem sem tratar renomeações como campos diferentes.
+O arquivo 05b publicado pela Receita e o campo efetivamente referenciado pelos visuais do modelo usam literalmente a grafia `Sublasse_CNAE_Descricao`. O metadado geral nomeia essa família de variável como `agreg_CNAE_Descricao`. A auditoria estrutural do PBIX confirmou essa nomenclatura.
 
 ## 7. Tabelas e perspectivas
 

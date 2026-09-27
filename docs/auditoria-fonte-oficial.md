@@ -84,7 +84,7 @@ Nesta versão da fonte, a soma somente das linhas `SIMPLES - MEI` e a soma da co
 
 ## Nomenclatura e rastreabilidade
 
-Os metadados descrevem genericamente a coluna de atividade como `agreg_CNAE_Descricao`. O cabeçalho do arquivo oficial 05b usa `Sublasse_CNAE_Descricao`, com essa grafia, enquanto o modelo Power BI utiliza/documenta `Subclasse_CNAE_Descricao`.
+Os metadados descrevem genericamente a coluna de atividade como `agreg_CNAE_Descricao`. O cabeçalho do arquivo oficial 05b e os visuais do PBIX usam `Sublasse_CNAE_Descricao`, com essa grafia.
 
 Da mesma forma, a fonte oficial usa `Quantidade_de_CNPJ`, enquanto o modelo usa `Qtd_CNPJ`.
 

@@ -54,3 +54,12 @@ Os arquivos publicados no repositório são:
 Ao abrir os relatórios, verifique se as medidas e visuais permanecem carregados corretamente. Os indicadores e rankings devem ser interpretados em conjunto com a metodologia, as limitações e os controles de qualidade documentados no projeto.
 
 A apresentação visual dos relatórios também está disponível em [`../assets/`](../assets/).
+
+
+## Auditoria estrutural
+
+A estrutura interna dos dois PBIX é validada por `scripts/validate_pbix_structure.py`. A rotina confere integridade do pacote, tabelas do diagrama, páginas, tipos de visual, referências de campos/medidas e filtros Top N.
+
+A inspeção confirmou que o modelo de atividades usa o campo `Sublasse_CNAE_Descricao`, com essa grafia, e que os dois gráficos de Top 10 utilizam filtros Top N com ordenação decrescente.
+
+Detalhes: [auditoria estrutural dos PBIX](../docs/auditoria-pbix.md).
