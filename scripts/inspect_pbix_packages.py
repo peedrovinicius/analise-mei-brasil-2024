@@ -54,6 +54,20 @@ def inspect_pbix(path: Path) -> None:
                 print(json.dumps(summarize_layout(text), ensure_ascii=False, indent=2))
                 break
 
+        if "Report/definition/pages/pages.json" in names:
+            pages = json.loads(archive.read("Report/definition/pages/pages.json").decode("utf-8-sig"))
+            print("pages.json=" + json.dumps(pages, ensure_ascii=False, indent=2))
+
+        page_files = [name for name in names if name.endswith("/page.json")]
+        for page_file in page_files:
+            page = json.loads(archive.read(page_file).decode("utf-8-sig"))
+            print(f"{page_file}=" + json.dumps(page, ensure_ascii=False, indent=2)[:6000])
+
+        visual_files = [name for name in names if name.endswith("/visual.json")]
+        for visual_file in visual_files:
+            visual = json.loads(archive.read(visual_file).decode("utf-8-sig"))
+            print(f"{visual_file}=" + json.dumps(visual, ensure_ascii=False, indent=2)[:5000])
+
         for candidate in ("Metadata", "Settings", "DiagramLayout"):
             if candidate not in names:
                 continue
