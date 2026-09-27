@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import hashlib
 import json
 import tempfile
 import urllib.request
@@ -168,6 +169,10 @@ def main() -> None:
             files[label] = path
 
         result = {
+            "source_sha256": {
+                label: hashlib.sha256(path.read_bytes()).hexdigest()
+                for label, path in files.items()
+            },
             "01b": calculate_01b(files["01b"]),
             "05b": calculate_05b(files["05b"]),
         }
