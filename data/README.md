@@ -46,20 +46,3 @@ A descrição dos principais campos utilizados no projeto está em [`docs/dicion
 
 Os dados são agregados por classificação e localização e estão sujeitos às regras de divulgação e sigilo estatístico da Receita Federal. A quantidade é suprimida quando a célula contém menos de quatro empresas. Os metadados também informam que as bases de apuração são dinâmicas e podem receber retificações e correções posteriores; por isso, reproduções devem registrar a data/versão dos arquivos oficiais utilizados.
 
-## Validação independente dos resultados publicados
-
-Para recalcular os principais números diretamente nas duas planilhas oficiais, salve em `data/raw/`:
-
-```text
-Tab 01b - Secao SN MEI AC2024.xlsx
-Tab 05b - Subclasse SN_MEI AC2024.xlsx
-```
-
-Depois instale as dependências de auditoria e execute:
-
-```bash
-pip install -r requirements-audit.txt
-python scripts/validate_official_source.py
-```
-
-O validador confronta Receita Bruta, quantidade divulgada, razão Receita/CNPJ, arrecadação, rankings por UF, rankings por atividade e consistência de Receita Bruta entre as tabelas 01b e 05b. Os arquivos oficiais permanecem fora do Git por `.gitignore`.
