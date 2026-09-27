@@ -5,7 +5,7 @@ on:
     paths:
       - ".github/workflows/source-audit.yml"
       - "scripts/validate_official_data.py"
-      - "scripts/inspect_pbix_packages.py"
+      - "scripts/validate_pbix_structure.py"
       - "requirements-audit.txt"
   workflow_dispatch:
 
@@ -25,4 +25,4 @@ jobs:
           cache-dependency-path: requirements-audit.txt
       - run: python -m pip install -r requirements-audit.txt
       - run: python scripts/validate_official_data.py
-      - run: python scripts/inspect_pbix_packages.py
+      - run: python scripts/validate_pbix_structure.py
