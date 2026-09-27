@@ -105,11 +105,14 @@ def quantity_or_none(value: object) -> int | None:
 
 def iter_records(path: Path, sheet_name: str) -> Iterator[dict[str, object]]:
     workbook = load_workbook(path, read_only=True, data_only=True)
-    worksheet = workbook[sheet_name]
-    rows = worksheet.iter_rows(values_only=True)
-    headers = [str(value) if value is not None else "" for value in next(rows)]
-    for row in rows:
-        yield dict(zip(headers, row, strict=False))
+    try:
+        worksheet = workbook[sheet_name]
+        rows = worksheet.iter_rows(values_only=True)
+        headers = [str(value) if value is not None else "" for value in next(rows)]
+        for row in rows:
+            yield dict(zip(headers, row, strict=False))
+    finally:
+        workbook.close()
 
 
 def supplemental_quantity(path: Path, sheet_name: str) -> int:
