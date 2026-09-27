@@ -17,7 +17,7 @@ As tabelas de origem incluem Simples Nacional e MEI, então esse recorte é nece
 Para `SIMPLES - MEI`, os principais valores validados são:
 
 - Receita Bruta total: **R$ 310,97 bilhões**;
-- Receita Média por MEI: **R$ 30,24 mil**;
+- Receita média calculada sobre a quantidade divulgada de CNPJs: **R$ 30,24 mil**;
 - Arrecadação MEI: **R$ 13,50 bilhões**;
 - Quantidade de CNPJs com quantidade divulgada: aproximadamente **10,3 milhões**.
 
