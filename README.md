@@ -14,7 +14,7 @@
 
 **Quantidade de empresas e Receita Bruta não contam exatamente a mesma história.** O projeto compara esses dois indicadores para mostrar como a concentração dos MEIs varia por atividade econômica e por Unidade da Federação.
 
-No universo `SIMPLES - MEI`, a Receita Bruta validada é de **R$ 310,97 bilhões**, com Receita Média de **R$ 30,24 mil por MEI** e Arrecadação MEI de **R$ 13,50 bilhões**. Entre as subclasses analisadas, **Cabeleireiros** lideram tanto em quantidade de CNPJs quanto em Receita Bruta.
+No universo `SIMPLES - MEI`, a Receita Bruta validada é de **R$ 310,97 bilhões**, com receita média calculada sobre a quantidade divulgada de CNPJs de **R$ 30,24 mil** e Arrecadação MEI de **R$ 13,50 bilhões**. Entre as subclasses analisadas, **Cabeleireiros** lideram tanto em quantidade de CNPJs quanto em Receita Bruta.
 
 ## 1. Sobre o projeto
 
@@ -34,10 +34,10 @@ A análise compara volume empresarial e valor econômico sob duas perspectivas c
 |---|---:|
 | **MEIs analisados** | **≈ 10,3 milhões** |
 | **Receita Bruta** | **R$ 310,97 bilhões** |
-| **Receita Média por MEI** | **R$ 30,24 mil** |
+| **Receita média calculada** | **R$ 30,24 mil** |
 | **Arrecadação MEI** | **R$ 13,50 bilhões** |
 
-> A análise considera exclusivamente o universo classificado como `SIMPLES - MEI`. Como a fonte é agregada e sujeita a sigilo estatístico, a quantidade divulgada não deve ser tratada sem ressalvas como uma contagem individual completa de CNPJs.
+> A análise considera exclusivamente o universo classificado como `SIMPLES - MEI`. Como a fonte é agregada e sujeita a sigilo estatístico, a quantidade divulgada não deve ser tratada sem ressalvas como uma contagem individual completa de CNPJs. Por isso, a receita média de R$ 30,24 mil representa a razão entre a Receita Bruta e a soma das quantidades divulgadas, não uma média individual exata de toda a população de MEIs.
 
 ## 3. Principais insights
 
@@ -206,6 +206,8 @@ DIVIDE(
     [Total MEIs]
 )
 ```
+
+Como a fonte pode suprimir pequenas contagens por sigilo estatístico, essa medida deve ser interpretada como a razão entre a Receita Bruta e a quantidade de CNPJs divulgada na fonte, e não como uma média individual exata de toda a população.
 
 ### `Arrecadação MEI`
 
