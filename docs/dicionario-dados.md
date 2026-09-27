@@ -20,11 +20,13 @@ Esse filtro é aplicado às principais medidas que apresentam resultados exclusi
 
 ## 2. Quantidade de CNPJs
 
-| Campo | Descrição | Uso no projeto |
-|---|---|---|
-| `Qtd_CNPJ` | Quantidade de CNPJs divulgada na agregação correspondente da fonte. | Total de MEIs, distribuição por UF e quantidade de CNPJs por atividade. |
+| Campo na fonte oficial | Campo no modelo | Descrição | Uso no projeto |
+|---|---|---|---|
+| `Quantidade_de_CNPJ` | `Qtd_CNPJ` | Quantidade de empresas (CNPJ) que apresentaram ECF ou DASN/DASN-SIMEI no período considerado. | Total de MEIs, distribuição por UF e quantidade de CNPJs por atividade. |
 
-A quantidade deve ser interpretada considerando as regras de sigilo estatístico da Receita Federal. Determinadas células podem ter sua quantidade suprimida.
+A documentação oficial usa `Quantidade_de_CNPJ`. Nos modelos Power BI do projeto, esse campo aparece como `Qtd_CNPJ`. Essa diferença é uma renomeação de modelagem e não uma variável distinta.
+
+A quantidade deve ser interpretada considerando as regras de sigilo estatístico da Receita Federal. Quando a quantidade de empresas é menor que quatro, a informação de quantidade é suprimida na célula detalhada.
 
 ## 3. Receita Bruta
 
@@ -50,11 +52,11 @@ A análise por UF é realizada no `MEI_Brasil_2024.pbix`, com base na tabela `Se
 
 ## 6. Atividade econômica
 
-| Campo | Descrição | Uso no projeto |
-|---|---|---|
-| `Subclasse_CNAE_Descricao` | Descrição da subclasse CNAE utilizada na análise econômica. | Identificação das atividades nos rankings de quantidade e Receita Bruta. |
+| Campo na fonte oficial | Campo no modelo | Descrição | Uso no projeto |
+|---|---|---|---|
+| `agreg_CNAE_Descricao` | `Subclasse_CNAE_Descricao` | Descrição da classificação CNAE no nível de agregação da tabela; no modelo de subclasse, é usada como descrição da atividade econômica. | Identificação das atividades nos rankings de quantidade e Receita Bruta. |
 
-> O nome do campo é mantido conforme aparece no modelo Power BI utilizado no projeto.
+A nomenclatura do modelo é mantida na documentação DAX quando necessário, enquanto este dicionário registra também o nome oficial de origem para preservar a linhagem do dado.
 
 ## 7. Tabelas e perspectivas
 
@@ -94,4 +96,4 @@ Os campos acima são provenientes de tabelas oficiais agregadas e devem ser inte
 
 A quantidade de CNPJs está sujeita a sigilo estatístico e pode não representar, isoladamente, uma contagem absoluta da população quando houver células suprimidas.
 
-A nomenclatura dos campos é mantida conforme os modelos utilizados no projeto para facilitar a rastreabilidade entre fonte, Power BI, DAX e documentação.
+A documentação distingue a nomenclatura da fonte oficial da nomenclatura adotada nos modelos Power BI. Essa separação evita tratar renomeações feitas no Power Query/modelo como se fossem nomes originais publicados pela Receita Federal.

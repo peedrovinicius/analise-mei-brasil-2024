@@ -11,6 +11,8 @@ A análise usa os **Dados Setoriais 2024 da Receita Federal do Brasil**, nas tab
 
 As duas tabelas são agregadas e incluem categorias do Simples Nacional e do MEI.
 
+A referência externa conferida nesta revisão é a publicação oficial atualizada em **09/12/2025**, acompanhada de **Metadados_AC2024_v1.pdf**.
+
 ## 2. Universo MEI
 
 Para apresentar resultados exclusivamente de MEIs, foi usado:
@@ -73,9 +75,9 @@ Exemplo:
 
 ## 8. Sigilo estatístico
 
-A fonte aplica regras de sigilo estatístico. Algumas células podem ter quantidades suprimidas quando há poucos registros.
+A fonte aplica regras de sigilo estatístico. Os metadados oficiais especificam que a quantidade é suprimida quando a célula contém **menos de quatro empresas** e informam a existência, no mesmo arquivo Excel, de uma planilha adicional com totais por forma de tributação.
 
-Por isso, a quantidade de CNPJs divulgada precisa ser interpretada considerando as regras da publicação, e não como uma contagem individual sem ressalvas.
+Por isso, a quantidade de CNPJs divulgada nas células detalhadas precisa ser interpretada considerando as regras da publicação, e não como uma contagem individual sem ressalvas.
 
 ## 9. Estrutura dos modelos
 
@@ -97,7 +99,13 @@ Não foram feitos testes de unicidade ou deduplicação por CNPJ porque as tabel
 
 Também não foi tratado um cenário de otimização para “10 milhões de linhas”, porque os aproximadamente 10,3 milhões representam uma quantidade agregada de CNPJs, e não o número de linhas de uma base transacional carregada no Power BI.
 
-## 11. Conclusão
+## 11. Nomes de campos e linhagem
+
+O metadado oficial denomina a variável de quantidade como `Quantidade_de_CNPJ`. No modelo Power BI e nas medidas documentadas ela aparece como `Qtd_CNPJ`. Essa renomeação é registrada explicitamente para evitar confundir o nome adotado no modelo com o nome original da fonte.
+
+A descrição oficial de atividade econômica utiliza `agreg_CNAE_Descricao`; no modelo de subclasse, a documentação usa `Subclasse_CNAE_Descricao` para a coluna correspondente.
+
+## 12. Conclusão
 
 A validação combinou conferência da fonte, filtro do universo MEI, relações matemáticas, comparação entre tabelas, revisão das medidas DAX, conferência dos rankings e registro das limitações da fonte.
 

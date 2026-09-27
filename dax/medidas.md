@@ -14,7 +14,7 @@ CALCULATE(
     'Secao'[Forma_Tributacao] = "SIMPLES - MEI"
 )
 
-Calcula a quantidade de CNPJs do universo MEI, considerando exclusivamente os registros classificados como `SIMPLES - MEI`.
+Calcula a quantidade de CNPJs divulgada no universo MEI, considerando exclusivamente os registros classificados como `SIMPLES - MEI`. No arquivo oficial, a variável de origem é `Quantidade_de_CNPJ`; `Qtd_CNPJ` é o nome utilizado no modelo Power BI.
 
 ### Receita Bruta MEI
 
@@ -43,7 +43,7 @@ A função DIVIDE() é utilizada para tratar de forma segura situações em que 
 Arrecadação MEI =
 SUM('Secao'[Arrecadacao_MEI_DAS_MEI])
 
-Calcula o valor total de arrecadação MEI a partir da coluna Arrecadacao_MEI_DAS_MEI da tabela Secao.
+Calcula o valor total de arrecadação MEI a partir da coluna `Arrecadacao_MEI_DAS_MEI` da tabela `Secao`. Nos metadados oficiais, essa coluna é definida como a arrecadação das empresas optantes pelo MEI por meio do DAS-MEI.
 
 ## 2. Fato_MEI_Subclasse.pbix
 

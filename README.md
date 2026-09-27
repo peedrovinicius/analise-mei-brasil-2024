@@ -111,7 +111,7 @@ Os **PBIX são os artefatos analíticos publicados** do projeto. As imagens incl
 
 **Receita Federal do Brasil — Dados Setoriais 2024**.
 
-A publicação corresponde ao **ano-calendário de 2024** e a página oficial disponibiliza as tabelas agregadas e os respectivos metadados.
+A publicação corresponde ao **ano-calendário de 2024**. A versão de referência usada nesta auditoria é a publicação oficial atualizada em **09/12/2025**, acompanhada do arquivo **Metadados_AC2024_v1.pdf**. A própria Receita Federal informa que as bases podem sofrer retificações e correções após as extrações; por isso, a data da publicação de referência faz parte da rastreabilidade do projeto.
 
 Tabelas utilizadas:
 
@@ -132,7 +132,7 @@ O fluxo de preparação foi estruturado por perspectiva analítica:
 
 1. seleção das tabelas oficiais adequadas ao nível de análise;
 2. uso do campo `Forma_Tributacao` para isolar `SIMPLES - MEI`;
-3. organização dos campos de quantidade, Receita Bruta, arrecadação, UF e subclasse CNAE;
+3. organização dos campos de quantidade, Receita Bruta, arrecadação, UF e subclasse CNAE, preservando a rastreabilidade entre os nomes oficiais e os nomes adotados no modelo;
 4. construção das medidas DAX utilizadas pelos dashboards;
 5. validação dos indicadores e rankings contra a fonte e entre as tabelas utilizadas.
 
@@ -341,7 +341,7 @@ Fontes oficiais:
 
 ### Passo a passo
 
-1. Baixe as tabelas oficiais **01b** e **05b**.
+1. Baixe as tabelas oficiais **01b** e **05b** da publicação **Dados Setoriais 2024**. Para reproduzir os números documentados, use como referência os arquivos publicados/atualizados em **09/12/2025** e confira os metadados **Metadados_AC2024_v1.pdf**.
 2. Abra o relatório correspondente:
    - `dashboards/MEI_Brasil_2024.pbix` para a visão geral e UF;
    - `dashboards/Fato_MEI_Subclasse.pbix` para as atividades econômicas.

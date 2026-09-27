@@ -6,7 +6,7 @@ O projeto analisa os Microempreendedores Individuais (MEIs) no Brasil no ano-cal
 
 ## Fonte dos dados
 
-A fonte é a Receita Federal do Brasil, na publicação **Dados Setoriais 2024** e seus metadados.
+A fonte é a Receita Federal do Brasil, na publicação **Dados Setoriais 2024** e seus metadados. A versão de referência desta análise é a publicação atualizada em **09/12/2025**, com o arquivo de metadados **Metadados_AC2024_v1.pdf**.
 
 Foram usadas duas tabelas:
 
@@ -31,6 +31,8 @@ Os relatórios foram separados por finalidade:
 ## Preparação dos dados
 
 Cada tabela foi mantida na granularidade adequada à análise.
+
+Na fonte oficial, a quantidade é publicada no campo `Quantidade_de_CNPJ`. Nos modelos Power BI do projeto, esse campo foi documentado como `Qtd_CNPJ`; a documentação passa a registrar explicitamente essa renomeação para manter a linhagem entre fonte e modelo.
 
 No `MEI_Brasil_2024.pbix`, a tabela `Secao` reúne os campos usados para quantidade de CNPJs, Receita Bruta, arrecadação e distribuição por UF.
 
@@ -101,9 +103,9 @@ Os visuais de Top 10 usam a medida correspondente ao indicador apresentado.
 
 ## Sigilo estatístico
 
-A Receita Federal aplica regras de sigilo estatístico a determinadas células. Em algumas combinações de classificação e localização, quantidades inferiores a quatro empresas podem ser suprimidas ou divulgadas de forma complementar.
+A Receita Federal informa que, quando a quantidade de empresas em uma célula é **menor que quatro**, a quantidade é suprimida para preservar o sigilo fiscal. Os arquivos Excel também incluem uma planilha adicional com totais por forma de tributação.
 
-Por isso, a soma das quantidades explicitamente divulgadas não deve ser tratada automaticamente como a contagem absoluta da população.
+Por isso, a soma das quantidades explicitamente divulgadas nas células detalhadas não deve ser tratada automaticamente como a contagem absoluta da população.
 
 ## Validação dos indicadores
 
@@ -127,7 +129,7 @@ Essa divisão foi mantida porque as tabelas oficiais têm granularidades diferen
 
 ## Limitações
 
-Os resultados dependem das definições, agregações e regras de divulgação dos Dados Setoriais 2024 da Receita Federal.
+Os resultados dependem das definições, agregações e regras de divulgação dos Dados Setoriais 2024 da Receita Federal. Os metadados oficiais também alertam que as bases usadas na apuração são dinâmicas e podem receber retificações e correções após a extração; por isso, a data da publicação de referência deve acompanhar qualquer reprodução dos resultados.
 
 Os arquivos utilizados não formam uma base individual de CNPJs. Assim, não é possível inferir comportamento ou eventos transacionais de cada empresa a partir dessas tabelas.
 
