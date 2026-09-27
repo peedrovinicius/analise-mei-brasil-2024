@@ -25,3 +25,7 @@ env/
 # IDEs
 .vscode/
 .idea/
+
+# Planilhas oficiais usadas na auditoria local
+data/raw/*
+!data/raw/.gitkeep

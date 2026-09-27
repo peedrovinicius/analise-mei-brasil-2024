@@ -354,7 +354,8 @@ Forma_Tributacao = "SIMPLES - MEI"
 
 4. Confira as medidas DAX em [`dax/medidas.md`](dax/medidas.md) e [`dax/README.md`](dax/README.md).
 5. Consulte [`docs/qualidade-dados.md`](docs/qualidade-dados.md) para os controles de validação.
-6. Use a documentação de cada camada para rastrear fonte, campo, medida e visual.
+6. Para uma conferência independente fora do Power BI, coloque as duas planilhas oficiais em `data/raw/`, instale `requirements-audit.txt` e execute `python scripts/validate_official_source.py`.
+7. Use a documentação de cada camada para rastrear fonte, campo, medida e visual.
 
 > Os PBIX publicados já contêm os modelos e visuais utilizados no projeto. A reprodução integral pode depender de nova importação/atualização das fontes oficiais e das condições da versão do Power BI Desktop utilizada.
 
@@ -370,7 +371,13 @@ analise-mei-brasil-2024/
 │   ├── dashboard_preview_mei_brasil_2024.png
 │   └── Fato_MEI_Subclasse_README_visual.png
 ├── data/
+│   ├── raw/
 │   └── README.md
+├── scripts/
+│   └── validate_official_source.py
+├── tests/
+│   └── test_validate_official_source.py
+├── requirements-audit.txt
 ├── dax/
 │   ├── medidas.md
 │   └── README.md
