@@ -76,7 +76,7 @@ O valor de aproximadamente **R$ 2,48 trilhões** não corresponde aos MEIs isola
 
 `Receita Média por MEI = Receita Bruta MEI ÷ Total MEIs`
 
-O resultado apresentado é de aproximadamente **R$ 30,24 mil**.
+O resultado apresentado é de aproximadamente **R$ 30,24 mil**. Como `Qtd_CNPJ` pode ter pequenas contagens suprimidas por sigilo estatístico, essa medida representa a razão entre a Receita Bruta e a quantidade de CNPJs divulgada na fonte. Ela não deve ser interpretada como uma média individual exata de toda a população de MEIs.
 
 ### Arrecadação MEI
 
