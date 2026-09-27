@@ -99,7 +99,7 @@ Por esse motivo, o projeto não apresenta essa estrutura como um Star Schema com
 
 Não foram feitos testes de unicidade ou deduplicação por CNPJ porque as tabelas utilizadas são agregadas e não trazem um registro individual para cada empresa.
 
-Também não foi tratado um cenário de otimização para “10 milhões de linhas”, porque os aproximadamente 10,3 milhões representam uma quantidade agregada de CNPJs, e não o número de linhas de uma base transacional carregada no Power BI.
+Também não foi tratado um cenário de otimização para “10 milhões de linhas”, porque **10.284.140** é a quantidade nacional reconciliada de CNPJs MEI, e não o número de linhas de uma base transacional carregada no Power BI.
 
 ## 11. Nomes de campos e linhagem
 

@@ -77,7 +77,9 @@ Essa estrutura preserva as medidas e os campos específicos utilizados por cada 
 
 As tabelas oficiais utilizadas no projeto são agregadas por classificação econômica, localização e forma de tributação; não representam uma linha individual para cada CNPJ.
 
-A Receita Federal aplica regras de sigilo estatístico à divulgação das quantidades. Em determinadas combinações com menos de quatro empresas, a quantidade de CNPJs pode ser suprimida. Por isso, a soma das quantidades divulgadas não deve ser interpretada automaticamente como uma contagem absoluta da população sem considerar essa limitação.
+A Receita Federal aplica regras de sigilo estatístico à divulgação das quantidades. Em determinadas combinações com menos de quatro empresas, a quantidade de CNPJs é suprimida na célula detalhada.
+
+Os arquivos oficiais incluem planilhas complementares com os totais dessas células por forma de tributação. Assim, a distribuição detalhada permanece protegida, mas o total nacional de `SIMPLES - MEI` pode ser reconciliado: **10.284.140 CNPJs** tanto na 01b quanto na 05b.
 
 A Receita Bruta permanece disponível mesmo nos casos em que a quantidade é suprimida, conforme as regras de divulgação da fonte oficial.
 

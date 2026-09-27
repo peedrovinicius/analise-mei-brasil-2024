@@ -38,7 +38,7 @@ DIVIDE(
 )
 ```
 
-**Raciocínio:** calcula a razão entre a Receita Bruta MEI e a quantidade de CNPJs divulgada utilizada no indicador. `DIVIDE()` evita erro de divisão por zero. Como pequenas contagens podem ser suprimidas por sigilo estatístico, o resultado não representa uma média populacional exata.
+**Raciocínio:** calcula a razão entre a Receita Bruta MEI e a quantidade numericamente divulgada na tabela `Secao`. Na publicação de referência, o modelo usa 10.284.095 CNPJs e resulta em R$ 30.237,92. A planilha `Secao < 4` permite reconciliar o total nacional em 10.284.140; com esse denominador, a razão é R$ 30.237,78. `DIVIDE()` evita erro de divisão por zero.
 
 ### `Total CNPJ Subclasse`
 

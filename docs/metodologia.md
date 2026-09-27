@@ -72,7 +72,7 @@ A planilha complementar `Secao < 4` informa mais **45** CNPJs associados às cé
 
 A Receita Bruta é obtida de `Receita_Bruta`, também considerando `SIMPLES - MEI`.
 
-O total validado para esse universo é de aproximadamente **R$ 310,97 bilhões**.
+O total recalculado para esse universo é de **R$ 310.969.612.070,00**.
 
 O valor de aproximadamente **R$ 2,48 trilhões** não corresponde aos MEIs isoladamente. Ele resulta da soma de `SIMPLES` e `SIMPLES - MEI` na base de origem.
 
@@ -80,7 +80,7 @@ O valor de aproximadamente **R$ 2,48 trilhões** não corresponde aos MEIs isola
 
 `Receita Média por MEI = Receita Bruta MEI ÷ Total MEIs`
 
-O resultado apresentado é de aproximadamente **R$ 30,24 mil**. Como `Qtd_CNPJ` pode ter pequenas contagens suprimidas por sigilo estatístico, essa medida representa a razão entre a Receita Bruta e a quantidade de CNPJs divulgada na fonte. Ela não deve ser interpretada como uma média individual exata de toda a população de MEIs.
+A medida do modelo resulta em **R$ 30.237,92**, porque usa os 10.284.095 CNPJs numericamente divulgados na tabela principal `Secao`. A planilha complementar permite reconciliar o total nacional em 10.284.140 CNPJs; usando esse total, a razão é **R$ 30.237,78**.
 
 ### Arrecadação MEI
 

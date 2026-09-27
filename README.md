@@ -208,7 +208,7 @@ DIVIDE(
 )
 ```
 
-Como a fonte pode suprimir pequenas contagens por sigilo estatístico, essa medida deve ser interpretada como a razão entre a Receita Bruta e a quantidade de CNPJs divulgada na fonte, e não como uma média individual exata de toda a população.
+Essa medida usa a quantidade numericamente divulgada na tabela principal `Secao` e corresponde a R$ 30.237,92 na publicação de referência. A planilha complementar permite reconciliar o total nacional em 10.284.140 CNPJs; usando esse denominador, a razão é R$ 30.237,78.
 
 ### `Arrecadação MEI`
 
@@ -312,7 +312,7 @@ Essas recomendações são hipóteses analíticas e não representam relações 
 
 As tabelas oficiais utilizadas estão sujeitas a regras de sigilo estatístico. Algumas quantidades podem ser suprimidas em determinadas combinações de classificação e localização.
 
-Por isso, as contagens devem ser interpretadas considerando a cobertura e a granularidade da fonte, e não como uma contagem absoluta sem ressalvas.
+Por isso, os rankings e células detalhadas devem respeitar as supressões. Para o total nacional, porém, as planilhas complementares da própria publicação permitem reconciliar exatamente **10.284.140 CNPJs** no universo `SIMPLES - MEI`.
 
 Além disso, os dados são agregados e não permitem inferir diretamente o comportamento individual de cada CNPJ.
 

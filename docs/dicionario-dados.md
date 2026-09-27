@@ -85,7 +85,7 @@ As tabelas `Subclasse` e `Subclasse (2)` não possuem relacionamento direto entr
 |---|---|
 | **Total MEIs** | Soma de `Qtd_CNPJ` filtrada para `SIMPLES - MEI`. |
 | **Receita Bruta MEI** | Soma de `Receita_Bruta` filtrada para `SIMPLES - MEI`. |
-| **Receita Média por MEI** | `Receita Bruta MEI ÷ Total MEIs`; como `Qtd_CNPJ` pode sofrer supressão estatística, representa a razão sobre a quantidade divulgada, não uma média populacional exata. |
+| **Receita Média por MEI** | `Receita Bruta MEI ÷ Total MEIs`; no modelo, o denominador é a quantidade numericamente divulgada em `Secao` (10.284.095). A fonte permite reconciliar o total nacional em 10.284.140 por meio de `Secao < 4`. |
 | **Arrecadação MEI** | Soma de `Arrecadacao_MEI_DAS_MEI`. |
 | **Total CNPJ Subclasse** | Soma de `Qtd_CNPJ` em `Subclasse (2)` filtrada para `SIMPLES - MEI`. |
 | **Total Receita Bruta** | Soma de `Receita_Bruta` em `Subclasse` filtrada para `SIMPLES - MEI`. |
