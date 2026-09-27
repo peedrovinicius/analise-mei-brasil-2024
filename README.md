@@ -92,9 +92,9 @@ Quantidade de CNPJs por atividade, Receita Bruta por atividade, rankings Top 10 
 
 > As imagens são prévias para leitura rápida. Os arquivos PBIX são os artefatos analíticos principais.
 
-### Visualização interativa na Web
+### Artefatos publicados
 
-Os **PBIX são os artefatos analíticos publicados** do projeto. As imagens incluídas no README funcionam como prévias para leitura rápida sem depender da abertura do Power BI Desktop.
+Os **PBIX são os artefatos analíticos publicados** do projeto. As imagens incluídas no README funcionam como prévias para leitura rápida sem depender da abertura do Power BI Desktop. A estrutura interna, as medidas DAX críticas e o Power Query dos relatórios também são auditados automaticamente no GitHub Actions.
 
 ## 5. Tecnologias e competências demonstradas
 
@@ -427,4 +427,4 @@ Os dados de terceiros utilizados na análise permanecem sujeitos às condições
 
 **Projeto concluído e documentado.**
 
-Os dashboards, medidas, análises, validações e documentação técnica foram revisados e publicados no repositório.
+Os dashboards, medidas, análises, validações e documentação técnica foram revisados e publicados no repositório. A auditoria automatizada confere a fonte oficial, os hashes dos arquivos de referência, os resultados publicados, a estrutura dos PBIX e o modelo semântico.

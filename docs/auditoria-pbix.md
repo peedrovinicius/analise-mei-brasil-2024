@@ -77,12 +77,26 @@ O arquivo `scripts/validate_pbix_structure.py` verifica:
 6. referências de campos e medidas usadas nos visuais;
 7. presença dos filtros Top N.
 
-A rotina é executada pelo workflow `.github/workflows/source-audit.yml`.
+Além da inspeção estrutural, `scripts/validate_semantic_model.py` abre o modelo semântico dos dois PBIX com PBIXRay e confere diretamente:
+
+- nomes das tabelas;
+- expressões das medidas DAX críticas;
+- Power Query utilizado nas tabelas principais;
+- presença do filtro `SIMPLES - MEI` nas etapas em que ele é esperado;
+- renomeação de `Quantidade_de_CNPJ` para `Qtd_CNPJ`;
+- definição calculada de `Dim_CNAE`.
+
+As duas rotinas são executadas pelo workflow `.github/workflows/source-audit.yml`.
+
+## Achados de limpeza no modelo de atividades
+
+A auditoria semântica identificou dois objetos residuais no `Fato_MEI_Subclasse.pbix`:
+
+- uma medida vazia denominada `Medida`;
+- uma medida `Ranking Receita Bruta` que referencia `[Receita Bruta]`, embora não exista uma medida explícita com esse nome.
+
+Esses objetos **não são usados pelos cinco visuais publicados**. Os gráficos e cartões auditados referenciam `Total CNPJ Subclasse` e `Total Receita Bruta`, que foram validadas diretamente no modelo. Portanto, os dois resíduos não alteram os números ou rankings exibidos atualmente, mas são candidatos a remoção em uma edição futura do PBIX para reduzir ruído interno.
 
 ## Limitação
 
-A inspeção estrutural lê o formato de relatório e os metadados disponíveis no pacote PBIX. As expressões DAX completas permanecem armazenadas no `DataModel` binário e não são extraídas por esta rotina. Por isso, a auditoria distingue entre:
-
-- referências de medidas confirmadas diretamente nos visuais do PBIX;
-- fórmulas DAX documentadas no repositório;
-- resultados das medidas, que foram recalculados independentemente nas planilhas oficiais.
+A auditoria automatizada confirma estrutura, modelo semântico, medidas DAX críticas, Power Query e referências usadas nos visuais. Ela não substitui uma revisão manual de apresentação no Power BI Desktop para aspectos exclusivamente visuais, como alinhamento, espaçamento e legibilidade.
