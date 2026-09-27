@@ -64,7 +64,9 @@ As fórmulas estão em `dax/medidas.md`.
 
 ### Total de MEIs
 
-A quantidade é obtida de `Qtd_CNPJ`, considerando o universo `SIMPLES - MEI`.
+A medida do modelo soma `Qtd_CNPJ` na tabela principal `Secao`, considerando o universo `SIMPLES - MEI`. Na publicação de referência, essa tabela contém **10.284.095** CNPJs numericamente divulgados.
+
+A planilha complementar `Secao < 4` informa mais **45** CNPJs associados às células detalhadas protegidas por sigilo, permitindo reconciliar o total oficial em **10.284.140**.
 
 ### Receita Bruta MEI
 
@@ -103,9 +105,9 @@ Os visuais de Top 10 usam a medida correspondente ao indicador apresentado.
 
 ## Sigilo estatístico
 
-A Receita Federal informa que, quando a quantidade de empresas em uma célula é **menor que quatro**, a quantidade é suprimida para preservar o sigilo fiscal. Os arquivos Excel também incluem uma planilha adicional com totais por forma de tributação.
+A Receita Federal informa que, quando a quantidade de empresas em uma célula é **menor que quatro**, a quantidade é suprimida para preservar o sigilo fiscal. Os arquivos Excel incluem uma planilha adicional com os totais dessas células por forma de tributação.
 
-Por isso, a soma das quantidades explicitamente divulgadas nas células detalhadas não deve ser tratada automaticamente como a contagem absoluta da população.
+Isso permite duas leituras distintas: os rankings detalhados devem respeitar as supressões, enquanto o total nacional pode ser reconciliado com a planilha complementar. Na publicação de referência, 01b e 05b convergem para **10.284.140 CNPJs MEI** após essa reconciliação.
 
 ## Validação dos indicadores
 
@@ -119,7 +121,7 @@ Os dashboards foram conferidos considerando:
 - distribuição por UF;
 - consistência entre as tabelas 01b e 05b.
 
-As medidas DAX documentadas devem permanecer alinhadas às medidas dos arquivos Power BI.
+As medidas DAX documentadas devem permanecer alinhadas às medidas dos arquivos Power BI. Além da revisão no modelo, `scripts/validate_official_data.py` recalcula os principais resultados diretamente nos anexos oficiais e confere a identidade dos arquivos por SHA-256.
 
 ## Organização da análise
 

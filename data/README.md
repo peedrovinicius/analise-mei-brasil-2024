@@ -13,8 +13,10 @@ Fontes oficiais:
 
 As tabelas centrais do projeto são:
 
-- **01b — Seção (SN e MEI)**: utilizada no `MEI_Brasil_2024.pbix` para indicadores gerais e análise por UF.
-- **05b — Subclasse (SN e MEI)**: utilizada no `Fato_MEI_Subclasse.pbix` para análise por subclasse CNAE.
+- **01b — Seção (SN e MEI)**: utilizada no `MEI_Brasil_2024.pbix` para indicadores gerais e análise por UF. O Excel oficial contém `Secao` e `Secao < 4`.
+- **05b — Subclasse (SN e MEI)**: utilizada no `Fato_MEI_Subclasse.pbix` para análise por subclasse CNAE. O Excel oficial contém `Subclasse` e `Subclasse < 4`.
+
+As planilhas com `< 4` consolidam, por forma de tributação, as quantidades protegidas nas células detalhadas. Para `SIMPLES - MEI`, a reconciliação de ambas as tabelas chega ao mesmo total nacional: **10.284.140 CNPJs**.
 
 A Receita Federal informa que as informações de receita bruta, quantidade de contribuintes, forma de tributação, UF e CNAE são obtidas de DASN para Simples Nacional e de DASN-SIMEI para MEI. O campo oficial de quantidade é `Quantidade_de_CNPJ`; nos modelos Power BI do projeto ele aparece como `Qtd_CNPJ`.
 
@@ -31,6 +33,10 @@ As tabelas abrangem categorias do Simples Nacional e do MEI. Para os indicadores
 ```text
 Forma_Tributacao = "SIMPLES - MEI"
 ```
+
+## Validação independente
+
+O repositório inclui `scripts/validate_official_data.py`, que baixa os anexos diretamente da Receita Federal, confere seus SHA-256 e recalcula os principais totais e rankings. A metodologia e os valores de referência estão em [`docs/auditoria-fonte-oficial.md`](../docs/auditoria-fonte-oficial.md).
 
 ## Dicionário
 

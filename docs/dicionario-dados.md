@@ -52,11 +52,11 @@ A análise por UF é realizada no `MEI_Brasil_2024.pbix`, com base na tabela `Se
 
 ## 6. Atividade econômica
 
-| Campo na fonte oficial | Campo no modelo | Descrição | Uso no projeto |
+| Metadado oficial | Cabeçalho da tabela 05b | Campo no modelo | Uso no projeto |
 |---|---|---|---|
-| `agreg_CNAE_Descricao` | `Subclasse_CNAE_Descricao` | Descrição da classificação CNAE no nível de agregação da tabela; no modelo de subclasse, é usada como descrição da atividade econômica. | Identificação das atividades nos rankings de quantidade e Receita Bruta. |
+| `agreg_CNAE_Descricao` | `Sublasse_CNAE_Descricao` | `Subclasse_CNAE_Descricao` | Identificação das atividades nos rankings de quantidade e Receita Bruta. |
 
-A nomenclatura do modelo é mantida na documentação DAX quando necessário, enquanto este dicionário registra também o nome oficial de origem para preservar a linhagem do dado.
+O arquivo 05b publicado pela Receita usa literalmente a grafia `Sublasse_CNAE_Descricao`. O modelo adota `Subclasse_CNAE_Descricao`, enquanto o metadado geral nomeia essa família de variável como `agreg_CNAE_Descricao`. O projeto registra as três camadas para preservar a linhagem sem tratar renomeações como campos diferentes.
 
 ## 7. Tabelas e perspectivas
 
@@ -94,6 +94,6 @@ As tabelas `Subclasse` e `Subclasse (2)` não possuem relacionamento direto entr
 
 Os campos acima são provenientes de tabelas oficiais agregadas e devem ser interpretados dentro da granularidade de cada publicação.
 
-A quantidade de CNPJs está sujeita a sigilo estatístico e pode não representar, isoladamente, uma contagem absoluta da população quando houver células suprimidas.
+A quantidade de CNPJs nas células detalhadas está sujeita a sigilo estatístico. As planilhas complementares `Secao < 4` e `Subclasse < 4` permitem reconciliar o total nacional de `SIMPLES - MEI` em **10.284.140 CNPJs** para a publicação de referência, embora a distribuição das células protegidas não seja revelada.
 
 A documentação distingue a nomenclatura da fonte oficial da nomenclatura adotada nos modelos Power BI. Essa separação evita tratar renomeações feitas no Power Query/modelo como se fossem nomes originais publicados pela Receita Federal.

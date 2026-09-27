@@ -16,10 +16,11 @@ As tabelas de origem incluem Simples Nacional e MEI, então esse recorte é nece
 
 Para `SIMPLES - MEI`, os principais valores validados são:
 
-- Receita Bruta total: **R$ 310,97 bilhões**;
-- Receita média calculada sobre a quantidade divulgada de CNPJs: **R$ 30,24 mil**;
-- Arrecadação MEI: **R$ 13,50 bilhões**;
-- Quantidade de CNPJs com quantidade divulgada: aproximadamente **10,3 milhões**.
+- Receita Bruta total: **R$ 310.969.612.070,00**;
+- Receita por CNPJ calculada sobre a quantidade divulgada na tabela 01b: **R$ 30.237,92**;
+- Arrecadação DAS-MEI: **R$ 13.502.226.249,57**;
+- CNPJs com quantidade numericamente divulgada na tabela 01b: **10.284.095**;
+- total oficial reconciliado com a planilha `Secao < 4`: **10.284.140**.
 
 O valor de **R$ 2,48 trilhões** não representa a Receita Bruta exclusiva dos MEIs. Ele apareceu quando `SIMPLES` e `SIMPLES - MEI` foram somados na base de origem.
 
@@ -71,11 +72,11 @@ Os dois rankings ajudam a separar presença empresarial de participação econô
 
 ## 7. Validação
 
-Os valores e rankings foram confrontados com as bases oficiais usadas no projeto e com os modelos Power BI.
+Os valores e rankings foram recalculados diretamente nas planilhas oficiais 01b e 05b da publicação de referência. A Receita Bruta de `SIMPLES - MEI` fecha exatamente em **R$ 310.969.612.070,00** nas duas granularidades.
 
-Para os indicadores nacionais de Receita Bruta, foi aplicado o filtro `SIMPLES - MEI`. Os rankings de atividade e UF foram conferidos na tabela correspondente a cada análise.
+A quantidade detalhada difere por causa do sigilo estatístico, mas as planilhas complementares permitem a reconciliação: 01b = 10.284.095 + 45; 05b = 10.277.245 + 6.895. Ambas resultam em **10.284.140 CNPJs**.
 
-As contagens de CNPJs têm a ressalva do sigilo estatístico. Algumas células podem ter quantidade suprimida quando há poucos registros. Por isso, a soma das quantidades divulgadas não deve ser tratada automaticamente como uma contagem absoluta da população.
+Os rankings de atividade e UF também foram recalculados na respectiva tabela. A rotina automatizada e os hashes dos arquivos oficiais estão documentados em [auditoria-fonte-oficial.md](auditoria-fonte-oficial.md).
 
 ## 8. Limitações
 

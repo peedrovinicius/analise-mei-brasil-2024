@@ -1,6 +1,6 @@
 # Raio-X do Empreendedorismo no Brasil: Inteligência de Dados e Concentração de Mercado dos MEIs (2024)
 
-[![Power BI](https://img.shields.io/badge/Power%20BI-Dashboard-F2C811?logo=powerbi&logoColor=white)](#4-dashboards) [![DAX](https://img.shields.io/badge/DAX-Medidas-1f6feb)](dax/medidas.md) [![License](https://img.shields.io/github/license/peedrovinicius/analise-mei-brasil-2024)](LICENSE) [![Last commit](https://img.shields.io/github/last-commit/peedrovinicius/analise-mei-brasil-2024)](https://github.com/peedrovinicius/analise-mei-brasil-2024/commits/main)
+[![Power BI](https://img.shields.io/badge/Power%20BI-Dashboard-F2C811?logo=powerbi&logoColor=white)](#4-dashboards) [![DAX](https://img.shields.io/badge/DAX-Medidas-1f6feb)](dax/medidas.md) [![Auditoria da fonte oficial](https://github.com/peedrovinicius/analise-mei-brasil-2024/actions/workflows/source-audit.yml/badge.svg)](https://github.com/peedrovinicius/analise-mei-brasil-2024/actions/workflows/source-audit.yml) [![License](https://img.shields.io/github/license/peedrovinicius/analise-mei-brasil-2024)](LICENSE) [![Last commit](https://img.shields.io/github/last-commit/peedrovinicius/analise-mei-brasil-2024)](https://github.com/peedrovinicius/analise-mei-brasil-2024/commits/main)
 
 ## Visualização rápida
 
@@ -32,12 +32,13 @@ A análise compara volume empresarial e valor econômico sob duas perspectivas c
 
 | Indicador | Resultado |
 |---|---:|
-| **MEIs analisados** | **≈ 10,3 milhões** |
-| **Receita Bruta** | **R$ 310,97 bilhões** |
-| **Receita média calculada** | **R$ 30,24 mil** |
-| **Arrecadação MEI** | **R$ 13,50 bilhões** |
+| **CNPJs MEI divulgados na tabela 01b** | **10.284.095** |
+| **CNPJs MEI — total oficial reconciliado** | **10.284.140** |
+| **Receita Bruta** | **R$ 310.969.612.070,00** |
+| **Receita / quantidade divulgada** | **R$ 30.237,92** |
+| **Arrecadação DAS-MEI** | **R$ 13.502.226.249,57** |
 
-> A análise considera exclusivamente o universo classificado como `SIMPLES - MEI`. Como a fonte é agregada e sujeita a sigilo estatístico, a quantidade divulgada não deve ser tratada sem ressalvas como uma contagem individual completa de CNPJs. Por isso, a receita média de R$ 30,24 mil representa a razão entre a Receita Bruta e a soma das quantidades divulgadas, não uma média individual exata de toda a população de MEIs.
+> A planilha detalhada `Secao` divulga numericamente 10.284.095 CNPJs. A planilha complementar `Secao < 4` agrega outros 45 CNPJs protegidos nas células detalhadas, reconciliando o total oficial de 10.284.140. A medida DAX atual usa a quantidade divulgada na tabela principal; por isso, sua razão é R$ 30.237,92. Sobre o total reconciliado, a razão seria R$ 30.237,78. Ambas arredondam para R$ 30,24 mil.
 
 ## 3. Principais insights
 
@@ -287,7 +288,7 @@ O projeto inclui controles de qualidade para aumentar a confiabilidade dos resul
 
 Um teste de sanidade importante identificou que **R$ 2,48 trilhões** não representava a Receita Bruta exclusiva de MEIs: esse valor resultava da mistura de `SIMPLES` e `SIMPLES - MEI`. O universo correto produz **R$ 310,97 bilhões** para `SIMPLES - MEI`.
 
-[Ver controles de qualidade, confiabilidade e validação](docs/qualidade-dados.md)
+[Ver controles de qualidade, confiabilidade e validação](docs/qualidade-dados.md) · [Auditoria independente da fonte oficial](docs/auditoria-fonte-oficial.md)
 
 ## 11. Performance
 
@@ -374,12 +375,19 @@ analise-mei-brasil-2024/
 │   ├── medidas.md
 │   └── README.md
 ├── docs/
+│   ├── auditoria-fonte-oficial.md
 │   ├── dicionario-dados.md
 │   ├── insights.md
 │   ├── metodologia.md
 │   ├── modelo-dados.md
 │   ├── qualidade-dados.md
 │   └── recomendacoes-negocio.md
+├── scripts/
+│   └── validate_official_data.py
+├── .github/
+│   └── workflows/
+│       └── source-audit.yml
+├── requirements-audit.txt
 ├── .gitignore
 ├── LICENSE
 └── README.md
@@ -397,6 +405,7 @@ analise-mei-brasil-2024/
 - [Qualidade dos dados](docs/qualidade-dados.md)
 - [Recomendações de negócio](docs/recomendacoes-negocio.md)
 - [Dicionário de dados](docs/dicionario-dados.md)
+- [Auditoria independente da fonte oficial](docs/auditoria-fonte-oficial.md)
 
 ## 18. Licença
 

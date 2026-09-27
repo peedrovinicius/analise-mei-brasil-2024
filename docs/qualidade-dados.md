@@ -25,7 +25,7 @@ Esse filtro é aplicado nas principais medidas dos dashboards.
 
 ### Receita Bruta
 
-A Receita Bruta do universo `SIMPLES - MEI` foi validada em aproximadamente **R$ 310,97 bilhões**.
+A Receita Bruta do universo `SIMPLES - MEI` foi recalculada diretamente nas duas planilhas oficiais e fecha exatamente em **R$ 310.969.612.070,00** tanto na 01b quanto na 05b.
 
 O valor de **R$ 2,48 trilhões** apareceu em uma versão anterior porque `SIMPLES` e `SIMPLES - MEI` estavam sendo considerados juntos. Depois da correção do filtro, esse valor deixou de ser usado como Receita Bruta exclusiva dos MEIs.
 
@@ -33,13 +33,13 @@ O valor de **R$ 2,48 trilhões** apareceu em uma versão anterior porque `SIMPLE
 
 `Receita Média por MEI = Receita Bruta MEI ÷ Total MEIs`
 
-O resultado validado é de aproximadamente **R$ 30,24 mil**. Como a quantidade de CNPJs está sujeita a supressões por sigilo estatístico, o valor deve ser lido como uma razão calculada sobre as quantidades divulgadas, e não como uma média individual exata de toda a população.
+Com os **10.284.095** CNPJs numericamente divulgados em `Secao`, a razão é **R$ 30.237,92**. Incluindo os 45 CNPJs consolidados em `Secao < 4`, o total oficial reconciliado é **10.284.140** e a razão passa a **R$ 30.237,78**. As duas leituras arredondam para R$ 30,24 mil.
 
 ### Arrecadação
 
-O indicador usa `Arrecadacao_MEI_DAS_MEI` e apresenta aproximadamente **R$ 13,50 bilhões**. O metadado oficial define essa variável como arrecadação das empresas optantes pelo MEI por meio do DAS-MEI.
+O indicador usa `Arrecadacao_MEI_DAS_MEI` e foi recalculado em **R$ 13.502.226.249,57**. O metadado oficial define essa variável como arrecadação das empresas optantes pelo MEI por meio do DAS-MEI.
 
-A medida atual soma essa coluna diretamente, sem filtro adicional em `Forma_Tributacao`. Por isso, uma nova importação da fonte deve incluir a conferência da distribuição de `Arrecadacao_MEI_DAS_MEI` entre as linhas antes de validar novamente o total.
+A medida atual soma essa coluna diretamente, sem filtro adicional em `Forma_Tributacao`. Na publicação de referência, a auditoria confirmou que a soma de todas as linhas e a soma restrita a `SIMPLES - MEI` são exatamente iguais a **R$ 13.502.226.249,57**. Assim, a fórmula atual é numericamente segura para esta versão da fonte; o workflow testa essa igualdade para detectar mudanças futuras.
 
 ## 4. Teste de sanidade
 
@@ -51,9 +51,9 @@ Esse foi um controle importante porque a conta ajudou a encontrar o erro antes d
 
 ## 5. Conferência entre as tabelas
 
-A Receita Bruta do universo `SIMPLES - MEI` foi comparada entre as tabelas 01b e 05b e chegou ao mesmo total consolidado de aproximadamente **R$ 310,97 bilhões**.
+A Receita Bruta do universo `SIMPLES - MEI` foi comparada entre as tabelas 01b e 05b e chegou ao mesmo total exato de **R$ 310.969.612.070,00**.
 
-As quantidades de CNPJs podem diferir entre as tabelas porque elas trabalham com granularidades diferentes e estão sujeitas às regras de divulgação da fonte.
+Na quantidade, a 01b divulga 10.284.095 CNPJs na tabela principal e consolida 45 na planilha de células protegidas. A 05b divulga 10.277.245 e consolida 6.895. Apesar das granularidades diferentes, ambas reconciliam exatamente **10.284.140 CNPJs MEI**.
 
 ## 6. Rankings
 
@@ -107,7 +107,13 @@ O metadado oficial denomina a variável de quantidade como `Quantidade_de_CNPJ`.
 
 A descrição oficial de atividade econômica utiliza `agreg_CNAE_Descricao`; no modelo de subclasse, a documentação usa `Subclasse_CNAE_Descricao` para a coluna correspondente.
 
-## 12. Conclusão
+## 12. Auditoria automatizada da publicação oficial
+
+O arquivo `scripts/validate_official_data.py` baixa diretamente as tabelas 01b e 05b, confere seus SHA-256, recalcula os totais e rankings centrais e falha diante de qualquer divergência. A execução é automatizada pelo workflow `.github/workflows/source-audit.yml`.
+
+Os hashes e resultados completos estão em [auditoria-fonte-oficial.md](auditoria-fonte-oficial.md).
+
+## 13. Conclusão
 
 A validação combinou conferência da fonte, filtro do universo MEI, relações matemáticas, comparação entre tabelas, revisão das medidas DAX, conferência dos rankings e registro das limitações da fonte.
 
