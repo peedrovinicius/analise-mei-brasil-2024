@@ -31,7 +31,7 @@ O valor de **R$ 2,48 trilhões** apareceu em uma versão anterior porque `SIMPLE
 
 `Receita Média por MEI = Receita Bruta MEI ÷ Total MEIs`
 
-O resultado validado é de aproximadamente **R$ 30,24 mil**.
+O resultado validado é de aproximadamente **R$ 30,24 mil**. Como a quantidade de CNPJs está sujeita a supressões por sigilo estatístico, o valor deve ser lido como uma razão calculada sobre as quantidades divulgadas, e não como uma média individual exata de toda a população.
 
 ### Arrecadação
 
