@@ -75,9 +75,9 @@ Indicadores gerais, Receita Bruta, Receita Média, arrecadação, distribuição
 
 [![Abrir MEI_Brasil_2024.pbix](assets/dashboard_preview_mei_brasil_2024.png)](dashboards/MEI_Brasil_2024.pbix)
 
-[⬇ Abrir MEI_Brasil_2024.pbix](dashboards/MEI_Brasil_2024.pbix)
+[Abrir MEI_Brasil_2024.pbix](dashboards/MEI_Brasil_2024.pbix)
 
-[📁 Guia da pasta dashboards](dashboards/README.md)
+[Guia da pasta dashboards](dashboards/README.md)
 
 ### Análise por atividade econômica
 
@@ -87,7 +87,7 @@ Quantidade de CNPJs por atividade, Receita Bruta por atividade, rankings Top 10 
 
 [![Abrir Fato_MEI_Subclasse.pbix](assets/Fato_MEI_Subclasse_README_visual.png)](dashboards/Fato_MEI_Subclasse.pbix)
 
-[⬇ Abrir Fato_MEI_Subclasse.pbix](dashboards/Fato_MEI_Subclasse.pbix)
+[Abrir Fato_MEI_Subclasse.pbix](dashboards/Fato_MEI_Subclasse.pbix)
 
 > As imagens são prévias para leitura rápida. Os arquivos PBIX são os artefatos analíticos principais.
 
@@ -238,7 +238,7 @@ CALCULATE(
 
 Os visuais de Top 10 utilizam a medida analítica correspondente como referência do ranking, mantendo coerência entre a métrica exibida e o critério de seleção do Top N quando aplicável.
 
-[Ver documentação completa das medidas DAX](dax/medidas.md) · [📁 Guia da pasta DAX](dax/README.md)
+[Ver documentação completa das medidas DAX](dax/medidas.md) · [Guia da pasta DAX](dax/README.md)
 
 ## 9. Metodologia e ETL
 
