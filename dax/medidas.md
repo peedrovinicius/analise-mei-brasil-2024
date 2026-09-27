@@ -43,7 +43,9 @@ A função DIVIDE() é utilizada para tratar de forma segura situações em que 
 Arrecadação MEI =
 SUM('Secao'[Arrecadacao_MEI_DAS_MEI])
 
-Calcula o valor total de arrecadação MEI a partir da coluna `Arrecadacao_MEI_DAS_MEI` da tabela `Secao`. Nos metadados oficiais, essa coluna é definida como a arrecadação das empresas optantes pelo MEI por meio do DAS-MEI.
+Calcula o valor total de arrecadação MEI a partir da coluna `Arrecadacao_MEI_DAS_MEI` da tabela `Secao`. Nos metadados oficiais, essa coluna é definida especificamente como a arrecadação das empresas optantes pelo MEI por meio do DAS-MEI.
+
+A medida reproduz a fórmula do modelo e, diferentemente de `Total MEIs` e `Receita Bruta MEI`, não adiciona um filtro explícito em `Forma_Tributacao`. Em qualquer atualização da fonte, a distribuição dessa coluna entre as linhas deve ser reconferida antes de assumir que a soma continua equivalente ao total de DAS-MEI.
 
 ## 2. Fato_MEI_Subclasse.pbix
 

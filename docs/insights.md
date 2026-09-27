@@ -47,7 +47,7 @@ No ranking por Receita Bruta, os cinco primeiros segmentos são:
 4. Obras de alvenaria — **R$ 11,58 bilhões**;
 5. Preparação de documentos e serviços especializados de apoio administrativo — **R$ 11,33 bilhões**.
 
-Esses valores foram conferidos na base oficial com o filtro `SIMPLES - MEI`.
+No processo de construção do projeto, esses valores foram conferidos na base oficial com o filtro `SIMPLES - MEI`. A documentação de qualidade registra as regras e limitações dessa validação.
 
 ## 5. Distribuição por UF
 

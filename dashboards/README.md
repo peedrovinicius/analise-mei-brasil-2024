@@ -10,7 +10,7 @@ Principais análises:
 
 - Total de MEIs;
 - Receita Bruta;
-- Receita Média por MEI;
+- Receita Média por MEI — medida do modelo interpretada como razão entre Receita Bruta e quantidade divulgada de CNPJs;
 - Arrecadação MEI;
 - distribuição por Unidade da Federação;
 - ranking Top 10 UFs.

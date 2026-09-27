@@ -37,7 +37,9 @@ O resultado validado é de aproximadamente **R$ 30,24 mil**. Como a quantidade d
 
 ### Arrecadação
 
-O indicador usa `Arrecadacao_MEI_DAS_MEI` e apresenta aproximadamente **R$ 13,50 bilhões**.
+O indicador usa `Arrecadacao_MEI_DAS_MEI` e apresenta aproximadamente **R$ 13,50 bilhões**. O metadado oficial define essa variável como arrecadação das empresas optantes pelo MEI por meio do DAS-MEI.
+
+A medida atual soma essa coluna diretamente, sem filtro adicional em `Forma_Tributacao`. Por isso, uma nova importação da fonte deve incluir a conferência da distribuição de `Arrecadacao_MEI_DAS_MEI` entre as linhas antes de validar novamente o total.
 
 ## 4. Teste de sanidade
 
