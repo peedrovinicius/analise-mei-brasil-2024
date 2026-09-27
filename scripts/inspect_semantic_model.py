@@ -16,8 +16,20 @@ def main() -> None:
         print(list(model.tables))
         print("DAX_MEASURES")
         print(model.dax_measures.to_string(index=False))
+        print("DAX_TABLES")
+        try:
+            print(model.dax_tables.to_string(index=False))
+        except AttributeError:
+            print(model.dax_tables)
+        print("SCHEMA")
+        try:
+            print(model.schema.to_string(index=False))
+        except AttributeError:
+            print(model.schema)
         print("RELATIONSHIPS")
         print(model.relationships.to_string(index=False))
+        print("ATTRIBUTES")
+        print([name for name in dir(model) if "relationship" in name.lower() or "schema" in name.lower()])
         print("POWER_QUERY")
         print(model.power_query.to_string(index=False))
 
