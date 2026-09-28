@@ -1,0 +1,31 @@
+name: Relatar problema
+description: Reporte um erro de dado, medida, auditoria, dashboard ou documentação.
+title: "[Bug] "
+body:
+  - type: markdown
+    attributes:
+      value: Obrigado por ajudar a melhorar o projeto.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problema
+      description: Descreva o comportamento observado.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Comportamento esperado
+      description: O que deveria ter acontecido?
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Contexto
+      description: Informe tabela, PBIX, medida DAX, visual, script ou documento envolvido.
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidências
+      description: Inclua mensagem de erro, diferença numérica ou passos mínimos para reprodução.

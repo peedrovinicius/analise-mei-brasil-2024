@@ -8,6 +8,13 @@ on:
       - "scripts/validate_pbix_structure.py"
       - "scripts/validate_semantic_model.py"
       - "requirements-audit.txt"
+  pull_request:
+    paths:
+      - ".github/workflows/source-audit.yml"
+      - "scripts/validate_official_data.py"
+      - "scripts/validate_pbix_structure.py"
+      - "scripts/validate_semantic_model.py"
+      - "requirements-audit.txt"
   workflow_dispatch:
 
 permissions:
