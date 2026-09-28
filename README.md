@@ -413,17 +413,21 @@ analise-mei-brasil-2024/
 - [Auditoria independente da fonte oficial](docs/auditoria-fonte-oficial.md)
 - [Auditoria estrutural dos PBIX](docs/auditoria-pbix.md)
 
-## 18. Licença
+## 18. Contribuindo
+
+Contribuições externas são bem-vindas. Antes de abrir um Pull Request, consulte o [guia de contribuição](CONTRIBUTING.md) e use as issues para alinhar o escopo da mudança.
+
+## 19. Licença
 
 O projeto utiliza a licença MIT para o código e a documentação desenvolvidos no repositório.
 
 Os dados de terceiros utilizados na análise permanecem sujeitos às condições de uso e distribuição definidas por seus respectivos responsáveis.
 
-## 19. Contato
+## 20. Contato
 
 [LinkedIn — Pedro Vinícius](https://www.linkedin.com/in/peedrovinicius)
 
-## 20. Status
+## 21. Status
 
 **Projeto concluído e documentado.**
 
