@@ -8,7 +8,7 @@
 
 ![Análise por atividade econômica — 2024](assets/Fato_MEI_Subclasse_README_visual.png)
 
-> **Projeto de portfólio em Power BI, Power Query e DAX**, desenvolvido a partir dos **Dados Setoriais 2024 da Receita Federal do Brasil**. O foco é analisar distribuição geográfica, atividades econômicas, Receita Bruta e arrecadação dos Microempreendedores Individuais.
+Análise em **Power BI, Power Query e DAX** construída a partir dos **Dados Setoriais 2024 da Receita Federal do Brasil**, com foco em distribuição geográfica, atividades econômicas, Receita Bruta e arrecadação dos Microempreendedores Individuais.
 
 ## Principal achado
 
@@ -96,7 +96,7 @@ Quantidade de CNPJs por atividade, Receita Bruta por atividade, rankings Top 10 
 
 Os **PBIX são os artefatos analíticos publicados** do projeto. As imagens incluídas no README funcionam como prévias para leitura rápida sem depender da abertura do Power BI Desktop. A estrutura interna, as medidas DAX críticas e o Power Query dos relatórios também são auditados automaticamente no GitHub Actions.
 
-## 5. Tecnologias e competências demonstradas
+## 5. Tecnologias
 
 | Tecnologia | Aplicação |
 |---|---|
@@ -290,13 +290,7 @@ Um teste de sanidade importante identificou que **R$ 2,48 trilhões** não repre
 
 [Ver controles de qualidade, confiabilidade e validação](docs/qualidade-dados.md) · [Auditoria independente da fonte oficial](docs/auditoria-fonte-oficial.md)
 
-## 11. Performance
-
-Não foi documentado um cenário de otimização baseado em “10 milhões de linhas”, porque **≈ 10,3 milhões é um indicador agregado e não o número de linhas processadas de uma base individual de CNPJs**.
-
-Os principais cuidados de desempenho estão relacionados à manutenção de modelos separados por perspectiva e ao uso de tabelas agregadas da fonte, evitando introduzir no projeto uma alegação de particionamento ou otimização que não foi efetivamente aplicada e validada.
-
-## 12. Recomendações de negócio e próximos desdobramentos
+## 11. Recomendações de negócio e próximos desdobramentos
 
 Os achados permitem levantar hipóteses de aplicação para priorização territorial, análise setorial e aprofundamento da relação entre quantidade de empresas e Receita Bruta.
 
@@ -308,7 +302,7 @@ Essas recomendações são hipóteses analíticas e não representam relações 
 
 [Ver recomendações e próximos desdobramentos](docs/recomendacoes-negocio.md)
 
-## 13. Limitações dos dados
+## 12. Limitações dos dados
 
 As tabelas oficiais utilizadas estão sujeitas a regras de sigilo estatístico. Algumas quantidades podem ser suprimidas em determinadas combinações de classificação e localização.
 
@@ -316,7 +310,7 @@ Por isso, os rankings e células detalhadas devem respeitar as supressões. Para
 
 Além disso, os dados são agregados e não permitem inferir diretamente o comportamento individual de cada CNPJ.
 
-## 14. Fonte dos dados
+## 13. Fonte dos dados
 
 **Receita Federal do Brasil — Dados Setoriais 2024**
 
@@ -332,7 +326,7 @@ Fontes oficiais:
 - [Tabela 05b — Subclasse (SN e MEI)](https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/estudos/pessoas-juridicas-por-setor/estudos-setoriais-das-pessoas-juridicas/dados-setoriais-2024/tabela-05b-subclasse-sn-e-mei/view)
 - [Metadados — Dados Setoriais 2024](https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/estudos/pessoas-juridicas-por-setor/estudos-setoriais-das-pessoas-juridicas/dados-setoriais-2024/metadados-dados-setoriais-2024/view)
 
-## 15. Como reproduzir este projeto
+## 14. Como reproduzir este projeto
 
 ### Pré-requisitos
 
@@ -360,7 +354,7 @@ Forma_Tributacao = "SIMPLES - MEI"
 
 > Os PBIX publicados já contêm os modelos e visuais utilizados no projeto. A reprodução integral pode depender de nova importação/atualização das fontes oficiais e das condições da versão do Power BI Desktop utilizada.
 
-## 16. Estrutura do repositório
+## 15. Estrutura do repositório
 
 ```text
 analise-mei-brasil-2024/
@@ -398,7 +392,7 @@ analise-mei-brasil-2024/
 └── README.md
 ```
 
-## 17. Documentação
+## 16. Documentação
 
 - [Guia dos dashboards](dashboards/README.md)
 - [Guia dos dados](data/README.md)
@@ -413,21 +407,21 @@ analise-mei-brasil-2024/
 - [Auditoria independente da fonte oficial](docs/auditoria-fonte-oficial.md)
 - [Auditoria estrutural dos PBIX](docs/auditoria-pbix.md)
 
-## 18. Contribuindo
+## 17. Contribuindo
 
 Contribuições externas são bem-vindas. Antes de abrir um Pull Request, consulte o [guia de contribuição](CONTRIBUTING.md) e use as issues para alinhar o escopo da mudança.
 
-## 19. Licença
+## 18. Licença
 
 O projeto utiliza a licença MIT para o código e a documentação desenvolvidos no repositório.
 
 Os dados de terceiros utilizados na análise permanecem sujeitos às condições de uso e distribuição definidas por seus respectivos responsáveis.
 
-## 20. Contato
+## 19. Contato
 
 [LinkedIn — Pedro Vinícius](https://www.linkedin.com/in/peedrovinicius)
 
-## 21. Status
+## 20. Status
 
 **Projeto concluído e documentado.**
 
