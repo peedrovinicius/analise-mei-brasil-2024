@@ -2,6 +2,7 @@ name: Auditoria da fonte oficial
 
 on:
   push:
+    branches: [main]
     paths:
       - ".github/workflows/source-audit.yml"
       - "scripts/validate_official_data.py"
