@@ -100,3 +100,11 @@ Esses objetos **não são usados pelos cinco visuais publicados**. Os gráficos 
 ## Limitação
 
 A auditoria automatizada confirma estrutura, modelo semântico, medidas DAX críticas, Power Query e referências usadas nos visuais. Ela não substitui uma revisão manual de apresentação no Power BI Desktop para aspectos exclusivamente visuais, como alinhamento, espaçamento e legibilidade.
+
+## Revisão de 4 de outubro de 2026
+
+Os dois objetos residuais continuam presentes no binário publicado. A inspeção das definições JSON confirmou que `Medida` e `Ranking Receita Bruta` não são referenciadas pelos cinco visuais; nenhuma expressão das demais medidas depende de seus nomes.
+
+A limpeza requer abrir `Fato_MEI_Subclasse.pbix` no Power BI Desktop, excluir esses dois objetos do modelo, salvar e reabrir o arquivo. Depois, execute os dois validadores e confira os cartões e rankings. A inspeção neste ambiente é somente leitura: não houve edição ou regeneração do `DataModel` binário.
+
+O validador semântico foi ajustado para avisar sobre `Medida` somente quando ela existe e está vazia. Após uma exclusão efetiva, a ausência da medida não será equivocadamente apresentada como resíduo ainda existente.

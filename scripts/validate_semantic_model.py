@@ -124,7 +124,7 @@ def validate_activity_model(model: PBIXRay) -> None:
             raise AssertionError(f"Dim_CNAE: token esperado ausente: {token}")
 
     warnings: list[str] = []
-    if not measures.get("Medida"):
+    if "Medida" in measures and not measures["Medida"]:
         warnings.append("medida vazia 'Medida' permanece no modelo")
 
     ranking_revenue = measures.get("Ranking Receita Bruta", "")
