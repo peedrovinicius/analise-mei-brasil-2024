@@ -1,4 +1,4 @@
-name: Auditoria da fonte oficial
+name: Auditoria de dados e Power BI
 
 on:
   push:
@@ -20,13 +20,32 @@ on:
       - "requirements-audit.txt"
       - "dashboards/**"
       - "dax/**"
+  schedule:
+    - cron: "17 10 1 * *"
   workflow_dispatch:
 
 permissions:
   contents: read
 
 jobs:
+  validate-artifacts:
+    name: Validar PBIX e modelo semântico
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: requirements-audit.txt
+      - run: python -m pip install -r requirements-audit.txt
+      - run: python scripts/validate_pbix_structure.py
+      - run: python scripts/validate_semantic_model.py
+
   validate-source:
+    name: Validar fonte oficial ao vivo
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -38,5 +57,3 @@ jobs:
           cache-dependency-path: requirements-audit.txt
       - run: python -m pip install -r requirements-audit.txt
       - run: python scripts/validate_official_data.py
-      - run: python scripts/validate_pbix_structure.py
-      - run: python scripts/validate_semantic_model.py
