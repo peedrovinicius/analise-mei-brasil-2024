@@ -1,6 +1,6 @@
 # Raio-X do Empreendedorismo no Brasil: Inteligência de Dados e Concentração de Mercado dos MEIs (2024)
 
-[![Power BI](https://img.shields.io/badge/Power%20BI-Dashboard-F2C811?logo=powerbi&logoColor=white)](#4-dashboards) [![DAX](https://img.shields.io/badge/DAX-Medidas-1f6feb)](dax/medidas.md) [![Auditoria da fonte oficial](https://github.com/peedrovinicius/analise-mei-brasil-2024/actions/workflows/source-audit.yml/badge.svg)](https://github.com/peedrovinicius/analise-mei-brasil-2024/actions/workflows/source-audit.yml) [![License](https://img.shields.io/github/license/peedrovinicius/analise-mei-brasil-2024)](LICENSE) [![Last commit](https://img.shields.io/github/last-commit/peedrovinicius/analise-mei-brasil-2024)](https://github.com/peedrovinicius/analise-mei-brasil-2024/commits/main)
+[![Power BI](https://img.shields.io/badge/Power%20BI-Dashboard-F2C811?logo=powerbi&logoColor=white)](#4-dashboards) [![DAX](https://img.shields.io/badge/DAX-Medidas-1f6feb)](dax/medidas.md) [![Auditoria de dados e Power BI](https://github.com/peedrovinicius/analise-mei-brasil-2024/actions/workflows/source-audit.yml/badge.svg)](https://github.com/peedrovinicius/analise-mei-brasil-2024/actions/workflows/source-audit.yml) [![License](https://img.shields.io/github/license/peedrovinicius/analise-mei-brasil-2024)](LICENSE) [![Last commit](https://img.shields.io/github/last-commit/peedrovinicius/analise-mei-brasil-2024)](https://github.com/peedrovinicius/analise-mei-brasil-2024/commits/main)
 
 [Dashboards](#4-dashboards) · [Metodologia](docs/metodologia.md) · [Issues](https://github.com/peedrovinicius/analise-mei-brasil-2024/issues) · [Como contribuir](CONTRIBUTING.md)
 
@@ -96,7 +96,7 @@ Quantidade de CNPJs por atividade, Receita Bruta por atividade, rankings Top 10 
 
 ### Artefatos publicados
 
-Os **PBIX são os artefatos analíticos publicados** do projeto. As imagens incluídas no README funcionam como prévias para leitura rápida sem depender da abertura do Power BI Desktop. A estrutura interna, as medidas DAX críticas e o Power Query dos relatórios também são auditados automaticamente no GitHub Actions.
+Os **PBIX são os artefatos analíticos publicados** do projeto. As imagens incluídas no README funcionam como prévias para leitura rápida sem depender da abertura do Power BI Desktop. A estrutura interna, as medidas DAX críticas e o Power Query dos relatórios são auditados automaticamente em mudanças de `dashboards/` e `dax/`. A validação ao vivo das planilhas oficiais da Receita Federal permanece separada e é executada manualmente ou no ciclo mensal, evitando que indisponibilidade externa bloqueie mudanças locais.
 
 ## 5. Tecnologias
 
@@ -427,4 +427,4 @@ Os dados de terceiros utilizados na análise permanecem sujeitos às condições
 
 **Projeto concluído e documentado.**
 
-Os dashboards, medidas, análises, validações e documentação técnica foram revisados e publicados no repositório. A auditoria automatizada confere a fonte oficial, os hashes dos arquivos de referência, os resultados publicados, a estrutura dos PBIX e o modelo semântico.
+Os dashboards, medidas, análises, validações e documentação técnica foram revisados e publicados no repositório. O CI valida a estrutura dos PBIX e o modelo semântico em mudanças relevantes. A auditoria independente da fonte oficial confere hashes e indicadores diretamente contra as planilhas da Receita Federal em execuções manuais ou mensais.
